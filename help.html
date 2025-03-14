@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nous soutenir</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background: rgb(130, 130, 123);
+            padding: 20px;
+            width: 80%;
+            text-align: center;
+            border-radius: 10px;
+            margin: 20px 0;
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 80%;
+        }
+
+        .card {
+            flex: 1;
+            max-width: 250px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            font-size: 20px;
+            font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.5s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .card img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 2;
+            transition: opacity 0.5s;
+        }
+
+        .card .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .card:hover .overlay {
+            opacity: 1;
+        }
+
+        .card:hover img {
+            opacity: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+
+
+        .button_home {
+        background: none;
+        border: none;
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        cursor: pointer;
+        position: fixed;
+        left: 150px;
+        top: 35px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+        .login_home {
+            width: 40px;
+            height: auto;
+            margin-right: 5px;
+        }
+
+       .titre{
+        font-size: 30px;
+        font-weight: normal;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+        text-align: center;
+        margin-top: 50px;
+        z-index: 10;
+        }
+
+        .paragraphe{
+        position: relative;
+        z-index: 10;
+        left: 120px;
+        top: -20px;
+        font-size: 25px;
+        font-weight: normal;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+    }
+
+    .paragraphe_deux{
+        position: relative;
+        z-index: 10;
+        left: -300px;
+        top: 40px;
+        font-size: 25px;
+        font-weight: normal;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+    }
+
+    .button_don {
+        width: 12%;
+        padding: 15px;
+        background-color: rgb(49, 35, 86);
+        border: none;
+        border-radius: 10px;
+        color: white;
+        text-decoration: none;
+        font-size: 28px;
+        cursor: pointer;
+        position: fixed;
+        font-weight: bold;
+        left: 750px;
+        bottom: 150px;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="header">Nous soutenir</div>
+    <div class="container">
+
+    <a href="teste_site_ciel.html" class="button_home">
+        <img src="logo_home.png" class="login_home">Accueil
+    </a>
+
+    <a href="payment.html" class="button_don">FAIRE UN DON</a>
+
+
+    <h1 class="titre">Vous voulez nous aidez dans nos projets professionels et scolaires?</h1>
+    <h2 class="paragraphe">Vous pouvez nous soutenir en nous faisant un don.</h2>
+    <h3 class="paragraphe_deux">Merci pour votre aide !</h3>
+
+
+</div>
+
+</body>
+</html>

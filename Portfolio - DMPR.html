@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - DMPR</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background: rgb(130, 130, 123);
+            padding: 20px;
+            width: 80%;
+            text-align: center;
+            border-radius: 10px;
+            margin: 20px 0;
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 80%;
+        }
+        .card {
+            position: relative;
+            flex: 1;
+            max-width: 550px;
+            height: 650px ;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            font-size: 20px;
+            font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.5s, box-shadow 0.3s;
+            overflow: hidden;
+            text-align: center;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        .card img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 2;
+            transition: opacity 0.5s;
+        }
+        .card .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .card:hover .overlay {
+            opacity: 1;
+        }
+        .card:hover img {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+ <!--<div class="header">Something about Us</div> -->
+    <div class="container">
+        <div class="card" style="background-color: rgb(172, 172, 172);" onclick="showInfo('Dorian')">
+            <div class="overlay">Dorian</div>
+            <img src="IMG_7745.jpg" alt="Dorian">
+        </div>
+        <div class="card" style="background-color: rgb(200, 168, 121);" onclick="showInfo('Moufida')">
+            <div class="overlay">Moufida</div>
+            <img src="Moufida.jpg" alt="Moufida">
+        </div>
+        <div class="card" style="background-color: rgb(127, 183, 192);" onclick="showInfo('Paula')">
+            <div class="overlay">Paula</div>
+            <img src="Paula.jpg" alt="Paula">
+        </div>
+        <div class="card" style="background-color: rgb(92, 53, 64);" onclick="showInfo('Raquel')">
+            <div class="overlay">Raquel</div>
+            <img src="cat_portrait.jpg" alt="Raquel">
+        </div>
+    </div>
+
+    <script>
+        function showInfo(name) {
+            const pages = {
+                'Dorian': 'dorian.html',
+                'Moufida': 'moufida.html',
+                'Paula': 'paula.html',
+                'Raquel': 'raquel.html'
+            };
+            if (pages[name]) {
+                window.open(pages[name], '_blank');
+            } else {
+                alert("Plus d'infos sur" + name);
+            }
+        }
+    </script>
+</body>
+</html>

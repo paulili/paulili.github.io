@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un compte</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(49, 35, 86);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: rgb(49, 35, 86);
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: rgb(49, 35, 86);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background-color: rgb(68, 59, 94);
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        .success-message {
+            color: green;
+            font-size: 16px;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Créer un compte</h2>
+        <form id="register-form">
+            <div class="form-group">
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" placeholder="Nom d'utilisateur" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" placeholder="Mot de passe" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirmer le mot de passe</label>
+                <input type="password" id="confirm-password" placeholder="Confirmer le mot de passe" required>
+                <p id="error-message" class="error-message">❌ Les mots de passe ne correspondent pas !</p>
+            </div>
+            <button type="submit">S'inscrire</button>
+        </form>
+        <p id="success-message" class="success-message">✅ Inscription réussie ! Redirection en cours...</p>
+    </div>
+
+    <script>
+        document.getElementById("register-form").addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            let username = document.getElementById("username").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirm-password").value;
+            let errorMessage = document.getElementById("error-message");
+            let successMessage = document.getElementById("success-message");
+
+            if (password !== confirmPassword) {
+                errorMessage.style.display = "block";
+                successMessage.style.display = "none";
+                return;
+            } else {
+                errorMessage.style.display = "none";
+            }
+
+            try {
+                let response = await fetch("/register", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        username: username,
+                        email: email,
+                        password: password
+                    })
+                });
+
+                let result = await response.json();
+
+                if (result.success) {
+                    successMessage.style.display = "block";
+                    setTimeout(() => {
+                        window.location.href = "login.html";
+                    }, 3000);
+                } else {
+                    errorMessage.innerText = "❌ Erreur lors de l'inscription.";
+                    errorMessage.style.display = "block";
+                }
+            } catch (error) {
+                errorMessage.innerText = "❌ Une erreur est survenue.";
+                errorMessage.style.display = "block";
+            }
+        });
+
+        document.getElementById("confirm-password").addEventListener("input", function() {
+            let password = document.getElementById("password").value;
+            let confirmPassword = this.value;
+            let errorMessage = document.getElementById("error-message");
+
+            if (password !== confirmPassword) {
+                errorMessage.style.display = "block";
+            } else {
+                errorMessage.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

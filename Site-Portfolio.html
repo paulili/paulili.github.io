@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Team Page</title>
+    <style>
+        body {
+            background-color: rgb(0, 0, 0);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background: rgb(130, 130, 123);
+            padding: 20px;
+            width: 80%;
+            text-align: center;
+            border-radius: 10px;
+            margin: 20px 0;
+            color: black;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            width: 100%;
+        }
+        .card {
+            flex: 1;
+            max-width: 500px;
+            height: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            font-size: 35px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 1s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        .card:nth-child(1) { background: rgb(130, 130, 128); color: black; }
+        .card:nth-child(2) { background: #8a5380; color: black; }
+        .card:nth-child(3) { background: #91e3f4; color: black; }
+        .card:nth-child(4) { background: #C136C4; color: black; }
+    </style>
+</head>
+<body>
+    <div class="header">Something about Us</div>
+    <div class="container">
+        <div class="card" onclick="showInfo('Dorian')">Dorian</div>
+        <div class="card" onclick="showInfo('Moufida')">Moufida</div>
+        <div class="card" onclick="showInfo('Paula')">Paula</div>
+        <div class="card" onclick="showInfo('Raquel')">Raquel</div>
+    </div>
+
+    <script>
+        function showInfo(name) {
+            alert("More information about " + name);
+        }
+    </script>
+</body>
+</html>
