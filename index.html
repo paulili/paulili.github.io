@@ -1,3 +1,163 @@
+agxe
+agxe
+🫡
+Wild, Rakel_12
+
+agxe — 28/11/2024 16:00
+Wild — 28/11/2024 16:00
+Rakel_12 — 28/11/2024 16:00
+Wild — 28/11/2024 16:00
+Rakel_12 — 28/11/2024 16:00
+agxe — 28/11/2024 16:00
+Wild — 28/11/2024 16:01
+agxe — 28/11/2024 16:01
+Rakel_12 — 28/11/2024 16:01
+agxe — 28/11/2024 16:01
+FER
+FRER
+Wild — 28/11/2024 16:01
+Rakel_12 — 28/11/2024 16:01
+Wild — 28/11/2024 16:02
+agxe — 28/11/2024 16:02
+Rakel_12 — 28/11/2024 16:02
+agxe — 14/02/2025 10:34
+Rakel_12 — 14/02/2025 11:10
+agxe — 14/02/2025 11:10
+niquez vos mères
+agxe — 26/02/2025 14:40
+Rakel_12 — 26/02/2025 14:41
+Trouver une meuf à la chèvre
+agxe — 26/02/2025 14:41
+MDRRR
+Pk
+Rakel_12 — 26/02/2025 17:05
+Elle a un problème avec sa langue
+agxe — 26/02/2025 17:05
+lol
+Wild — 26/02/2025 22:06
+agxe — 27/02/2025 15:35
+omg
+jojos bizarre adventures
+mon reuf
+mon ex kiffais ca
+LE VEEEEEEEEENT
+SOUS LE VEEEEEEEEEEENT
+ET SI TU CROIS QUE CST FINI
+JAMAIIIS
+NANANANANNANANANNNA
+Wild — 01/03/2025 00:53
+J’ai pas les notifications discord
+Et vu qu’en ce moment je joue seul
+Bah j’y vais jamais
+agxe — 06/03/2025 14:47
+tg
+raquel t conne
+Wild — Aujourd’hui à 16:41
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" page="">
+    <title>Interactive Team Page</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            position: fixed;
+            background: rgb(130, 130, 123);
+            padding: 20px;
+            width: 80%;
+            text-align: center;
+            border-radius: 10px;
+            margin: 20px 0;
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .logo_RPD {
+            display: flex;
+            width: 90px;
+            height: auto;
+            margin-left: 420px;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 80%;
+        }
+        .card {
+            flex: 1;
+            max-width: 250px;
+            height: 350px;
+            bottom: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            font-size: 20px;
+            font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.5s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .menu {
+            align-items: up;
+            
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        .card img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 2;
+            transition: opacity 0.5s;
+        }
+        .card .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .card:hover .overlay {
+            opacity: 1;
+        }
+        .card:hover img {
+            opacity: 0;
+        }
+
+
+        .card_deux {
+            flex: 1;
+            max-width: 250px;
+            height: 350px;
+... (166lignes restantes)
+Réduire
+message.txt
+8 Ko
+﻿
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -261,68 +421,8 @@
             }
         }
 
-// partie securitée (us4)
-const express = require('express');
-const session = require('express-session');
-const csrf = require('csurf');
-const app = express();
-
-// Middleware pour gérer les requêtes JSON
-app.use(express.json());
-
-// Activation de la session avec options sécurisées pour les cookies
-app.use(session({
-  secret: 'votreSecret', // Utilisez une clé secrète pour signer les sessions
-  resave: false,
-  saveUninitialized: true,
-  cookie: {
-    secure: true,        // Utiliser le cookie uniquement sur HTTPS
-    httpOnly: true,      // Ne pas permettre l'accès au cookie via JavaScript
-    sameSite: 'Strict'   // Empêcher l'envoi du cookie avec des requêtes cross-site
-  }
-}));
-
-// Configuration de CSRF avec un cookie sécurisé
-const csrfProtection = csrf({ cookie: true });
-
-// Middleware pour vérifier le jeton CSRF sur les requêtes sensibles
-app.use(csrfProtection);
-
-// Exemple de route qui génère et renvoie un jeton CSRF
-app.get('/form', (req, res) => {
-  res.send(`
-    <form method="POST" action="/sensitive-action">
-      <input type="hidden" name="_csrf" value="${req.csrfToken()}">
-      <button type="submit">Soumettre</button>
-    </form>
-  `);
-});
-
-// Route sensible nécessitant une protection CSRF
-app.post('/sensitive-action', (req, res) => {
-  // Cette route est protégée par CSRF et nécessite un jeton valide
-  res.send('Action traitée en toute sécurité');
-});
-
-//ID connexion
-app.post('/login', (req, res, next) => {
-  // verif id
-  req.session.regenerate((err) => {
-    if (err) return next(err);
-    // session apres regeneration
-    res.send('Connexion réussie');
-  });
-});
-
-// Démarrage du serveur
-app.listen(3000, () => {
-  console.log('Le serveur est en cours d\'exécution sur le port 3000');
-});
-
-
-
-
-        
     </script>
 </body>
 </html>
+message.txt
+8 Ko
