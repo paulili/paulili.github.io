@@ -71,11 +71,25 @@
             text-decoration: underline;
         }
     </style>
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            
+            if (username === "admin" && password === "dmpr") {
+                window.location.href = "page_admin.html";
+            } else {
+                alert("Identifiants incorrects. Veuillez réessayer.");
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h1>Connexion</h1>
-        <form action="login.html" method="POST">
+        <form onsubmit="handleLogin(event)">
             <div class="form-group">
                 <label for="username">Nom d'utilisateur</label>
                 <input type="text" id="username" name="username" required>
