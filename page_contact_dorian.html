@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -13,11 +14,24 @@
         }
 
         body {
-            background-color: rgb(49, 35, 86);
+            background-color: rgb(197, 63, 69);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            position: relative;
+        }
+
+        .back {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        .back img {
+            width: 50px;
+            height: auto;
+            cursor: pointer;
         }
 
         .container {
@@ -31,7 +45,7 @@
 
         h2 {
             margin-bottom: 20px;
-            color: rgb(49, 35, 86);
+            color: rgb(197, 63, 69);
         }
 
         .form-group {
@@ -61,7 +75,7 @@
         button {
             width: 100%;
             padding: 12px;
-            background-color: rgb(49, 35, 86);
+            background-color: rgb(197, 63, 69);
             color: white;
             border: none;
             border-radius: 5px;
@@ -71,11 +85,17 @@
         }
 
         button:hover {
-            background-color: rgb(68, 59, 94);
+            background-color: rgb(170, 50, 55);
         }
     </style>
 </head>
 <body>
+    <div class="back">
+        <a href="porte_folio_dorian.html">
+            <img src="retour.png" alt="Retour">
+        </a>
+    </div>
+
     <div class="container">
         <h2>Contactez-nous</h2>
         <form id="contact-form">
