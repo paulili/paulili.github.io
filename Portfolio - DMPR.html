@@ -106,15 +106,15 @@
     <script>
         function showInfo(name) {
             const pages = {
-                'Dorian': 'dorian.html',
+                'Dorian': 'porte_folio_dorian.html',
                 'Moufida': 'moufida.html',
                 'Paula': 'paula.html',
-                'Raquel': 'raquel.html'
+                'Raquel': 'portfolio_Raquel.html'
             };
             if (pages[name]) {
-                window.open(pages[name], '_blank');
+                window.location.href = pages[name];
             } else {
-                alert("Plus d'infos sur" + name);
+                alert("More information about " + name);
             }
         }
     </script>
