@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">  <!-- garantit que les caracteres speciaux soient afficher correctement -->
+        <meta name="Portfolio" content="width=device-width, initial-scale=1.0">
+        <title>PORTFOLIO</title>
+     <!--  <link rel="stylesheet" href="portfolio_style.css"> --> 
+    </head> 
+<style>
+
+    body {
+        background-color: rgb(37, 35, 35);
+        overflow-x: hidden;
+    }
+
+    @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .image {
+        height: 200px;
+    }
+}
+
+    .rectangle_section {
+        position: fixed;
+        max-width: 100%;
+        max-height: 100%;
+        left: 0px;
+        top: 0px;
+        height: 700px;
+        width: 250px;
+        background-color:rgb(4, 66, 26);
+    }
+
+    /*style des sections */
+    /*section menu*/
+    .photo_intro{
+        position: absolute;
+        top: 0px;
+        left: 250px;
+        width: 1300px;
+        height: 700px;  
+    }
+
+    .Portfolio{
+        position: relative;
+        left: 620px;
+        top: 150px;
+        font-size: 90px;
+        font-weight: normal;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+    }
+
+    .nom_et_prenom{
+        position: relative;
+        left: 750px;
+        top: 160px;
+        font-size: 40px;
+        font-weight: normal;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+    }
+
+    /*section a propos de moi*/
+    .fond{
+        position: relative;
+        top: 72px;
+        left: 242px;
+        background-color:  rgb(37, 35, 35); 
+        width: 1300px;  
+        height: 700px; 
+    }
+
+    .Titre{
+        position: relative;
+        z-index: 10;
+        left: 300px;
+        bottom: -370px;
+        font-size: 90px;
+        font-weight: normal;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+    }
+
+    .phrase{
+        position: relative;
+        z-index: 10;
+        left: 350px;
+        bottom: -370px;
+        font-size: 25px;
+        font-weight: normal;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+    }
+
+     /*partie passion*/
+    .fond_un{
+        position: relative;
+        top:-570px;
+        left: 242px;
+        background-color:  rgb(11, 60, 10); 
+        width: 1300px;  
+        height: 700px; 
+    }
+
+    .Titre_un{
+        position: relative;
+        z-index: 10;
+        left: 300px;
+        bottom: -50px;
+        font-size: 90px;
+        font-weight: normal;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+    }
+
+    .Informatique_Titre{
+        position: relative;
+        z-index: 10;
+        left: 350px;
+        bottom: -80px;
+        font-size: 40px;
+        font-weight: normal;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+    }
+
+    .Informatique{
+        position: relative;
+        z-index: 10;
+        left: 300px;
+        bottom: -100px;
+        font-size: 18px;
+        font-weight: normal;
+        font-family: cursive;        
+        color: white;
+    }
+
+    .Musique_Titre{
+        position: relative;
+        z-index: 10;
+        left: 1030px;
+        bottom: 130px;
+        font-size: 40px;
+        font-weight: normal;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+    }
+
+    .Musique{
+        position: relative;
+        z-index: 10;
+        left: 1000px;
+        bottom: 130px;
+        font-size: 18px;
+        font-weight: normal;
+        font-family: cursive;        
+        color: white;
+    }
+
+         /*partie qualités*/
+    .fond_deux{
+        position: relative;
+        bottom: 1185px;
+        left: 242px; 
+        width: 1300px;  
+    }
+
+    .Titre_deux{
+        position: relative;
+        z-index: 10;
+        left: 300px;
+        bottom: 590px;
+        font-size: 90px;
+        font-weight: normal;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+    }
+
+    .qualitees_un{
+        position: relative;
+        z-index: 10;
+        left: 350px;
+        bottom: 520px;
+        font-size: 35px;
+        font-weight: normal;
+        font-family: cursive;
+        color: white;
+    }
+
+    .qualitees_deux{
+        position: relative;
+        z-index: 10;
+        left: 1000px;
+        bottom: 690px;
+        font-size: 35px;
+        font-weight: normal;
+        font-family: cursive;        
+        color: white;
+    }
+
+     /*style des boutons*/
+     /* contacts*/
+    .boutton1{
+        background: none;
+        border: none;
+        color: white;
+        text-decoration: none; /*le lien n'est pas souligner*/
+        font-size: 25px;
+        cursor: pointer;
+        position: fixed;
+        left: 65px;
+        top: 330px;
+    }
+
+    /* CV */
+    .boutton2{
+        background: none;
+        border: none;
+        color: white;
+        text-decoration: none; /*le lien n'est pas souligner*/
+        font-size: 25px;
+        cursor: pointer;
+        position: fixed;
+        left: 65px;
+        top: 300px;
+    }
+
+    /* acceuil */
+    .boutton3{
+        background: none;
+        border: none;
+        color: white;
+        text-decoration: none; /*le lien n'est pas souligner*/
+        font-size: 25px;
+        cursor: pointer;
+        position: fixed;
+        left: 65px;
+        top: 270px;
+    }
+
+
+</style>
+
+<body>
+    <!-- rectangle où sont les differentes section -->
+    <div class="rectangle_section"></div>
+
+    <!-- differentes sections -->
+    <section id="Menu">
+        <img src="feuille_fond.png" class="photo_intro">
+        <h1 class="Portfolio">PORTFOLIO</h1>
+        <h2 class="nom_et_prenom">Raquel Pereira</h2>
+    </section> 
+
+    <section id="A_propos_de_moi">
+        <h1 class="Titre">A propos de moi</h1>
+        <h2 class="phrase">Passionnée d'informatique depuis le collège <br>et actuellement en apprentissage dans ce domaine1.</h2>
+        <div class="fond"></div>
+    </section>
+
+    <section id="Mes_passions">
+        <h1 class="Titre_un">Mes passions</h1>
+        <h2 class="Informatique_Titre">Informatique</h2>
+        <h3 class="Informatique">- Programmation (PowerShell,HTML,CSS) <br> - Hardware (comprendre les composants...) <br> - Pleins d'autres choses</h4>
+        <h4 class="Musique_Titre">Musique</h2>
+        <h5 class="Musique">- Découvrir des nouveaux styles <br> - Création de prod</h5>
+        <div class="fond_un"></div>
+    </section>
+
+    <section id="Mes_qualitees">
+        <h1 class="Titre_deux">Mes qualitées</h1>
+        <h2 class="qualitees_un">- Motivée <br> - Curieuse <br> - Assidue </h2>
+        <h3 class="qualitees_deux">- Passionnée<br>- Autonome<br>- Esprit d'equipe</h3>
+        <div class="fond_deux"></div>
+    </section>
+
+
+     <!-- boutton de la partie section -->
+     <a href="page_contact_raquel.html" class="boutton1">Mes contacts</a> 
+     <a href="CV_Ratrat.html" class="boutton2">Mon CV</a> 
+     <a href="teste_site_ciel.html" class="boutton3">Acceuil</a> 
+
+</body>
