@@ -3,58 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paula Ciacan | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #333;
+            color: white;
+        }
+        .logo img {
+            height: 50px;
+            cursor: pointer;
+        }
+        .burger-menu {
+            cursor: pointer;
+            font-size: 24px;
+        }
+        .menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 15px;
+            background: white;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+            border-bottom: 1px solid #ddd;
+        }
+        .menu a:hover {
+            background: #f0f0f0;
+        }
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 80%;
+            max-width: 800px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Bienvenue dans mon univers</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">À propos de moi</a></li>
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="#skills">Compétences</a></li>
-                <li><a href="#skills">Qualités</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="about">
-        <h2>À propos</h2>
-        <p>Hello, je m'appelle Paula, je suis étudiante en BTS CIEL, axé sur la cybersécurité et sur les réseaux.</p>
-    </section>
-
-    <section id="projects">
-        <h2>Projets</h2>
-        <div class="project">
-            <h3>Portfolio - En groupe</h3>
-            <p>Création d'un portfolio sécurisé avec la méthode agile Scrum. Ajout de pages sécurisées, comme un formulaire de contact, et d'une page de paiement par carte bancaire.</p>
+        <div class="logo">
+            <img src="logo.png" alt="Logo" onclick="location.href='index.html';">
         </div>
-    </section>
+        <div class="burger-menu" onclick="toggleMenu()">☰</div>
+        <div class="menu" id="menu">
+            <a href="cv.html">Mon CV</a>
+            <a href="contact.html">Me Contacter</a>
+        </div>
+    </header>
+    
+    <div class="gallery">
+        <img src="prtf1pc.png" alt="Portfolio Image 1">
+        <img src="prtf2pc.png" alt="Portfolio Image 2">
+        <img src="prtf3pc.png" alt="Portfolio Image 3">
+        <img src="prtf4pc.png" alt="Portfolio Image 4">
+        <img src="prtf5pc.png" alt="Portfolio Image 5">
+        <img src="prtf6pc.png" alt="Portfolio Image 6">
+        <img src="prtf7pc.png" alt="Portfolio Image 7">
+    </div>
 
-    <section id="skills">
-        <h2>Compétences</h2>
-        <ul>
-            <li>HTML / CSS</li>
-            <li>Active Directory</li>
-            <li>Microsoft 365</li>
-            <li>Windows Server 2019</li>
-        </ul>
-    </section>
-
-    <section id="qualités">
-        <h2>Qualités</h2>
-        <li></li>
-    </section>
-
-    <section id="cv">
-        <h2>Curriculum Vitae</h2>
-        <p>Voici mon <a href="paula_cv.html">CV</a></p>
-    </section>
-
-    <footer>
-        <p>© 2025 - Mon Portfolio</p>
-    </footer>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+    </script>
 </body>
 </html>
