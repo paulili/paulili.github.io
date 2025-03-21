@@ -265,52 +265,7 @@
                 alert("More information about " + name);
             }
         }
-
-const express = require('express');
-const session = require('express-session');
-const csrf = require('csurf');
-const app = express();
-
-app.use(express.json());
-
-app.use(session({
-  secret: 'votreSecret',
-  resave: false,
-  saveUninitialized: true,
-  cookie: {
-    secure: true, 
-    httpOnly: true, 
-    sameSite: 'Strict' 
-  }
-}));
-
-const csrfProtection = csrf({ cookie: true });
-
-app.use(csrfProtection);
-
-app.get('/form', (req, res) => {
-  res.send(`
-    <form method="POST" action="/sensitive-action">
-      <input type="hidden" name="_csrf" value="${req.csrfToken()}">
-      <button type="submit">Soumettre</button>
-    </form>
-  `);
-});
-
-app.post('/sensitive-action', (req, res) => {
-  res.send('Action traitée en toute sécurité');
-});
-
-app.post('/login', (req, res, next) => {
-  req.session.regenerate((err) => {
-    if (err) return next(err);
-    res.send('Connexion réussie');
-  });
-});
-
-app.listen(3000, () => {
-  console.log('Le serveur est en cours d\'exécution sur le port 3000');
-});       
+        
     </script>
 </body>
 </html>
