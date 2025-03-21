@@ -266,6 +266,10 @@
             }
         }
 
+        //securise les cookie avec Secure et SamSite
+        document.cookie = "token=value; Secure; SameSite=Strict";
+
+        
     </script>
 </body>
 </html>
