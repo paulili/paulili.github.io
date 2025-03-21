@@ -260,40 +260,34 @@
                 'Raquel': 'portfolio_Raquel.html'
             };
             if (pages[name]) {
-                window.open(pages[name], '_blank');
+                window.location.href = pages[name];
             } else {
                 alert("More information about " + name);
             }
         }
 
-// partie securitée (us4)
 const express = require('express');
 const session = require('express-session');
 const csrf = require('csurf');
 const app = express();
 
-// Middleware pour gérer les requêtes JSON
 app.use(express.json());
 
-// Activation de la session avec options sécurisées pour les cookies
 app.use(session({
-  secret: 'votreSecret', // Utilisez une clé secrète pour signer les sessions
+  secret: 'votreSecret',
   resave: false,
   saveUninitialized: true,
   cookie: {
-    secure: true,        // Utiliser le cookie uniquement sur HTTPS
-    httpOnly: true,      // Ne pas permettre l'accès au cookie via JavaScript
-    sameSite: 'Strict'   // Empêcher l'envoi du cookie avec des requêtes cross-site
+    secure: true, 
+    httpOnly: true, 
+    sameSite: 'Strict' 
   }
 }));
 
-// Configuration de CSRF avec un cookie sécurisé
 const csrfProtection = csrf({ cookie: true });
 
-// Middleware pour vérifier le jeton CSRF sur les requêtes sensibles
 app.use(csrfProtection);
 
-// Exemple de route qui génère et renvoie un jeton CSRF
 app.get('/form', (req, res) => {
   res.send(`
     <form method="POST" action="/sensitive-action">
@@ -303,31 +297,20 @@ app.get('/form', (req, res) => {
   `);
 });
 
-// Route sensible nécessitant une protection CSRF
 app.post('/sensitive-action', (req, res) => {
-  // Cette route est protégée par CSRF et nécessite un jeton valide
   res.send('Action traitée en toute sécurité');
 });
 
-//ID connexion
 app.post('/login', (req, res, next) => {
-  // verif id
   req.session.regenerate((err) => {
     if (err) return next(err);
-    // session apres regeneration
     res.send('Connexion réussie');
   });
 });
 
-// Démarrage du serveur
 app.listen(3000, () => {
   console.log('Le serveur est en cours d\'exécution sur le port 3000');
-});
-
-
-
-
-        
+});       
     </script>
 </body>
 </html>
