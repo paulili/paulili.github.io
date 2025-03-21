@@ -1,108 +1,293 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PEREIRA RAQUEL - Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: url('21ffde57557a9e8b9896f435ca705794.jpg') center/cover;
-            color: rgb(255, 255, 255);
-            margin: 0;
-            padding: 0;
-        }
-        .header {
-            text-align: left;
-            padding: 40px 665px;
-            background: rgb(49, 35, 86) center/cover;
-        }
-        .header h1 {
-            font-size: 42px;
-            margin: auto;
-            position: left;
-            color: rgb(0, 0, 0);
-        }
-        .header h2 {
-            font-size: 24px;
-            margin: 10px 0 0;
-            color: #00d4ff;
-        }
-        .section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 50px 20px;
-        }
-        .talents, .questions, .appreciations {
-            display: flex;
-            justify-content: space-between;
-        }
-        .talent, .question, .appreciation {
-            width: 30%;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        .contact {
-            background: url('21ffde57557a9e8b9896f435ca705794.jpg') center/cover;
-            text-align: center;
-            padding: 40px 20px;
-        }
-        .social-icons img {
-            width: 30px;
-            margin: 0 10px;
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>RAQUEL PEREIRA</h1>
-        <h2>Etudiante en Cybersécurité</h2>
-    </div>
-    <div class="section">
-        <h2>A propos de moi</h2>
-        <p>Etudiant en Cybersécurité à Aurlom et passionné depuis des années je maitrise les langages de programmation comme HTML5, CSS et Autoit aussi bien que les systèmes d’exploitation comme Windows avec Powershell ou Linux avec Bash.</p>
-    </div>
-    <div class="section">
-        <h2>Mes Différents Talents</h2>
-        <div class="talents">
-            <div class="talent"><h3>Organisation</h3><p>J’excelle dans la mise en place de session de projet.</p></div>
-            <div class="talent"><h3>Cohésion d’équipe</h3><p>Avec mes expériences passé je sais m’adapter en équipe en plus de mon talent en solitaire.</p></div>
-            <div class="talent"><h3>Curiosité</h3><p>Mon envie de toujours en apprendre plus sur ce métier.</p></div>
-        </div>
-    </div>
-    <div class="section">
-        <h2>Question réponse</h2>
-        <div class="questions">
-            <div class="question"><h3>Pourquoi moi et pas un autre ?</h3><p>Parce que je suis sur que m’intégrer à votre équipe sera bénéfique pour vous est moi et qu’ensemble nous arriverions à de grandes choses.</p></div>
-            <div class="question"><h3>Qu’apporterais-je de plus à votre entreprise ?</h3><p>Je suis sur que mon expérience vous sera d’une grande utilité et qu’évoluer dans votre entreprise me permettra de la représenter au près des client.</p></div>
-            <div class="question"><h3>Quelles sont mes forces et mes faiblesses ?</h3><p>Pour ce qui est de mes forces je sais m’adapter à toutes les situations. Et pour mes faiblesse je n’arrive pas à laisser une tache inachevé.</p></div>
-        </div>
-    </div>
+    <head>
+        <meta charset="UTF-8">  <!-- garantit que les caracteres speciaux soient afficher correctement -->
+        <meta name="Portfolio" content="width=device-width, initial-scale=1.0">
+        <title>PORTFOLIO</title>
+     <!--  <link rel="stylesheet" href="portfolio_style.css"> --> 
+    </head> 
+<style>
 
-    </div>
-    <div class="contact" >
-        <h2>Contact</h2>
-        <p>Téléphone: 06 13 82 08 29</p>
-        <p>Mail: raquel.cpereira12@gmail.com</p>
-        <div class="social-icons">
-            <img src="linkedin.png" alt="linkedIn" onclick="showInfo('linkedin')"> 
-            <img src="github.png" alt="gitHub" onclick="showInfo('github')">
-        </div>
-    </div>
-    <script>
-        function showInfo(site) {
-            const pages = {
-                'linkedin': 'https://www.linkedin.com/in/dorian-lemiere-466a69319/',
-                'github': 'https://github.com/Wild1903'
-            };
-            if (pages[site]) {
-                window.open(pages[site], '_blank');
-            } else {
-                alert("More information about " +site);
-            }
-        }
-    </script>
+    body {
+        background-color: rgb(37, 35, 35);
+        overflow-x: hidden;
+    }
+
+    @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .image {
+        height: 200px;
+    }
+}
+
+    @media screen and (max-width: 1200px) {
+    body {
+        font-size: 14px;
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+    .rectangle_section {
+        position: fixed;
+        max-width: 100%;
+        max-height: 100%;
+        left: 0px;
+        top: 0px;
+        height: 700px;
+        width: 250px;
+        background-color:rgb(4, 66, 26);
+    }
+
+    /*style des sections */
+    /*section menu*/
+    .photo_intro{
+        position: absolute;
+        top: 0px;
+        left: 250px;
+        width: 1300px;
+        height: 700px;  
+    }
+
+    .Portfolio{
+        position: relative;
+        left: 620px;
+        top: 150px;
+        font-size: 90px;
+        font-weight: normal;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+    }
+
+    .nom_et_prenom{
+        position: relative;
+        left: 750px;
+        top: 160px;
+        font-size: 40px;
+        font-weight: normal;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+    }
+
+    /*section a propos de moi*/
+    .fond{
+        position: relative;
+        top: 72px;
+        left: 242px;
+        background-color:  rgb(37, 35, 35); 
+        width: 1300px;  
+        height: 700px; 
+    }
+
+    .Titre{
+        position: relative;
+        z-index: 10;
+        left: 300px;
+        bottom: -370px;
+        font-size: 90px;
+        font-weight: normal;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+    }
+
+    .phrase{
+        position: relative;
+        z-index: 10;
+        left: 350px;
+        bottom: -370px;
+        font-size: 25px;
+        font-weight: normal;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+    }
+
+     /*partie passion*/
+    .fond_un{
+        position: relative;
+        top:-570px;
+        left: 242px;
+        background-color:  rgb(11, 60, 10); 
+        width: 1300px;  
+        height: 700px; 
+    }
+
+    .Titre_un{
+        position: relative;
+        z-index: 10;
+        left: 300px;
+        bottom: -50px;
+        font-size: 90px;
+        font-weight: normal;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+    }
+
+    .Informatique_Titre{
+        position: relative;
+        z-index: 10;
+        left: 350px;
+        bottom: -80px;
+        font-size: 40px;
+        font-weight: normal;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+    }
+
+    .Informatique{
+        position: relative;
+        z-index: 10;
+        left: 300px;
+        bottom: -100px;
+        font-size: 18px;
+        font-weight: normal;
+        font-family: cursive;        
+        color: white;
+    }
+
+    .Musique_Titre{
+        position: relative;
+        z-index: 10;
+        left: 1030px;
+        bottom: 130px;
+        font-size: 40px;
+        font-weight: normal;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+    }
+
+    .Musique{
+        position: relative;
+        z-index: 10;
+        left: 1000px;
+        bottom: 130px;
+        font-size: 18px;
+        font-weight: normal;
+        font-family: cursive;        
+        color: white;
+    }
+
+         /*partie qualités*/
+    .fond_deux{
+        position: relative;
+        bottom: 1185px;
+        left: 242px; 
+        width: 1300px;  
+    }
+
+    .Titre_deux{
+        position: relative;
+        z-index: 10;
+        left: 300px;
+        bottom: 590px;
+        font-size: 90px;
+        font-weight: normal;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: white;
+    }
+
+    .qualitees_un{
+        position: relative;
+        z-index: 10;
+        left: 350px;
+        bottom: 520px;
+        font-size: 35px;
+        font-weight: normal;
+        font-family: cursive;
+        color: white;
+    }
+
+    .qualitees_deux{
+        position: relative;
+        z-index: 10;
+        left: 1000px;
+        bottom: 690px;
+        font-size: 35px;
+        font-weight: normal;
+        font-family: cursive;        
+        color: white;
+    }
+
+     /*style des boutons*/
+     /* contacts*/
+    .boutton1{
+        background: none;
+        border: none;
+        color: white;
+        text-decoration: none; /*le lien n'est pas souligner*/
+        font-size: 25px;
+        cursor: pointer;
+        position: fixed;
+        left: 65px;
+        top: 330px;
+    }
+
+    /* CV */
+    .boutton2{
+        background: none;
+        border: none;
+        color: white;
+        text-decoration: none; /*le lien n'est pas souligné*/
+        font-size: 25px;
+        cursor: pointer;
+        position: fixed;
+        left: 65px;
+        top: 300px;
+    }
+
+    /* acceuil */
+    .boutton3{
+        background: none;
+        border: none;
+        color: white;
+        text-decoration: none; /*le lien n'est pas souligné*/
+        font-size: 25px;
+        cursor: pointer;
+        position: fixed;
+        left: 65px;
+        top: 270px;
+    }
+
+
+</style>
+
+<body>
+    <!-- rectangle où sont les differentes section -->
+    <div class="rectangle_section"></div>
+
+    <!-- differentes sections -->
+    <section id="Menu">
+        <img src="feuille_fond.png" class="photo_intro">
+        <h1 class="Portfolio">PORTFOLIO</h1>
+        <h2 class="nom_et_prenom">Raquel Pereira</h2>
+    </section> 
+
+    <section id="A_propos_de_moi">
+        <h1 class="Titre">A propos de moi</h1>
+        <h2 class="phrase">Passionnée d'informatique depuis le collège <br>et actuellement en apprentissage dans ce domaine.</h2>
+        <div class="fond"></div>
+    </section>
+
+    <section id="Mes_passions">
+        <h1 class="Titre_un">Mes passions</h1>
+        <h2 class="Informatique_Titre">Informatique</h2>
+        <h3 class="Informatique">- Programmation (PowerShell,HTML,CSS) <br> - Hardware (comprendre les composants...) <br> - Pleins d'autres choses</h4>
+        <h4 class="Musique_Titre">Musique</h2>
+        <h5 class="Musique">- Découvrir des nouveaux styles <br> - Création de prod</h5>
+        <div class="fond_un"></div>
+    </section>
+
+    <section id="Mes_qualitees">
+        <h1 class="Titre_deux">Mes qualité-s</h1>
+        <h2 class="qualitees_un">- Motivée <br> - Curieuse <br> - Assidue </h2>
+        <h3 class="qualitees_deux">- Passionnée<br>- Autonome<br>- Esprit d'equipe</h3>
+        <div class="fond_deux"></div>
+    </section>
+
+
+     <!-- boutton de la partie section -->
+     <a href="page_contact_raquel.html" class="boutton1">Me contacter</a> 
+     <a href="raquel_cv.html" class="boutton2">Mon CV</a> 
+     <a href="teste_site_ciel.html" class="boutton3">Accueil</a> 
+
 </body>
-</html>
