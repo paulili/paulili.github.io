@@ -115,11 +115,11 @@
                 message: document.getElementById("message").value
             };
 
-            emailjs.send("admin2", "template_1wk8kks", formData)
+            emailjs.send("admin2", "template_ixkeltj", formData)
             .then(function(response) {
                 console.log("Email envoyé avec succès :", response);
 
-                emailjs.send("admin2", "template_1wk8kks", {
+                emailjs.send("admin2", "template_ixkeltj", {
                     to_email: formData.email,
                     user_name: formData.name 
                 }).then(function(autoResponse) {
