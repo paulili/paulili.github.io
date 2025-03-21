@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ciacan Paula - CV</title>
+    <title>Ciacan Paula | CV</title>
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -31,14 +31,60 @@
             border-left: 4px solid #44e5fb;
             background: #dffffc;
         }
+        
+        /* Style pour le menu déroulant */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .menu-toggle {
+            width: 40px; /* Taille de l'image */
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            background: black;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1200;
+        }
+
+        .menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .menu a:hover {
+            background: gray;
+        }
+
+        .menu.show {
+            display: block;
+        }
     </style>
 </head>
 <body>
-    <div class="back">
-        <a href="porte_folio_dorian.html">
-            <img src="retour.png" alt="Description de l'image" width="50">
-        </a>
+
+    <!-- Menu avec le bouton retour -->
+    <div class="navbar">
+        <img src="retour.png" alt="Retour" class="menu-toggle" onclick="toggleMenu()">
+        <div class="menu" id="menu-back">
+            <a href="index.html">Page principale</a>
+            <a href="portfolio_paula.html">Portfolio</a>
+        </div>
     </div>
+
+    <!-- Contenu du CV -->
     <div class="cv-container">
         <h1>Ciacan Paula</h1>
         <h2>Étudiante en Sécurité Informatique</h2>
@@ -65,24 +111,31 @@
         
         <div class="section experience">
             <h3>Expériences Professionnelles</h3>
-            <ul>
             <h4>Décembre 2022 - Février 2023 : Assistante polyvalente (Indépendante)</h4>
-            <li>Création de dossiers pour l'Assurance Maladie et la CAF pour particuliers.</li>
-            <li>Gestion administrative des documents nécessaires.</li>
+            <ul>
+                <li>Création de dossiers pour l'Assurance Maladie et la CAF pour particuliers.</li>
+                <li>Gestion administrative des documents nécessaires.</li>
+            </ul>
             <h4>Décembre 2023 : Chantier de pose de cloisons (Structure locale et familiale)</h4>
-            <li>Pose professionnelle de cloisons pour optimiser l'espace intérieur.</li>
+            <ul>
+                <li>Pose professionnelle de cloisons pour optimiser l'espace intérieur.</li>
+            </ul>
             <h4>Août 2023 - Septembre 2024 : Assistante secrétaire-comptable (BL BAT GESTION, Livry-Gargan)</h4>
-            <li>Établissement de factures et suivi des règlements.</li>
-            <li>Copie et assistance à la préparation de dossiers pour l'ouverture d'une auto-
-                entreprise.</li>
-            <li>Gestion administrative et comptable quotidienne.</li>
-            <li>Soutien dans la gestion des dossiers clients et fournisseurs.</li>
+            <ul>
+                <li>Établissement de factures et suivi des règlements.</li>
+                <li>Copie et assistance à la préparation de dossiers pour l'ouverture d'une auto-entreprise.</li>
+                <li>Gestion administrative et comptable quotidienne.</li>
+                <li>Soutien dans la gestion des dossiers clients et fournisseurs.</li>
+            </ul>
             <h4>Mars 2023 - Septembre 2024 : Garde d'enfant à domicile</h4>
-            <li>Surveillance et sécurité des enfants.</li>
-            <li>Préparation et administration des repas.</li>
-            <li>Organisation d'activités éducatives et ludiques.</li>
+            <ul>
+                <li>Surveillance et sécurité des enfants.</li>
+                <li>Préparation et administration des repas.</li>
+                <li>Organisation d'activités éducatives et ludiques.</li>
+            </ul>
             <h4>Septembre 2024 - Aujourd'hui : JESTO (Alternance)</h4>
-            <li>Infogérance d'entreprises avec diverses solutions proposées : Cloud, Audit, Sécurité...</li>
+            <ul>
+                <li>Infogérance d'entreprises avec diverses solutions proposées : Cloud, Audit, Sécurité...</li>
             </ul>
         </div>
         
@@ -118,5 +171,12 @@
             </ul>
         </div>
     </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("menu-back").classList.toggle("show");
+        }
+    </script>
+
 </body>
 </html>
