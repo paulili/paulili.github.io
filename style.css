@@ -1,0 +1,172 @@
+/* --- VARIABLES & COULEURS --- */
+:root {
+    --bg-color: #000000;         /* Noir pur comme demandé */
+    --text-main: #FFFFFF;        /* Texte blanc */
+    --accent-color: #00E676;     /* Vert Flashy (Style Hacker/Cyber) */
+    --accent-dim: #004d27;       /* Vert sombre pour les bordures discrètes */
+    --card-hover: #0f0f0f;       /* Gris très foncé au survol */
+    --font-main: 'Courier New', Courier, monospace; /* Police type "Code" */
+    --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    overflow-x: hidden; /* Évite le scroll horizontal */
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* --- PAGE D'ACCUEIL (INDEX) --- */
+
+/* La moitié haute : Titre */
+.split-top {
+    height: 50vh; /* 50% de la hauteur de l'écran */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid var(--accent-dim);
+}
+
+.main-title {
+    font-size: 5rem;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--accent-color); /* Contour vert seulement */
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+}
+
+.sub-info {
+    font-family: var(--font-main);
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+.sub-info span {
+    display: block; /* Force le retour à la ligne */
+    font-weight: bold;
+}
+
+/* La moitié basse : Les 4 colonnes */
+.split-bottom {
+    height: 50vh; /* Les autres 50% */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colonnes égales */
+}
+
+.nav-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid var(--accent-dim);
+    transition: all 0.4s ease;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.nav-column:last-child { border-right: none; }
+
+.nav-column h2 {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 2;
+}
+
+/* Effet au survol des colonnes */
+.nav-column:hover {
+    background-color: var(--accent-color);
+    cursor: pointer;
+}
+
+.nav-column:hover h2 {
+    color: #000000; /* Le texte devient noir sur fond vert */
+    font-weight: bold;
+}
+
+/* --- PAGES INTERNES (E4, E5, A Propos...) --- */
+.page-header {
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--accent-dim);
+}
+
+.home-btn {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.home-btn:hover {
+    background-color: var(--accent-color);
+    color: #000;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+    font-family: var(--font-sans); /* Police plus lisible pour le contenu */
+}
+
+.section-title {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-dim);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-family: var(--font-main);
+}
+
+.content-box {
+    background-color: #111;
+    border: 1px solid var(--accent-dim);
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+.btn-download {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #000;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+.btn-download:hover { transform: scale(1.05); }
+
+/* --- RESPONSIVE (Mobile) --- */
+@media (max-width: 768px) {
+    .main-title { font-size: 3rem; }
+    .split-top { height: 40vh; }
+    .split-bottom { 
+        height: auto; 
+        grid-template-columns: 1fr; /* Une seule colonne */
+    }
+    .nav-column { 
+        height: 15vh; 
+        border-right: none; 
+        border-bottom: 1px solid var(--accent-dim); 
+    }
+}
