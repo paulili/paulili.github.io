@@ -1,115 +1,59 @@
 :root {
     --bg-color: #e6ebf0;
     --sidebar-bg: #3d3d3d;
-    --font-main: 'serif', Georgia, serif;
 }
 
 body, html {
-    margin: 0;
-    padding: 0;
-    font-family: var(--font-main);
+    margin: 0; padding: 0;
+    font-family: 'serif', Georgia, serif;
     background-color: var(--bg-color);
     overflow-x: hidden;
 }
 
-/* BOUTON MENU - PRIORITÉ MAXIMALE */
+/* MENU BOUTON */
 .top-left {
-    position: fixed;
-    top: 25px;
-    left: 25px;
-    z-index: 9999;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position: fixed; top: 25px; left: 25px;
+    z-index: 9999; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center;
 }
+.menu-img { width: 45px; height: auto; }
+.menu-text { font-size: 0.7rem; color: #4a5a71; margin-top: 5px; text-transform: uppercase; }
 
-.menu-img {
-    width: 45px;
-    height: auto;
-}
-
-.menu-text {
-    font-size: 0.7rem;
-    color: #4a5a71;
-    margin-top: 5px;
-    text-transform: uppercase;
-}
-
-/* SIDEBAR STYLE BLOCS */
+/* SIDEBAR */
 .sidebar {
-    height: 100vh;
-    width: 0;
-    position: fixed;
-    z-index: 9000;
-    top: 0;
-    left: 0;
+    height: 100vh; width: 0;
+    position: fixed; z-index: 9000;
+    top: 0; left: 0;
     background-color: var(--sidebar-bg);
     overflow-x: hidden;
     transition: 0.5s ease;
 }
-
-.sidebar-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
+.sidebar-content { display: flex; flex-direction: column; height: 100%; }
 .sidebar a {
-    flex: 0 0 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: #000000;
-    font-size: 1.2rem;
-    background-color: var(--sidebar-bg);
-    border-bottom: 2px solid #000000;
+    flex: 0 0 80px; display: flex; align-items: center; justify-content: center;
+    text-decoration: none; color: #000000; font-size: 1.2rem;
+    border-bottom: 2px solid #000000; background-color: var(--sidebar-bg);
 }
+.sidebar a.contact-item { flex-grow: 1; align-items: flex-end; padding-bottom: 40px; border-bottom: none; }
 
-.sidebar a.contact-item {
-    flex-grow: 1;
-    align-items: flex-end;
-    padding-bottom: 40px;
-    border-bottom: none;
-}
-
-/* ALIGNEMENT LUNE */
+/* LUNE */
 .moon-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 40%;
-    max-width: 550px;
-    z-index: 1;
-    pointer-events: none; /* Cliquer à travers la lune */
+    position: absolute; top: 0; right: 0;
+    width: 40%; max-width: 500px; z-index: 1;
+    pointer-events: none;
 }
+.moon-img { width: 100%; height: auto; }
 
-.moon-img {
-    width: 100%;
-    height: auto;
-}
-
-/* PAGES ET CONTENU */
+/* GESTION DES PAGES */
 .page {
-    height: 100vh;
-    width: 100vw;
-    display: none;
-    align-items: center;
-    justify-content: center;
+    height: 100vh; width: 100vw;
+    display: none; /* Caché par défaut */
+    align-items: center; justify-content: center;
     position: relative;
 }
+.page.active { display: flex !important; }
 
-.page.active {
-    display: flex !important;
-}
-
-.hero-content {
-    text-align: center;
-    z-index: 10;
-}
-
-.hero-content h1 { font-size: 4rem; margin: 0; }
+.hero-content { text-align: center; z-index: 10; }
 .photo-frame img { width: 220px; border-radius: 15px; }
 .button-grid { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; justify-content: center; }
 .nav-btn, .btn-enter { padding: 10px 20px; background: #8da1b9; border: none; border-radius: 5px; cursor: pointer; }
