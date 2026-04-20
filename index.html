@@ -8,18 +8,19 @@
 </head>
 <body>
 
-    <nav class="top-left" onclick="toggleMenu()" style="cursor:pointer">
-        <div class="stars-logo">✦✦<br>✦✦</div>
-        <span>Menu Principal</span>
+    <nav class="top-left" onclick="toggleMenu()">
+        <img src="assets/images/menuprincipal_transparent.png" alt="Menu" class="menu-img">
+        <span class="menu-text">Menu Principal</span>
     </nav>
 
     <div id="side-menu" class="sidebar">
         <div class="sidebar-content">
-            <a href="#about-page" onclick="toggleMenu()">À propos de moi</a>
-            <a href="e5.html">Épreuve E5</a>
-            <a href="e6.html">Épreuve E6</a>
+            <a href="#" onclick="showPage('landing-page')">Accueil</a>
+            <a href="#" onclick="showPage('about-page')">A propos de moi</a>
+            <a href="e5.html">Epreuve E5</a>
+            <a href="e6.html">Epreuve E6</a>
             <a href="veille.html">Veille Technologique</a>
-            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="contact-item">Contact</a>
         </div>
     </div>
 
@@ -30,7 +31,9 @@
             <p class="subtitle">et Bienvenue sur mon portfolio</p>
             <button onclick="showPage('about-page')" class="btn-enter">Découvrir</button>
         </div>
-        <div class="moon-shape"></div>
+        <div class="moon-container">
+            <img src="assets/images/lunebleue_sans_blanc.png" alt="Lune" class="moon-img">
+        </div>
     </section>
 
     <section id="about-page" class="page">
