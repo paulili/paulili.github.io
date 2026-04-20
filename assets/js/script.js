@@ -1,53 +1,29 @@
-/* --- LOGICIEL DE BIENVENUE --- */
-console.log("Portfolio chargé avec succès !");
+console.log("Script chargé avec succès depuis assets/js/script.js");
 
-const date = new Date();
-const hour = date.getHours();
-let greeting = "";
-
-if (hour < 12) {
-    greeting = "Bonjour";
-} else if (hour < 18) {
-    greeting = "Bon après-midi";
-} else {
-    greeting = "Bonsoir";
-}
-
-console.log(`${greeting}, bienvenue sur le portfolio de Paula.`);
-
-/* --- GESTION DU MENU LATÉRAL --- */
 function toggleMenu() {
     const menu = document.getElementById("side-menu");
     
-    // On vérifie si l'élément existe bien
-    if (!menu) {
-        console.error("L'élément 'side-menu' n'a pas été trouvé !");
-        return;
-    }
+    // On définit la largeur en fonction de l'écran
+    const openWidth = (window.innerWidth < 600) ? "100%" : "350px";
 
-    // On bascule entre 0 et 350px
-    if (menu.style.width === "350px") {
-        menu.style.width = "0";
+    if (menu.style.width === openWidth) {
+        menu.style.width = "0px";
     } else {
-        menu.style.width = "350px";
+        menu.style.width = openWidth;
     }
-    
-    console.log("Largeur du menu après clic :", menu.style.width);
 }
 
-/* --- NAVIGATION INTERNE (Pour index.html) --- */
 function showPage(pageId) {
-    // Cache toutes les sections
+    // Cacher toutes les pages
     const pages = document.querySelectorAll('.page');
-    pages.forEach(page => page.classList.remove('active'));
-
-    // Affiche la section cible
+    pages.forEach(p => p.classList.remove('active'));
+    
+    // Afficher la page demandée
     const target = document.getElementById(pageId);
     if (target) {
         target.classList.add('active');
     }
     
-    // Ferme le menu après le clic
-    const menu = document.getElementById("side-menu");
-    if (menu) menu.style.width = "0";
+    // Fermer le menu après le clic
+    document.getElementById("side-menu").style.width = "0px";
 }
