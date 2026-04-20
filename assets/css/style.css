@@ -49,15 +49,15 @@ body, html {
 
 /* --- SIDEBAR (STYLE BLOCS SELON TES SCREENS) --- */
 .sidebar {
-    height: 100%;
-    width: 0;
+    height: 100vh; /* Indispensable pour voir le menu sur toute la hauteur */
+    width: 0; 
     position: fixed;
     z-index: 9000;
     top: 0;
     left: 0;
-    background-color: var(--sidebar-bg);
-    overflow-x: hidden;
+    background-color: #3d3d3d; /* La couleur de ta maquette */
     transition: 0.5s ease;
+    overflow-x: hidden;
 }
 
 .sidebar-content {
