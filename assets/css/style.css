@@ -10,14 +10,40 @@ body, html {
     overflow-x: hidden;
 }
 
-/* MENU BOUTON */
+/* --- MENU BOUTON --- */
 .top-left {
-    position: fixed; top: 25px; left: 25px;
-    z-index: 9999; cursor: pointer;
-    display: flex; flex-direction: column; align-items: center;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* On garde une transition douce si tu veux l'effet de survol */
+    transition: transform 0.2s;
 }
-.menu-img { width: 45px; height: auto; }
-.menu-text { font-size: 0.7rem; color: #4a5a71; margin-top: 5px; text-transform: uppercase; }
+
+/* Image agrandie */
+.menu-img { 
+    width: 100px; /* Taille augmentée pour l'icône */
+    height: auto;
+    display: block; 
+}
+
+/* Texte conservé petit comme avant */
+.menu-text { 
+    font-size: 0.7rem; 
+    color: #4a5a71; 
+    margin-top: 5px; 
+    text-transform: uppercase; 
+    font-weight: normal; /* Assure que ce n'est pas en gras */
+}
+
+/* Optionnel : agrandit légèrement l'ensemble au survol pour aider au clic */
+.top-left:hover {
+    transform: scale(1.05);
+}
 
 /* SIDEBAR */
 .sidebar {
