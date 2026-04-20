@@ -26,7 +26,7 @@ body, html {
 
 /* Image agrandie */
 .menu-img { 
-    width: 100px; /* Taille augmentée pour l'icône */
+    width: 175px; /* Taille augmentée pour l'icône */
     height: auto;
     display: block; 
 }
