@@ -19,17 +19,20 @@ console.log(`${greeting}, bienvenue sur le portfolio de Paula.`);
 function toggleMenu() {
     const menu = document.getElementById("side-menu");
     
-    // Si le menu est fermé (largeur 0 ou vide), on l'ouvre
+    // On vérifie si l'élément existe bien
+    if (!menu) {
+        console.error("L'élément 'side-menu' n'a pas été trouvé !");
+        return;
+    }
+
+    // On bascule entre 0 et 350px
     if (menu.style.width === "350px") {
         menu.style.width = "0";
     } else {
-        // On adapte la largeur si on est sur mobile
-        if (window.innerWidth < 600) {
-            menu.style.width = "100%";
-        } else {
-            menu.style.width = "350px";
-        }
+        menu.style.width = "350px";
     }
+    
+    console.log("Largeur du menu après clic :", menu.style.width);
 }
 
 /* --- NAVIGATION INTERNE (Pour index.html) --- */
