@@ -3,37 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Ciacan Paula</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Portfolio - Paula Ciacan</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <section class="split-top">
-        <h1 class="main-title">PORTFOLIO</h1>
-        <div class="sub-info">
-            <span>CIACAN PAULA</span>
-            <span style="font-size: 1rem; margin-top: 10px; color: white;">BTS SIO SISR</span>
+    <nav class="top-left" onclick="toggleMenu()" style="cursor:pointer">
+        <div class="stars-logo">✦✦<br>✦✦</div>
+        <span>Menu Principal</span>
+    </nav>
+
+    <div id="side-menu" class="sidebar">
+        <div class="sidebar-content">
+            <a href="#about-page" onclick="toggleMenu()">À propos de moi</a>
+            <a href="e5.html">Épreuve E5</a>
+            <a href="e6.html">Épreuve E6</a>
+            <a href="veille.html">Veille Technologique</a>
+            <a href="contact.html">Contact</a>
         </div>
+    </div>
+
+    <section id="landing-page" class="page active">
+        <div class="hero-content">
+            <div class="divider"><span>— ❧ —</span></div>
+            <h1>Bonjour</h1>
+            <p class="subtitle">et Bienvenue sur mon portfolio</p>
+            <button onclick="showPage('about-page')" class="btn-enter">Découvrir</button>
+        </div>
+        <div class="moon-shape"></div>
     </section>
 
-    <section class="split-bottom">
-        <a href="apropos.html" class="nav-column">
-            <h2>À PROPOS DE</h2>
-        </a>
+    <section id="about-page" class="page">
+        <main class="profile-container">
+            <h2>Je m’appelle Paula Ciacan</h2>
+            
+            <div class="photo-frame">
+                <img src="photo-paula.jpg" alt="Paula Ciacan">
+                <div class="floral-decor">🌿</div>
+            </div>
 
-        <a href="e5.html" class="nav-column">
-            <h2>ÉPREUVE E5</h2>
-        </a>
+            <p class="description">et je suis étudiante en <strong>BTS SIO, option SISR</strong></p>
 
-        <a href="e6.html" class="nav-column">
-            <h2>ÉPREUVE E6</h2>
-        </a>
-
-        <a href="veille.html" class="nav-column">
-            <h2>VEILLE TECHNO</h2>
-        </a>
+            <div class="button-grid">
+                <button class="nav-btn" onclick="window.location.href='bts.html'">BTS SIO - C'est quoi ?</button>
+                <button class="nav-btn" onclick="window.location.href='e5.html'">Épreuve E5</button>
+                <button class="nav-btn" onclick="window.location.href='e6.html'">Épreuve E6</button>
+                <button class="nav-btn" onclick="window.location.href='veille.html'">Veille technologique</button>
+            </div>
+        </main>
     </section>
 
-    <script src="assets/js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
