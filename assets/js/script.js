@@ -1,9 +1,10 @@
-console.log("Script chargé avec succès depuis assets/js/script.js");
+console.log("Fichier script.js chargé correctement !");
 
 function toggleMenu() {
     const menu = document.getElementById("side-menu");
-    
-    // On définit la largeur en fonction de l'écran
+    if (!menu) return;
+
+    // Déterminer la largeur d'ouverture
     const openWidth = (window.innerWidth < 600) ? "100%" : "350px";
 
     if (menu.style.width === openWidth) {
@@ -14,16 +15,18 @@ function toggleMenu() {
 }
 
 function showPage(pageId) {
-    // Cacher toutes les pages
+    // 1. Cacher toutes les pages
     const pages = document.querySelectorAll('.page');
-    pages.forEach(p => p.classList.remove('active'));
+    pages.forEach(p => {
+        p.classList.remove('active');
+    });
     
-    // Afficher la page demandée
+    // 2. Afficher la page sélectionnée
     const target = document.getElementById(pageId);
     if (target) {
         target.classList.add('active');
     }
     
-    // Fermer le menu après le clic
+    // 3. Fermer le menu
     document.getElementById("side-menu").style.width = "0px";
 }
