@@ -10,11 +10,35 @@ body, html {
     overflow-x: hidden;
 }
 
+/* --- SECTION ACCUEIL (Landing Page) --- */
+
+/* Agrandir le mot "Bonjour" */
+.hero-content h1 {
+    font-size: 6rem; /* Taille augmentée (était à 4rem avant) */
+    margin: 0;
+    font-weight: bold;
+    color: #3d3d3d;
+}
+
+/* Agrandir le texte "et Bienvenue sur mon portfolio" */
+.hero-content .subtitle {
+    font-size: 2.5rem; /* Taille augmentée */
+    margin-top: 10px;
+    color: #4a5a71;
+    font-style: italic; /* Garde le style élégant */
+}
+
+/* Ajuster l'ornement (le divider) si besoin */
+.divider span {
+    font-size: 2rem;
+    color: #8da1b9;
+}
+
 /* --- MENU BOUTON --- */
 .top-left {
     position: fixed;
-    top: 30px; /* Légèrement descendu pour compenser la taille */
-    left: 30px; /* Légèrement décalé du bord gauche */
+    top: 25px; /* Légèrement descendu pour compenser la taille */
+    left: 25px; /* Légèrement décalé du bord gauche */
     z-index: 9999;
     cursor: pointer;
     display: flex;
@@ -25,7 +49,7 @@ body, html {
 
 /* Image encore plus grande */
 .menu-img { 
-    width: 150px; /* On passe à 150px pour un effet plus massif */
+    width: 120px; /* On passe à 150px pour un effet plus massif */
     height: auto;
     display: block; 
 }
@@ -34,7 +58,7 @@ body, html {
 .menu-text { 
     font-size: 0.7rem; 
     color: #4a5a71; 
-    margin-top: 8px; /* Un peu plus d'espace sous la grosse icône */
+    margin-top: 6px; 
     text-transform: uppercase; 
     font-weight: normal;
 }
@@ -82,3 +106,12 @@ body, html {
 .photo-frame img { width: 220px; border-radius: 15px; }
 .button-grid { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; justify-content: center; }
 .nav-btn, .btn-enter { padding: 10px 20px; background: #8da1b9; border: none; border-radius: 5px; cursor: pointer; }
+
+@media (max-width: 600px) {
+    .hero-content h1 {
+        font-size: 3.5rem; /* Plus petit sur mobile pour que ça tienne */
+    }
+    .hero-content .subtitle {
+        font-size: 1.5rem;
+    }
+}
