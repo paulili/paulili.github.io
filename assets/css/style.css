@@ -13,34 +13,33 @@ body, html {
 /* --- MENU BOUTON --- */
 .top-left {
     position: fixed;
-    top: 20px;
-    left: 20px;
+    top: 30px; /* Légèrement descendu pour compenser la taille */
+    left: 30px; /* Légèrement décalé du bord gauche */
     z-index: 9999;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* On garde une transition douce si tu veux l'effet de survol */
     transition: transform 0.2s;
 }
 
-/* Image agrandie */
+/* Image encore plus grande */
 .menu-img { 
-    width: 175px; /* Taille augmentée pour l'icône */
+    width: 150px; /* On passe à 150px pour un effet plus massif */
     height: auto;
     display: block; 
 }
 
-/* Texte conservé petit comme avant */
+/* Texte toujours à 0.7rem comme demandé */
 .menu-text { 
     font-size: 0.7rem; 
     color: #4a5a71; 
-    margin-top: 5px; 
+    margin-top: 8px; /* Un peu plus d'espace sous la grosse icône */
     text-transform: uppercase; 
-    font-weight: normal; /* Assure que ce n'est pas en gras */
+    font-weight: normal;
 }
 
-/* Optionnel : agrandit légèrement l'ensemble au survol pour aider au clic */
+/* Effet au survol */
 .top-left:hover {
     transform: scale(1.05);
 }
