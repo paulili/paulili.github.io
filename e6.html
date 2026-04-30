@@ -1,31 +1,262 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Épreuve E6 - SISR</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Épreuve E6 — Paula Ciacan</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* ══ E6 SPÉCIFIQUE ══ */
+
+    .intro-card {
+      background: rgba(13,21,37,.7);
+      border: 1px solid rgba(74,127,212,.18);
+      border-left: 3px solid var(--accent);
+      padding: 1.6rem 2rem;
+      margin-bottom: 2.5rem;
+      font-size: .92rem;
+      color: var(--muted);
+      line-height: 1.9;
+      animation: fadeSlideUp .8s .05s ease both;
+    }
+
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--pale);
+      letter-spacing: .06em;
+      margin: 3rem 0 1.2rem;
+      padding-bottom: .6rem;
+      border-bottom: 1px solid rgba(74,127,212,.15);
+    }
+
+    /* Domaines de compétences */
+    .domains-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .domain-card {
+      background: rgba(13,21,37,.7);
+      border: 1px solid rgba(74,127,212,.18);
+      padding: 1.4rem;
+      text-align: center;
+      transition: border-color .3s, transform .3s;
+      animation: fadeSlideUp .8s ease both;
+    }
+    .domain-card:hover {
+      border-color: rgba(74,127,212,.5);
+      transform: translateY(-3px);
+    }
+    .domain-icon { font-size: 1.8rem; margin-bottom: .6rem; display: block; }
+    .domain-label {
+      font-size: .72rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent2);
+    }
+
+    /* Badge WIP */
+    .badge-wip {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .68rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,169,110,.3);
+      padding: .25rem .7rem;
+      margin-bottom: 1rem;
+    }
+    .badge-wip::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: blinkDot 1.6s ease-in-out infinite;
+    }
+    @keyframes blinkDot {
+      0%,100% { opacity: 1; }
+      50%      { opacity: .2; }
+    }
+
+    /* Projet card */
+    .project-card {
+      background: rgba(13,21,37,.7);
+      border: 1px solid rgba(74,127,212,.18);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .35s, transform .35s;
+      animation: fadeSlideUp .8s ease both;
+    }
+    .project-card:hover {
+      border-color: rgba(74,127,212,.5);
+      transform: translateY(-3px);
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 0;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      transition: height .4s ease;
+    }
+    .project-card:hover::before { height: 100%; }
+
+    .project-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--accent2);
+      margin-bottom: .5rem;
+      letter-spacing: .04em;
+    }
+    .project-card .competence-tag {
+      font-size: .68rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .project-card p {
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: .8rem;
+    }
+
+    /* Technologies à venir */
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 700px) {
+      .domains-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 450px) {
+      .domains-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <header class="page-header">
-        <span style="color:white; font-weight:bold;">EPREUVE E6</span>
-        <a href="index.html" class="home-btn">← Retour Accueil</a>
-    </header>
 
-    <main class="container">
-        <h1 class="section-title">Administration des Systèmes et Réseaux</h1>
-        
-        <div class="content-box">
-            <p>L'épreuve E6 certifie les compétences en conception et sécurisation des infrastructures, ainsi qu'en administration et supervision.</p>
-        </div>
+  <!-- ══ NAVBAR ══ -->
+  <nav class="topnav">
+    <a class="topnav-brand" href="index.html">Paula <span>Ciacan</span></a>
+    <ul class="topnav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <li class="topnav-sep"></li>
+      <li><a href="e5.html">Épreuve E5</a></li>
+      <li><a href="e6.html" class="active-link">Épreuve E6</a></li>
+      <li><a href="veille.html">Veille</a></li>
+      <li class="topnav-sep"></li>
+      <li class="topnav-contact"><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-        <h2 class="section-title">Mes Projets d'Administration</h2>
-        
-        <div class="content-box">
-            <h3 style="color:var(--accent-color);">🚧 Documentation en cours</h3>
-            <p>Cette section présentera mes projets d'architecture réseau.</p>
-            <p><em>Exemples à venir : Configuration Active Directory, VLANs, Pare-feu, Scripts PowerShell/Bash.</em></p>
+  <!-- ══ CONTENU ══ -->
+  <div class="page-wrapper">
+    <div class="container">
+
+      <p class="page-label">BTS SIO — SISR</p>
+      <h1 class="page-title">Épreuve E6</h1>
+      <p class="page-subtitle">Administration des Systèmes et des Réseaux</p>
+
+      <div class="divider-line"></div>
+
+      <!-- Intro -->
+      <div class="intro-card">
+        L'épreuve E6 certifie les compétences en
+        <strong style="color:var(--pale)">conception et sécurisation des infrastructures</strong>,
+        ainsi qu'en <strong style="color:var(--pale)">administration et supervision</strong> des
+        systèmes et réseaux d'une organisation.
+      </div>
+
+      <!-- Domaines -->
+      <h2 class="section-heading">Domaines de compétences</h2>
+      <div class="domains-grid">
+        <div class="domain-card" style="animation-delay:.05s">
+          <span class="domain-icon">🖧</span>
+          <span class="domain-label">Architecture réseau</span>
         </div>
-    </main>
+        <div class="domain-card" style="animation-delay:.1s">
+          <span class="domain-icon">🔒</span>
+          <span class="domain-label">Sécurisation</span>
+        </div>
+        <div class="domain-card" style="animation-delay:.15s">
+          <span class="domain-icon">🗄️</span>
+          <span class="domain-label">Active Directory</span>
+        </div>
+        <div class="domain-card" style="animation-delay:.2s">
+          <span class="domain-icon">📡</span>
+          <span class="domain-label">VLANs & Routage</span>
+        </div>
+        <div class="domain-card" style="animation-delay:.25s">
+          <span class="domain-icon">⚙️</span>
+          <span class="domain-label">Scripts PowerShell / Bash</span>
+        </div>
+        <div class="domain-card" style="animation-delay:.3s">
+          <span class="domain-icon">☁️</span>
+          <span class="domain-label">Virtualisation & Cloud</span>
+        </div>
+      </div>
+
+      <!-- Projets -->
+      <h2 class="section-heading">Mes projets d'administration</h2>
+
+      <!-- WIP principal -->
+      <div class="project-card" style="animation-delay:.05s">
+        <div class="badge-wip">En cours de documentation</div>
+        <h3>Projets d'architecture et d'administration réseau</h3>
+        <p>
+          Cette section présentera mes projets réalisés en alternance chez
+          <a href="jesto.html" style="color:var(--accent2)">Jesto Informatique</a>
+          et dans le cadre de ma formation BTS SIO SISR.
+        </p>
+        <p>Projets à venir :</p>
+        <div class="tech-list">
+          <span class="tag">Configuration Active Directory</span>
+          <span class="tag">VLANs</span>
+          <span class="tag">Pare-feu</span>
+          <span class="tag">Scripts PowerShell</span>
+          <span class="tag">Scripts Bash</span>
+          <span class="tag">Virtualisation</span>
+          <span class="tag">Microsoft 365</span>
+          <span class="tag">GPO</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-name">Paula Ciacan</p>
+      <p class="footer-role">Étudiante BTS SIO SISR · Technicienne IT</p>
+      <nav class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="apropos.html">À propos</a>
+        <a href="e5.html">E5</a>
+        <a href="e6.html">E6</a>
+        <a href="veille.html">Veille</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="footer-divider"></div>
+      <p class="footer-copy">© 2025 Paula Ciacan · Portfolio BTS SIO SISR · Fait avec <span>♥</span></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
