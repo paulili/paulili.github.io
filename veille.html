@@ -1,68 +1,269 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veille Technologique</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veille Technologique — Paula Ciacan</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* ── Spécifique veille.html ── */
+    .article-card {
+      background: rgba(13,21,37,.7);
+      border: 1px solid rgba(74,127,212,.18);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .35s, transform .35s;
+      animation: fadeSlideUp .8s ease both;
+      margin-bottom: 1.5rem;
+    }
+    .article-card:hover {
+      border-color: rgba(74,127,212,.5);
+      transform: translateY(-3px);
+    }
+    .article-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 0;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      transition: height .4s ease;
+    }
+    .article-card:hover::before { height: 100%; }
+
+    .article-date {
+      font-size: .72rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .8rem;
+      display: block;
+    }
+
+    .article-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--accent2);
+      margin-bottom: .8rem;
+      letter-spacing: .04em;
+    }
+
+    .article-card p {
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .article-tags { margin-bottom: 1.2rem; }
+
+    .source-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .75rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(74,127,212,.3);
+      padding-bottom: 2px;
+      transition: color .3s, border-color .3s;
+    }
+    .source-link:hover {
+      color: var(--pale);
+      border-color: var(--accent2);
+    }
+
+    /* Outil de veille */
+    .outil-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      background: rgba(13,21,37,.7);
+      border: 1px solid rgba(74,127,212,.18);
+      padding: 1.5rem 2rem;
+      margin-bottom: 1rem;
+      transition: border-color .3s;
+      animation: fadeSlideUp .8s ease both;
+    }
+    .outil-card:hover { border-color: rgba(74,127,212,.4); }
+
+    .outil-icon {
+      font-size: 2rem;
+      min-width: 2.5rem;
+      text-align: center;
+    }
+
+    .outil-info h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--pale);
+      margin-bottom: .3rem;
+    }
+    .outil-info p {
+      font-size: .85rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* Image certfr */
+    .certfr-img {
+      width: 100%;
+      height: auto;
+      border: 1px solid rgba(74,127,212,.25);
+      border-radius: 3px;
+      box-shadow: 0 0 20px rgba(74,127,212,.1);
+      margin-bottom: .8rem;
+      display: block;
+    }
+
+    .img-caption {
+      font-size: .78rem;
+      color: var(--muted);
+      text-align: center;
+      letter-spacing: .06em;
+      font-style: italic;
+    }
+
+    /* WIP badge */
+    .wip-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .68rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,169,110,.3);
+      padding: .25rem .7rem;
+      margin-bottom: 1rem;
+    }
+    .wip-dot {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .4; transform: scale(.8); }
+    }
+  </style>
 </head>
 <body>
-    <header class="page-header">
-        <span style="color:white; font-weight:bold;">VEILLE TECHNO</span>
-        <a href="index.html" class="home-btn">← Retour Accueil</a>
-    </header>
+  <canvas id="stars-canvas"></canvas>
 
-    <main class="container">
-        <h1 class="section-title">Veille</h1>
-        
-      <main class="container">
-    <h1 class="section-title">Veille Technologique</h1>
-    
-    <div class="content-box">
-        <h3>Mes Outils de Veille</h3>
-        
-        <div style="text-align: center; margin: 20px 0;">
-            <img src="assets/images/certfr.png" 
-                 alt="Capture d'écran de l'interface Teams montrant le flux de veille" 
-                 style="max-width: 100%; 
-                        height: auto; 
-                        border: 1px solid var(--accent-color); 
-                        border-radius: 5px; 
-                        margin-bottom: 10px;">
-            <p style="font-size: 0.9rem; color: #888;">
-                Groupe Teams de l'entreprise recevant des newsletters quotidiennes, ce qui permet de centraliser les informations importantes (ANSSI, CERT-FR).
-            </p>
+  <!-- ── NAVBAR ── -->
+  <nav class="topnav">
+    <a href="index.html" class="topnav-brand">Paula <span>Ciacan</span></a>
+    <ul class="topnav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <div class="topnav-sep"></div>
+      <li><a href="e5.html">Épreuve E5</a></li>
+      <li><a href="e6.html">Épreuve E6</a></li>
+      <li><a href="veille.html" class="active-link">Veille</a></li>
+      <li><a href="btssio.html">BTS SIO</a></li>
+      <div class="topnav-sep"></div>
+      <li class="topnav-contact"><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── CONTENU ── -->
+  <div class="page-wrapper">
+    <div class="container">
+
+      <!-- En-tête de page -->
+      <p class="page-label">Portfolio · Paula Ciacan</p>
+      <h1 class="page-title">Veille Technologique</h1>
+      <p class="page-subtitle">Surveillance des menaces, vulnérabilités et actualités cyber</p>
+      <div class="divider-line"></div>
+
+      <!-- Section : Outils de veille -->
+      <section style="margin: 3rem 0 2.5rem;">
+        <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; color:var(--pale); letter-spacing:.06em; margin-bottom:1.5rem;">
+          Mes Outils de Veille
+        </h2>
+
+        <div class="outil-card">
+          <div class="outil-icon">📡</div>
+          <div class="outil-info">
+            <h4>CERT-FR &amp; ANSSI — Newsletters quotidiennes</h4>
+            <p>Les alertes et avis de sécurité du CERT-FR sont reçus quotidiennement via le groupe Teams de l'entreprise, permettant de centraliser les informations critiques en temps réel.</p>
+          </div>
         </div>
-        <ul>
-            <li>Newsletters (ANSSI, CERT-FR) - via le groupe Teams de l'entreprise, quotidien</li>
-            </ul>
-    </div>
 
-    <h2 class="section-title">Exemples d'articles & analyses</h2>
-    </main>
-
-        <h2 class="section-title">Exemples d'articles & analyses</h2>
-        
-        <div class="content-box">
-            <h3 style="color:var(--accent-color);">Article 1 : Vulnérabilité dans les produits APPLE</h3>
-            <p style="font-size:0.9rem; color:#aaa;">Publié le : 15/12/2025</p>
-            <br>
-            <p>De multiples vulnérabilités ont été découvertes dans les produits Apple. Certaines d'entre elles permettent à un attaquant de provoquer une exécution de code arbitraire à distance, une élévation de privilèges et un déni de service à distance.
-Apple indique que les vulnérabilités CVE-2025-14174 et CVE-2025-43529 sont activement exploitées.</p>
-            <br>
-            <a href="https://www.cert.ssi.gouv.fr/avis/CERTFR-2025-AVI-1110/" 
-           target="_blank" 
-           style="text-decoration:underline; color:var(--accent-color);">
-           Lire la source : Avis CERT-FR</a>
+        <!-- Image certfr -->
+        <div class="card" style="margin-top:1rem;">
+          <img src="assets/images/certfr.png"
+               alt="Groupe Teams recevant les newsletters CERT-FR / ANSSI"
+               class="certfr-img">
+          <p class="img-caption">Groupe Teams de l'entreprise recevant les newsletters quotidiennes ANSSI / CERT-FR</p>
         </div>
-        <div class="content-box">
-            <h3 style="color:var(--accent-color);">✍️ Article 2 : En cours</h3>
-            <p style="font-size:0.9rem; color:#aaa;">Statut : En cours de rédaction</p>
-            <br>
-                <div style="text-align: center; color: #777;">
-        <p>Le contenu détaillé et les sources seront ajoutés prochainement.</p>
+      </section>
+
+      <div class="divider-ornament">— ❧ —</div>
+
+      <!-- Section : Articles -->
+      <section style="margin: 2.5rem 0;">
+        <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; color:var(--pale); letter-spacing:.06em; margin-bottom:1.5rem;">
+          Articles &amp; Analyses
+        </h2>
+
+        <!-- Article 1 -->
+        <article class="article-card">
+          <span class="article-date">15 décembre 2025</span>
+          <h3>Vulnérabilités dans les produits Apple</h3>
+          <div class="article-tags">
+            <span class="tag">CVE-2025-14174</span>
+            <span class="tag">CVE-2025-43529</span>
+            <span class="tag tag-gold">Exploitation active</span>
+          </div>
+          <p>
+            De multiples vulnérabilités ont été découvertes dans les produits Apple. Certaines permettent à un attaquant de provoquer une exécution de code arbitraire à distance, une élévation de privilèges et un déni de service. Apple indique que les CVE-2025-14174 et CVE-2025-43529 sont activement exploitées.
+          </p>
+          <a href="https://www.cert.ssi.gouv.fr/avis/CERTFR-2025-AVI-1110/"
+             target="_blank"
+             class="source-link">
+            ↗ Lire l'avis CERT-FR
+          </a>
+        </article>
+
+        <!-- Article 2 — WIP -->
+        <article class="article-card">
+          <div class="wip-badge"><span class="wip-dot"></span> En cours de rédaction</div>
+          <h3>Article 2 — À venir</h3>
+          <p style="color:var(--muted); font-style:italic;">
+            Le contenu détaillé et les sources seront ajoutés prochainement.
+          </p>
+        </article>
+      </section>
+
+    </div><!-- /container -->
+  </div><!-- /page-wrapper -->
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-name">Paula Ciacan</p>
+      <p class="footer-role">BTS SIO · Option SISR</p>
+      <div class="footer-divider"></div>
+      <nav class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="apropos.html">À propos</a>
+        <a href="e5.html">E5</a>
+        <a href="e6.html">E6</a>
+        <a href="veille.html">Veille</a>
+        <a href="btssio.html">BTS SIO</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer-copy">© 2025 <span>Paula Ciacan</span> — Portfolio BTS SIO</p>
     </div>
-</div>
-    </main>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
