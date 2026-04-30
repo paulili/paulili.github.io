@@ -1,35 +1,246 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Paula Ciacan</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* ══ CONTACT SPÉCIFIQUE ══ */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* Infos contact */
+    .contact-info { display: flex; flex-direction: column; gap: 1rem; }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.2rem 1.4rem;
+      background: rgba(13,21,37,.7);
+      border: 1px solid rgba(74,127,212,.18);
+      transition: border-color .3s;
+    }
+    .contact-item:hover { border-color: rgba(74,127,212,.5); }
+    .contact-item-icon { font-size: 1.3rem; margin-top: .1rem; }
+    .contact-item-text { display: flex; flex-direction: column; gap: .2rem; }
+    .contact-item-label {
+      font-size: .65rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .contact-item-value {
+      font-size: .9rem;
+      color: var(--pale);
+    }
+    .contact-item-value a {
+      color: var(--accent2);
+      text-decoration: none;
+      transition: color .3s;
+    }
+    .contact-item-value a:hover { color: var(--pale); }
+
+    /* Formulaire */
+    .form-card {
+      background: rgba(13,21,37,.7);
+      border: 1px solid rgba(74,127,212,.18);
+      padding: 2rem;
+      animation: fadeSlideUp .8s .1s ease both;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .form-group label {
+      font-size: .7rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      background: rgba(6,10,20,.6);
+      border: 1px solid rgba(74,127,212,.2);
+      color: var(--pale);
+      padding: .8rem 1rem;
+      font-family: 'Jost', sans-serif;
+      font-size: .9rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color .3s;
+      resize: vertical;
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--muted);
+      opacity: .6;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-submit {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: .5rem;
+    }
+
+    @media (max-width: 720px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <header class="page-header">
-        <span style="color:white; font-weight:bold;">CONTACT</span>
-        <a href="index.html" class="home-btn">← Retour Accueil</a>
-    </header>
 
-    <main class="container">
-        <h1 class="section-title">Me Contacter</h1>
-        
-        <div class="content-box">
-            <form action="mailto:ciacanpaula@gmail.com" method="post" enctype="text/plain">
-                <div style="margin-bottom: 15px;">
-                    <label style="display:block; margin-bottom:5px;">Nom :</label>
-                    <input type="text" name="name" style="width:100%; padding:10px; background:#222; border:1px solid #444; color:white;">
-                </div>
-                
-                <div style="margin-bottom: 15px;">
-                    <label style="display:block; margin-bottom:5px;">Message :</label>
-                    <textarea name="message" rows="5" style="width:100%; padding:10px; background:#222; border:1px solid #444; color:white;"></textarea>
-                </div>
+  <!-- ══ NAVBAR ══ -->
+  <nav class="topnav">
+    <a class="topnav-brand" href="index.html">Paula <span>Ciacan</span></a>
+    <ul class="topnav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <li class="topnav-sep"></li>
+      <li><a href="e5.html">Épreuve E5</a></li>
+      <li><a href="e6.html">Épreuve E6</a></li>
+      <li><a href="veille.html">Veille</a></li>
+      <li class="topnav-sep"></li>
+      <li class="topnav-contact"><a href="contact.html" class="active-link">Contact</a></li>
+    </ul>
+  </nav>
 
-                <button type="submit" class="btn-download" style="border:none; cursor:pointer;">Envoyer</button>
-            </form>
+  <!-- ══ CONTENU ══ -->
+  <div class="page-wrapper">
+    <div class="container">
+
+      <p class="page-label">Restons en contact</p>
+      <h1 class="page-title">Me contacter</h1>
+      <p class="page-subtitle">Une question, une opportunité ? Je suis disponible.</p>
+
+      <div class="divider-line"></div>
+
+      <div class="contact-grid" style="margin-top: 2.5rem;">
+
+        <!-- Infos -->
+        <div class="contact-info">
+
+          <div class="contact-item" style="animation: fadeSlideUp .8s .05s ease both;">
+            <span class="contact-item-icon">✉️</span>
+            <div class="contact-item-text">
+              <span class="contact-item-label">Email</span>
+              <span class="contact-item-value">
+                <a href="mailto:ciacanpaula@gmail.com">ciacanpaula@gmail.com</a>
+              </span>
+            </div>
+          </div>
+
+          <div class="contact-item" style="animation: fadeSlideUp .8s .1s ease both;">
+            <span class="contact-item-icon">🏢</span>
+            <div class="contact-item-text">
+              <span class="contact-item-label">Entreprise</span>
+              <span class="contact-item-value">
+                <a href="jesto.html">Jesto Informatique</a>
+              </span>
+            </div>
+          </div>
+
+          <div class="contact-item" style="animation: fadeSlideUp .8s .15s ease both;">
+            <span class="contact-item-icon">🎓</span>
+            <div class="contact-item-text">
+              <span class="contact-item-label">Formation</span>
+              <span class="contact-item-value">BTS SIO option SISR</span>
+            </div>
+          </div>
+
+          <div class="contact-item" style="animation: fadeSlideUp .8s .2s ease both;">
+            <span class="contact-item-icon">📄</span>
+            <div class="contact-item-text">
+              <span class="contact-item-label">CV</span>
+              <span class="contact-item-value">
+                <a href="assets/pdf/CVPC.pdf" target="_blank">Télécharger mon CV →</a>
+              </span>
+            </div>
+          </div>
+
         </div>
-    </main>
+
+        <!-- Formulaire -->
+        <div class="form-card">
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:400; color:var(--accent2); margin-bottom:1.6rem; letter-spacing:.06em;">
+            Envoyer un message
+          </h3>
+
+          <form action="mailto:ciacanpaula@gmail.com" method="post" enctype="text/plain">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name" placeholder="Votre nom">
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="votre@email.com">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Sujet</label>
+              <input type="text" id="subject" name="subject" placeholder="Objet de votre message">
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" placeholder="Votre message..."></textarea>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn">Envoyer →</button>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-name">Paula Ciacan</p>
+      <p class="footer-role">Étudiante BTS SIO SISR · Technicienne IT</p>
+      <nav class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="apropos.html">À propos</a>
+        <a href="e5.html">E5</a>
+        <a href="e6.html">E6</a>
+        <a href="veille.html">Veille</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="footer-divider"></div>
+      <p class="footer-copy">© 2025 Paula Ciacan · Portfolio BTS SIO SISR · Fait avec <span>♥</span></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
