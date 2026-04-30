@@ -1,81 +1,286 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Épreuve E5 - SISR</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Épreuve E5 — Paula Ciacan</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* ══ E5 SPÉCIFIQUE ══ */
+
+    /* Bloc intro */
+    .intro-card {
+      background: rgba(13,21,37,.7);
+      border: 1px solid rgba(74,127,212,.18);
+      border-left: 3px solid var(--accent);
+      padding: 1.6rem 2rem;
+      margin-bottom: 2.5rem;
+      font-size: .92rem;
+      color: var(--muted);
+      line-height: 1.9;
+      animation: fadeSlideUp .8s .05s ease both;
+    }
+
+    /* Badge "en cours" */
+    .badge-wip {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .68rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,169,110,.3);
+      padding: .25rem .7rem;
+      margin-bottom: 1rem;
+    }
+    .badge-wip::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: blinkDot 1.6s ease-in-out infinite;
+    }
+    @keyframes blinkDot {
+      0%,100% { opacity: 1; }
+      50%      { opacity: .2; }
+    }
+
+    /* Section titre intermédiaire */
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--pale);
+      letter-spacing: .06em;
+      margin: 3rem 0 1.2rem;
+      padding-bottom: .6rem;
+      border-bottom: 1px solid rgba(74,127,212,.15);
+    }
+
+    /* Projet card */
+    .project-card {
+      background: rgba(13,21,37,.7);
+      border: 1px solid rgba(74,127,212,.18);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .35s, transform .35s;
+      animation: fadeSlideUp .8s ease both;
+    }
+    .project-card:hover {
+      border-color: rgba(74,127,212,.5);
+      transform: translateY(-3px);
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 0;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      transition: height .4s ease;
+    }
+    .project-card:hover::before { height: 100%; }
+
+    .project-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--accent2);
+      margin-bottom: .5rem;
+      letter-spacing: .04em;
+    }
+    .project-card .competence-tag {
+      font-size: .68rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .project-card p {
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    /* Étapes numérotées */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      margin: 1rem 0 1.4rem;
+    }
+    .step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .step-num {
+      min-width: 26px; height: 26px;
+      background: rgba(74,127,212,.15);
+      border: 1px solid rgba(74,127,212,.3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .72rem;
+      color: var(--accent2);
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+    .step-text {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* Aperçu image */
+    .img-preview {
+      margin: 1.5rem 0 1rem;
+      text-align: center;
+    }
+    .img-preview img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid rgba(74,127,212,.2);
+      display: block;
+      margin: 0 auto;
+    }
+    .img-preview figcaption {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-top: .6rem;
+      letter-spacing: .06em;
+    }
+
+    /* Actions boutons */
+    .card-actions {
+      display: flex;
+      gap: .8rem;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+    }
+  </style>
 </head>
 <body>
-    <header class="page-header">
-        <span style="color:white; font-weight:bold;">EPREUVE E5</span>
-        <a href="index.html" class="home-btn">← Retour Accueil</a>
-    </header>
 
-<main class="container">
-    <h1 class="section-title">Support et Mise à Disposition (Épreuve E5)</h1>
-    
-    <div class="content-box">
-        <p>L'épreuve E5 valide les compétences liées à la réponse aux attentes des utilisateurs, à l'accompagnement de la transformation numérique et au maintien de la qualité des services.</p>
-    </div>
+  <!-- ══ NAVBAR ══ -->
+  <nav class="topnav">
+    <a class="topnav-brand" href="index.html">Paula <span>Ciacan</span></a>
+    <ul class="topnav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <li class="topnav-sep"></li>
+      <li><a href="e5.html" class="active-link">Épreuve E5</a></li>
+      <li><a href="e6.html">Épreuve E6</a></li>
+      <li><a href="veille.html">Veille</a></li>
+      <li class="topnav-sep"></li>
+      <li class="topnav-contact"><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-    <h2 class="section-title">Mes Projets</h2>
-    
-    <div class="content-box">
-        <h3 style="color:var(--accent-color);">🚧 Projets suivants en cours de documentation</h3>
-        <p>Je suis actuellement en train de documenter mes interventions techniques, notamment : Gestion de tickets, Installation de postes clients, Virtualisation...</p>
-    </div>
-    
-    <div class="content-box">
-        <h3>Gestion d'incident (Ticket n°23656) - Changement de station d'accueil</h3>
+  <!-- ══ CONTENU ══ -->
+  <div class="page-wrapper">
+    <div class="container">
 
+      <p class="page-label">BTS SIO — SISR</p>
+      <h1 class="page-title">Épreuve E5</h1>
+      <p class="page-subtitle">Support et Mise à Disposition de Services Informatiques</p>
+
+      <div class="divider-line"></div>
+
+      <!-- Intro -->
+      <div class="intro-card">
+        L'épreuve E5 valide les compétences liées à la <strong style="color:var(--pale)">réponse aux attentes des utilisateurs</strong>,
+        à l'accompagnement de la transformation numérique et au
+        <strong style="color:var(--pale)">maintien de la qualité des services</strong> informatiques au sein d'une organisation.
+      </div>
+
+      <!-- ── Mes projets ── -->
+      <h2 class="section-heading">Mes projets</h2>
+
+      <!-- Projet 1 : Ticket docking station -->
+      <div class="project-card" style="animation-delay:.05s">
+        <span class="competence-tag">Compétence E5 · Gestion des incidents et des problèmes</span>
+        <h3>Gestion d'incident — Ticket n°23656 · Changement de station d'accueil</h3>
         <p>
-            Compétence E4 mobilisée : Gestion des incidents et des problèmes (Traitement d'une demande d'assistance).
+          Ce ticket concernait le dysfonctionnement d'une station d'accueil <strong style="color:var(--pale)">Dell WD19S</strong>
+          chez un utilisateur en alternance. J'ai été responsable de l'ensemble du processus de résolution.
         </p>
-        <p>
-            Ce ticket concernait le dysfonctionnement d'une station d'accueil (Docking Station) Dell. J'ai été responsable de l'ensemble du processus :
-            <br>
-            1.  Diagnostic initial et reproduction du problème.
-            <br>
-            2.  Contact du support constructeur (DELL) pour obtenir un diagnostic avancé et initier la procédure d'échange sous garantie.
-            <br>
-            3.  Suivi de la livraison et déploiement du nouveau matériel chez l'utilisateur.
-        </p>
-
-        <a href="assets/pdf/realisationpro1.pdf" target="_blank" class="btn-download">
-            📄 Voir la Fiche de Réalisation (in)complète (PDF)
-        </a>
-    </div>
-    <div class="content-box">
-        <h3 style="color:var(--accent-color);">Tableau de Synthèse des Compétences E5</h3>
-        <p>
-            Ce tableau récapitulatif permet de visualiser l'ensemble des compétences E5 mobilisées et validées au travers de mes différentes activités professionnelles (stages, alternance notamment).
-        </p>
-
-        <div style="text-align: center; margin: 25px 0 15px 0;">
-            <img src="assets/images/tablsynt_apercu.png" 
-                 alt="Aperçu du Tableau de Synthèse E4" 
-                 style="max-width: 90%; 
-                        height: auto; 
-                        border: 1px solid var(--accent-dim); 
-                        border-radius: 5px; 
-                        box-shadow: 0 0 10px rgba(0, 230, 118, 0.2);">
-            <p style="font-size: 0.8rem; color: #888; margin-top: 10px;">
-                Aperçu visuel du Tableau de Synthèse des Compétences.
-            </p>
+        <div class="steps">
+          <div class="step">
+            <span class="step-num">1</span>
+            <span class="step-text">Diagnostic initial et reproduction du problème en environnement contrôlé</span>
+          </div>
+          <div class="step">
+            <span class="step-num">2</span>
+            <span class="step-text">Contact du support constructeur <strong style="color:var(--pale)">Dell</strong> pour diagnostic avancé et procédure d'échange sous garantie</span>
+          </div>
+          <div class="step">
+            <span class="step-num">3</span>
+            <span class="step-text">Suivi de la livraison et déploiement du nouveau matériel chez l'utilisateur</span>
+          </div>
         </div>
-
-        <div style="text-align: center;">
-            <a href="assets/pdf/tablsynt.pdf" download="Tableau_Synthese_E5_PaulaCIACAN.pdf" class="btn-download">
-                Télécharger le Tableau de Synthèse E5 complet en PDF
-            </a>
+        <div class="card-actions">
+          <a href="assets/pdf/realisationpro1.pdf" target="_blank" class="btn">
+            📄 Fiche de réalisation (PDF)
+          </a>
         </div>
+      </div>
+
+      <!-- Projet 2 : Tableau de synthèse -->
+      <div class="project-card" style="animation-delay:.1s">
+        <span class="competence-tag">Synthèse · Compétences E5 mobilisées</span>
+        <h3>Tableau de Synthèse des Compétences E5</h3>
+        <p>
+          Ce tableau récapitulatif permet de visualiser l'ensemble des compétences E5
+          mobilisées et validées au travers de mes différentes activités professionnelles
+          (stages, alternance chez <a href="jesto.html" style="color:var(--accent2)">Jesto Informatique</a>).
+        </p>
+        <figure class="img-preview">
+          <img src="assets/images/tablsynt_apercu.png" alt="Aperçu du Tableau de Synthèse E5">
+          <figcaption>Aperçu visuel du Tableau de Synthèse des Compétences E5</figcaption>
+        </figure>
+        <div class="card-actions">
+          <a href="assets/pdf/tablsynt.pdf" download="Tableau_Synthese_E5_PaulaCIACAN.pdf" class="btn">
+            Télécharger le tableau complet (PDF)
+          </a>
+        </div>
+      </div>
+
+      <!-- Projet 3 : WIP -->
+      <div class="project-card" style="animation-delay:.15s">
+        <div class="badge-wip">En cours de documentation</div>
+        <h3>Projets supplémentaires</h3>
+        <p>
+          Documentation à venir sur la gestion d'un parc de machines virtuelles,
+          la création de procédures internes, l'installation de postes clients, et d'autres
+          interventions techniques réalisées en alternance.
+        </p>
+      </div>
+
     </div>
-    <div class="content-box">
-        <h3 style="color:var(--accent-color);">🚧 Projets supplémentaires en cours</h3>
-        <p>Documentation à venir sur la gestion d'un parc de machines virtuelles, la création de procédures internes, etc...</p>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-name">Paula Ciacan</p>
+      <p class="footer-role">Étudiante BTS SIO SISR · Technicienne IT</p>
+      <nav class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="apropos.html">À propos</a>
+        <a href="e5.html">E5</a>
+        <a href="e6.html">E6</a>
+        <a href="veille.html">Veille</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="footer-divider"></div>
+      <p class="footer-copy">© 2025 Paula Ciacan · Portfolio BTS SIO SISR · Fait avec <span>♥</span></p>
     </div>
-</main>
-    </main>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
