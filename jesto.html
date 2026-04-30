@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jesto Informatique — Paula Ciacan</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* ── Spécifique jesto.html ── */
+
+    /* Bannière entreprise */
+    .company-banner {
+      background: rgba(13,21,37,.8);
+      border: 1px solid rgba(74,127,212,.25);
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      animation: fadeSlideUp .8s ease both;
+      position: relative;
+      overflow: hidden;
+    }
+    .company-banner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+    .company-banner h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--pale);
+      margin-bottom: .6rem;
+      letter-spacing: .06em;
+    }
+    .company-banner p {
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 680px;
+    }
+    .company-banner a {
+      color: var(--accent2);
+      text-decoration: none;
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(74,127,212,.3);
+      padding-bottom: 1px;
+      transition: color .3s, border-color .3s;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+    .company-banner a:hover { color: var(--pale); border-color: var(--accent2); }
+
+    /* Stats */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .stat-box {
+      background: rgba(13,21,37,.7);
+      border: 1px solid rgba(74,127,212,.18);
+      padding: 1.8rem 1rem;
+      text-align: center;
+      animation: fadeSlideUp .8s ease both;
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--accent2);
+      line-height: 1;
+      margin-bottom: .3rem;
+    }
+    .stat-label {
+      font-size: .7rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* Fondateurs */
+    .founders-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .founder-card {
+      background: rgba(13,21,37,.7);
+      border: 1px solid rgba(74,127,212,.18);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .35s, transform .35s;
+      animation: fadeSlideUp .8s ease both;
+    }
+    .founder-card:hover {
+      border-color: rgba(74,127,212,.5);
+      transform: translateY(-3px);
+    }
+    .founder-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 0;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      transition: height .4s ease;
+    }
+    .founder-card:hover::before { height: 100%; }
+    .founder-avatar {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .founder-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--pale);
+      margin-bottom: .3rem;
+    }
+    .founder-role {
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .founder-card p {
+      font-size: .85rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* Engagements */
+    .engagements-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .engagement-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: rgba(13,21,37,.5);
+      border: 1px solid rgba(74,127,212,.12);
+      padding: 1.4rem;
+      transition: border-color .3s;
+      animation: fadeSlideUp .8s ease both;
+    }
+    .engagement-item:hover { border-color: rgba(74,127,212,.35); }
+    .engagement-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .engagement-item h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--pale);
+      margin-bottom: .3rem;
+    }
+    .engagement-item p {
+      font-size: .82rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Zones d'intervention */
+    .zones-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .6rem;
+      margin-bottom: 3rem;
+    }
+    .zone-tag {
+      background: rgba(13,21,37,.6);
+      border: 1px solid rgba(74,127,212,.15);
+      padding: .8rem 1rem;
+      font-size: .78rem;
+      color: var(--muted);
+      letter-spacing: .06em;
+      transition: border-color .3s, color .3s;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .zone-tag:hover { border-color: rgba(74,127,212,.4); color: var(--pale); }
+    .zone-tag span { color: var(--gold); font-size: .7rem; }
+
+    /* Cadre juridique */
+    .legal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .legal-row {
+      display: flex;
+      flex-direction: column;
+      gap: .25rem;
+      padding: 1rem 1.2rem;
+      background: rgba(13,21,37,.5);
+      border: 1px solid rgba(74,127,212,.12);
+    }
+    .legal-label {
+      font-size: .65rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .legal-value {
+      font-size: .9rem;
+      color: var(--pale);
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: .04em;
+    }
+    .legal-row.full { grid-column: 1 / -1; }
+
+    @media (max-width: 700px) {
+      .founders-grid,
+      .engagements-grid,
+      .legal-grid { grid-template-columns: 1fr; }
+      .zones-list { grid-template-columns: 1fr 1fr; }
+      .stats-row { grid-template-columns: 1fr; }
+      .legal-row.full { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="stars-canvas"></canvas>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="topnav">
+    <a href="index.html" class="topnav-brand">Paula <span>Ciacan</span></a>
+    <ul class="topnav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <div class="topnav-sep"></div>
+      <li><a href="e5.html">Épreuve E5</a></li>
+      <li><a href="e6.html">Épreuve E6</a></li>
+      <li><a href="veille.html">Veille</a></li>
+      <li><a href="btssio.html">BTS SIO</a></li>
+      <div class="topnav-sep"></div>
+      <li class="topnav-contact"><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── CONTENU ── -->
+  <div class="page-wrapper">
+    <div class="container">
+
+      <!-- En-tête -->
+      <p class="page-label">Mon Alternance · Entreprise</p>
+      <h1 class="page-title">Jesto Informatique</h1>
+      <p class="page-subtitle">Société d'infogérance — Partenaire IT des PME & TPE en Île-de-France</p>
+      <div class="divider-line"></div>
+
+      <!-- Bannière présentation -->
+      <div class="company-banner">
+        <h2>Votre partenaire IT de confiance depuis 15 ans</h2>
+        <p>
+          Créée par deux associés, Jesto Informatique opère depuis 2016 dans le secteur informatique pour les entreprises, et plus particulièrement pour les PME et TPE d'Île-de-France. La société propose des services d'infogérance, de maintenance, d'administration réseau et de conseil en systèmes d'information.
+        </p>
+        <a href="https://www.jesto.fr" target="_blank">↗ Visiter le site jesto.fr</a>
+      </div>
+
+      <!-- Chiffres clés -->
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Années d'expérience</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">20+</div>
+          <div class="stat-label">Ans d'expertise technique</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Satisfaction client</div>
+        </div>
+      </div>
+
+      <!-- Les fondateurs -->
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; color:var(--pale); letter-spacing:.06em; margin-bottom:1.5rem;">
+        Les fondateurs
+      </h2>
+      <div class="founders-grid">
+        <div class="founder-card">
+          <span class="founder-avatar">👨‍💻</span>
+          <h3>Julien Fontaine</h3>
+          <span class="founder-role">Chef de Projet &amp; Admin Réseau</span>
+          <p>Fort d'un parcours en tant que chef de projet informatique et administrateur réseau au sein de grandes entreprises, Julien apporte son expérience, sa polyvalence et sa disponibilité avec efficacité et sourire.</p>
+        </div>
+        <div class="founder-card">
+          <span class="founder-avatar">🖧</span>
+          <h3>Aymeric Alemanni</h3>
+          <span class="founder-role">Architecte Réseau &amp; Codeur</span>
+          <p>Avec plus de 20 ans d'expérience à la direction d'un service informatique, Aymeric est à la fois codeur et administrateur de systèmes. Il s'attache à être un véritable architecte de réseau à l'écoute de ses clients.</p>
+        </div>
+      </div>
+
+      <div class="divider-ornament">— ❧ —</div>
+
+      <!-- Engagements -->
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; color:var(--pale); letter-spacing:.06em; margin: 2.5rem 0 1.5rem;">
+        Nos engagements
+      </h2>
+      <div class="engagements-grid">
+        <div class="engagement-item">
+          <span class="engagement-icon">⚡</span>
+          <div>
+            <h4>Flexibilité &amp; Efficacité</h4>
+            <p>Solutions adaptées selon le profil de vos systèmes d'information et vos besoins spécifiques.</p>
+          </div>
+        </div>
+        <div class="engagement-item">
+          <span class="engagement-icon">🔒</span>
+          <div>
+            <h4>Sécurité &amp; Continuité</h4>
+            <p>Protection de vos données essentielles et assurance de la continuité de votre production.</p>
+          </div>
+        </div>
+        <div class="engagement-item">
+          <span class="engagement-icon">🤝</span>
+          <div>
+            <h4>Accompagnement Dédié</h4>
+            <p>Interlocuteurs uniques dédiés, disponibles sur site et à distance pour répondre rapidement.</p>
+          </div>
+        </div>
+        <div class="engagement-item">
+          <span class="engagement-icon">🌱</span>
+          <div>
+            <h4>Relations Durables</h4>
+            <p>Partenariat au quotidien basé sur la confiance et la personnalisation de nos services.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Zones d'intervention -->
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; color:var(--pale); letter-spacing:.06em; margin-bottom:1.5rem;">
+        Zones d'intervention — Île-de-France
+      </h2>
+      <div class="zones-list">
+        <div class="zone-tag"><span>95</span> Val-d'Oise</div>
+        <div class="zone-tag"><span>92</span> Hauts-de-Seine</div>
+        <div class="zone-tag"><span>93</span> Seine-Saint-Denis</div>
+        <div class="zone-tag"><span>78</span> Yvelines</div>
+        <div class="zone-tag"><span>77</span> Seine-et-Marne</div>
+        <div class="zone-tag"><span>91</span> Essonne</div>
+        <div class="zone-tag"><span>94</span> Val-de-Marne</div>
+        <div class="zone-tag"><span>75</span> Paris</div>
+      </div>
+
+      <div class="divider-ornament">— ❧ —</div>
+
+      <!-- Cadre juridique -->
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; color:var(--pale); letter-spacing:.06em; margin: 2.5rem 0 1.5rem;">
+        Informations juridiques
+      </h2>
+      <div class="legal-grid">
+        <div class="legal-row">
+          <span class="legal-label">Dénomination</span>
+          <span class="legal-value">JESTO</span>
+        </div>
+        <div class="legal-row">
+          <span class="legal-label">Forme juridique</span>
+          <span class="legal-value">SARL</span>
+        </div>
+        <div class="legal-row">
+          <span class="legal-label">SIREN</span>
+          <span class="legal-value">817 448 970</span>
+        </div>
+        <div class="legal-row">
+          <span class="legal-label">SIRET (siège)</span>
+          <span class="legal-value">817 448 970 00019</span>
+        </div>
+        <div class="legal-row">
+          <span class="legal-label">N° TVA intracommunautaire</span>
+          <span class="legal-value">FR03 817 448 970</span>
+        </div>
+        <div class="legal-row">
+          <span class="legal-label">Code NAF / APE</span>
+          <span class="legal-value">6202A — Conseil en systèmes et logiciels informatiques</span>
+        </div>
+        <div class="legal-row">
+          <span class="legal-label">Capital social</span>
+          <span class="legal-value">1 000 €</span>
+        </div>
+        <div class="legal-row">
+          <span class="legal-label">Date de création</span>
+          <span class="legal-value">1er janvier 2016</span>
+        </div>
+        <div class="legal-row">
+          <span class="legal-label">RCS</span>
+          <span class="legal-value">817 448 970 RCS Paris</span>
+        </div>
+        <div class="legal-row">
+          <span class="legal-label">Convention collective</span>
+          <span class="legal-value">SYNTEC — Bureaux d'études techniques (n°1486)</span>
+        </div>
+        <div class="legal-row full">
+          <span class="legal-label">Siège social</span>
+          <span class="legal-value">8 rue de Domrémy, 75013 Paris</span>
+        </div>
+      </div>
+
+    </div><!-- /container -->
+  </div><!-- /page-wrapper -->
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-name">Paula Ciacan</p>
+      <p class="footer-role">BTS SIO · Option SISR</p>
+      <div class="footer-divider"></div>
+      <nav class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="apropos.html">À propos</a>
+        <a href="e5.html">E5</a>
+        <a href="e6.html">E6</a>
+        <a href="veille.html">Veille</a>
+        <a href="btssio.html">BTS SIO</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer-copy">© 2025 <span>Paula Ciacan</span> — Portfolio BTS SIO</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
