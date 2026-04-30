@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTS SIO — Paula Ciacan</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* ── Spécifique btssio.html ── */
+
+    /* Bloc intro diplôme */
+    .diploma-banner {
+      background: rgba(13,21,37,.8);
+      border: 1px solid rgba(74,127,212,.25);
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      animation: fadeSlideUp .8s ease both;
+    }
+    .diploma-badge {
+      font-size: 3rem;
+      flex-shrink: 0;
+    }
+    .diploma-info h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--pale);
+      margin-bottom: .4rem;
+      letter-spacing: .04em;
+    }
+    .diploma-info p {
+      font-size: .85rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* Comparatif SISR / SLAM */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .option-card {
+      background: rgba(13,21,37,.7);
+      border: 1px solid rgba(74,127,212,.18);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .35s, transform .35s;
+      animation: fadeSlideUp .8s ease both;
+    }
+    .option-card:hover {
+      border-color: rgba(74,127,212,.5);
+      transform: translateY(-3px);
+    }
+    .option-card.highlighted {
+      border-color: rgba(74,127,212,.4);
+    }
+    .option-card.highlighted::after {
+      content: '✦ Mon option';
+      position: absolute;
+      top: 1rem; right: 1rem;
+      font-size: .65rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,169,110,.3);
+      padding: .2rem .6rem;
+    }
+    .option-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 0;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      transition: height .4s ease;
+    }
+    .option-card:hover::before { height: 100%; }
+
+    .option-label {
+      font-size: .65rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .6rem;
+      display: block;
+    }
+    .option-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--accent2);
+      margin-bottom: .4rem;
+    }
+    .option-card .option-full {
+      font-size: .78rem;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+    .option-card ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      margin-bottom: 1.4rem;
+    }
+    .option-card ul li {
+      font-size: .85rem;
+      color: var(--muted);
+      line-height: 1.6;
+      padding-left: 1rem;
+      position: relative;
+    }
+    .option-card ul li::before {
+      content: '◦';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+    .option-card .metiers {
+      font-size: .72rem;
+      letter-spacing: .1em;
+      color: var(--muted);
+      text-transform: uppercase;
+      border-top: 1px solid rgba(74,127,212,.12);
+      padding-top: 1rem;
+    }
+    .option-card .metiers strong {
+      color: var(--accent2);
+      display: block;
+      margin-bottom: .5rem;
+    }
+
+    /* Blocs de compétences communs */
+    .competences-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .competence-item {
+      background: rgba(13,21,37,.6);
+      border: 1px solid rgba(74,127,212,.15);
+      padding: 1.5rem;
+      text-align: center;
+      transition: border-color .3s, transform .3s;
+      animation: fadeSlideUp .8s ease both;
+    }
+    .competence-item:hover {
+      border-color: rgba(74,127,212,.4);
+      transform: translateY(-2px);
+    }
+    .competence-item .ci-icon { font-size: 1.8rem; margin-bottom: .8rem; display: block; }
+    .competence-item h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--pale);
+      margin-bottom: .4rem;
+    }
+    .competence-item p {
+      font-size: .78rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Chiffres clés */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .stat-box {
+      background: rgba(13,21,37,.7);
+      border: 1px solid rgba(74,127,212,.18);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      animation: fadeSlideUp .8s ease both;
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--accent2);
+      line-height: 1;
+      margin-bottom: .3rem;
+    }
+    .stat-label {
+      font-size: .7rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* Poursuites d'études */
+    .poursuite-list {
+      display: flex;
+      flex-direction: column;
+      gap: .8rem;
+    }
+    .poursuite-item {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1rem 1.5rem;
+      background: rgba(13,21,37,.5);
+      border: 1px solid rgba(74,127,212,.12);
+      transition: border-color .3s;
+    }
+    .poursuite-item:hover { border-color: rgba(74,127,212,.35); }
+    .poursuite-level {
+      font-size: .68rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      min-width: 60px;
+      text-align: center;
+      border: 1px solid rgba(201,169,110,.25);
+      padding: .2rem .5rem;
+    }
+    .poursuite-item p {
+      font-size: .85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .poursuite-item p strong { color: var(--pale); }
+
+    @media (max-width: 700px) {
+      .options-grid { grid-template-columns: 1fr; }
+      .competences-grid { grid-template-columns: 1fr 1fr; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .diploma-banner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="stars-canvas"></canvas>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="topnav">
+    <a href="index.html" class="topnav-brand">Paula <span>Ciacan</span></a>
+    <ul class="topnav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <div class="topnav-sep"></div>
+      <li><a href="e5.html">Épreuve E5</a></li>
+      <li><a href="e6.html">Épreuve E6</a></li>
+      <li><a href="veille.html">Veille</a></li>
+      <li><a href="btssio.html" class="active-link">BTS SIO</a></li>
+      <div class="topnav-sep"></div>
+      <li class="topnav-contact"><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── CONTENU ── -->
+  <div class="page-wrapper">
+    <div class="container">
+
+      <!-- En-tête -->
+      <p class="page-label">Formation · Bac +2</p>
+      <h1 class="page-title">BTS SIO</h1>
+      <p class="page-subtitle">Services Informatiques aux Organisations</p>
+      <div class="divider-line"></div>
+
+      <!-- Bannière diplôme -->
+      <div class="diploma-banner">
+        <div class="diploma-badge">🎓</div>
+        <div class="diploma-info">
+          <h2>Brevet de Technicien Supérieur</h2>
+          <p>Diplôme d'État de niveau Bac +2 (Niveau 5 RNCP), reconnu par France Compétences — 120 crédits ECTS. Préparé en 2 ans dans un lycée ou un CFA, en formation initiale ou en alternance.</p>
+        </div>
+      </div>
+
+      <!-- Chiffres clés -->
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-num">2</div>
+          <div class="stat-label">ans de formation</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">120</div>
+          <div class="stat-label">crédits ECTS</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">2</div>
+          <div class="stat-label">options au choix</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">6</div>
+          <div class="stat-label">épreuves au total</div>
+        </div>
+      </div>
+
+      <!-- Les deux options -->
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; color:var(--pale); letter-spacing:.06em; margin-bottom:1.5rem;">
+        Les deux options
+      </h2>
+      <div class="options-grid">
+
+        <!-- SISR -->
+        <div class="option-card highlighted">
+          <span class="option-label">Option A</span>
+          <h3>SISR</h3>
+          <p class="option-full">Solutions d'Infrastructure, Systèmes et Réseaux</p>
+          <ul>
+            <li>Installation et administration des serveurs et équipements réseau</li>
+            <li>Configuration, supervision et optimisation des infrastructures</li>
+            <li>Intégration et sécurisation des postes clients</li>
+            <li>Gestion de la continuité et de la disponibilité des services</li>
+            <li>Cybersécurité appliquée aux réseaux et systèmes</li>
+          </ul>
+          <div class="metiers">
+            <strong>Débouchés</strong>
+            Administrateur systèmes & réseaux · Technicien support · Technicien d'exploitation · Spécialiste cybersécurité
+          </div>
+        </div>
+
+        <!-- SLAM -->
+        <div class="option-card">
+          <span class="option-label">Option B</span>
+          <h3>SLAM</h3>
+          <p class="option-full">Solutions Logicielles et Applications Métiers</p>
+          <ul>
+            <li>Conception et développement d'applications web et mobiles</li>
+            <li>Gestion et structuration des bases de données</li>
+            <li>Maintenance corrective et évolutive des logiciels</li>
+            <li>Sécurisation des développements applicatifs</li>
+            <li>Rédaction de documentation et formation des utilisateurs</li>
+          </ul>
+          <div class="metiers">
+            <strong>Débouchés</strong>
+            Développeur web / mobile · Analyste-programmeur · Chargé d'études informatiques · Intégrateur de solutions
+          </div>
+        </div>
+      </div>
+
+      <div class="divider-ornament">— ❧ —</div>
+
+      <!-- Compétences communes -->
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; color:var(--pale); letter-spacing:.06em; margin: 2.5rem 0 1.5rem;">
+        Compétences communes aux deux options
+      </h2>
+      <div class="competences-grid">
+        <div class="competence-item">
+          <span class="ci-icon">🛠️</span>
+          <h4>Support utilisateurs</h4>
+          <p>Répondre aux demandes, traiter les incidents, accompagner les utilisateurs</p>
+        </div>
+        <div class="competence-item">
+          <span class="ci-icon">📋</span>
+          <h4>Gestion du patrimoine</h4>
+          <p>Inventaire, mises à jour, documentation, suivi du parc informatique</p>
+        </div>
+        <div class="competence-item">
+          <span class="ci-icon">🔐</span>
+          <h4>Cybersécurité</h4>
+          <p>Protection des données, gestion des risques, RGPD, sécurisation des usages</p>
+        </div>
+        <div class="competence-item">
+          <span class="ci-icon">📡</span>
+          <h4>Veille technologique</h4>
+          <p>Surveiller les évolutions du secteur, analyser les menaces et nouvelles pratiques</p>
+        </div>
+        <div class="competence-item">
+          <span class="ci-icon">🤝</span>
+          <h4>Travail en mode projet</h4>
+          <p>Planification, livrables, collaboration en équipe, méthodes agiles</p>
+        </div>
+        <div class="competence-item">
+          <span class="ci-icon">🌐</span>
+          <h4>Anglais professionnel</h4>
+          <p>Lecture de documentation technique, communication en environnement international</p>
+        </div>
+      </div>
+
+      <!-- Poursuites d'études -->
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; color:var(--pale); letter-spacing:.06em; margin-bottom:1.5rem;">
+        Poursuites d'études possibles
+      </h2>
+      <div class="poursuite-list" style="margin-bottom:3rem;">
+        <div class="poursuite-item">
+          <span class="poursuite-level">Bac +3</span>
+          <p><strong>Licence Professionnelle</strong> — Administrateur systèmes & réseaux, Cybersécurité, Développement web…</p>
+        </div>
+        <div class="poursuite-item">
+          <span class="poursuite-level">Bac +3</span>
+          <p><strong>Bachelor Informatique</strong> — Cybersécurité, Administration systèmes & réseaux, Développement…</p>
+        </div>
+        <div class="poursuite-item">
+          <span class="poursuite-level">Bac +5</span>
+          <p><strong>Master / Mastère spécialisé</strong> — Sécurité informatique, Réseaux, Développement logiciel, Management IT</p>
+        </div>
+        <div class="poursuite-item">
+          <span class="poursuite-level">Pro</span>
+          <p><strong>Insertion directe</strong> — Le BTS SIO permet également d'intégrer directement le marché du travail à l'issue du diplôme</p>
+        </div>
+      </div>
+
+    </div><!-- /container -->
+  </div><!-- /page-wrapper -->
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-name">Paula Ciacan</p>
+      <p class="footer-role">BTS SIO · Option SISR</p>
+      <div class="footer-divider"></div>
+      <nav class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="apropos.html">À propos</a>
+        <a href="e5.html">E5</a>
+        <a href="e6.html">E6</a>
+        <a href="veille.html">Veille</a>
+        <a href="btssio.html">BTS SIO</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer-copy">© 2025 <span>Paula Ciacan</span> — Portfolio BTS SIO</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
