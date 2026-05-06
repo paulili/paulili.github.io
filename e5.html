@@ -32,7 +32,6 @@
       border-bottom: 1px solid rgba(74,127,212,.15);
     }
 
-    /* ── Tableau de compétences ── */
     .tableau-img-wrapper {
       margin: 1.5rem 0;
       border: 1px solid rgba(74,127,212,.2);
@@ -73,7 +72,6 @@
     .download-block-text strong { color: var(--pale); font-size: .95rem; letter-spacing: .04em; }
     .download-block-text span { font-size: .78rem; color: var(--muted); letter-spacing: .06em; }
 
-    /* ── Situations ── */
     .situation-card {
       background: rgba(13,21,37,.7);
       border: 1px solid rgba(74,127,212,.18);
@@ -120,20 +118,13 @@
       line-height: 1.75;
     }
 
-    /* Grille docs / prods */
     .situation-body {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0;
     }
-    .sit-col {
-      padding: 1.5rem 2rem;
-    }
-    .sit-col:first-child {
-      border-right: 1px solid rgba(74,127,212,.1);
-    }
+    .sit-col { padding: 1.5rem 2rem; }
+    .sit-col:first-child { border-right: 1px solid rgba(74,127,212,.1); }
 
-    /* Titre colonne avec tooltip */
     .col-title-wrap {
       display: inline-flex;
       align-items: center;
@@ -150,10 +141,7 @@
       border-bottom: 1px dashed rgba(74,127,212,.4);
       padding-bottom: 1px;
     }
-    .col-title-icon {
-      font-size: .75rem;
-      color: var(--muted);
-    }
+    .col-title-icon { font-size: .75rem; color: var(--muted); }
     .col-tooltip {
       position: absolute;
       bottom: calc(100% + 8px);
@@ -172,17 +160,9 @@
       width: 220px;
       white-space: normal;
     }
-    .col-title-wrap:hover .col-tooltip {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .col-title-wrap:hover .col-tooltip { opacity: 1; transform: translateY(0); }
 
-    /* Liste de fichiers */
-    .file-list {
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-    }
+    .file-list { display: flex; flex-direction: column; gap: .5rem; }
     .file-item {
       display: flex;
       align-items: center;
@@ -197,12 +177,7 @@
       border-color: rgba(74,127,212,.4);
       background: rgba(74,127,212,.07);
     }
-    .file-icon {
-      font-size: 1rem;
-      flex-shrink: 0;
-      width: 1.2rem;
-      text-align: center;
-    }
+    .file-icon { font-size: 1rem; flex-shrink: 0; width: 1.2rem; text-align: center; }
     .file-name {
       font-size: .8rem;
       color: var(--accent2);
@@ -222,7 +197,6 @@
       flex-shrink: 0;
     }
 
-    /* Situation 6 — carte simple */
     .situation6-card {
       background: rgba(13,21,37,.7);
       border: 1px solid rgba(74,127,212,.18);
@@ -257,13 +231,8 @@
       line-height: 1.75;
       margin-bottom: 1.4rem;
     }
-    .card-actions {
-      display: flex;
-      gap: .8rem;
-      flex-wrap: wrap;
-    }
+    .card-actions { display: flex; gap: .8rem; flex-wrap: wrap; }
 
-    /* Navbar brand group */
     .topnav-brand-group {
       display: flex;
       align-items: center;
@@ -309,24 +278,20 @@
     </ul>
   </nav>
 
-  <!-- ══ CONTENU ══ -->
   <div class="page-wrapper">
     <div class="container">
 
       <p class="page-label">BTS SIO — SISR</p>
       <h1 class="page-title">Épreuve E5</h1>
       <p class="page-subtitle">Support et Mise à Disposition de Services Informatiques</p>
-
       <div class="divider-line"></div>
 
-      <!-- Intro -->
       <div class="intro-card">
         L'épreuve E5 valide les compétences liées à la <strong style="color:var(--pale)">réponse aux attentes des utilisateurs</strong>,
         à l'accompagnement de la transformation numérique et au
         <strong style="color:var(--pale)">maintien de la qualité des services</strong> informatiques au sein d'une organisation.
       </div>
 
-      <!-- ── Tableau de compétences ── -->
       <h2 class="section-heading">Mon tableau de compétences</h2>
 
       <div class="tableau-img-wrapper">
@@ -346,7 +311,6 @@
 
       <div class="divider-ornament">— ❧ —</div>
 
-      <!-- ══ MES PROJETS ══ -->
       <h2 class="section-heading">Mes projets</h2>
 
       <!-- ── SITUATION 1 ── -->
@@ -354,11 +318,7 @@
         <div class="situation-header">
           <span class="situation-num">Situation 1</span>
           <h3>Recensement des postes non conformes — GRP Reisel</h3>
-          <p>
-            Recensement et identification des postes informatiques ne respectant pas les
-            <strong style="color:var(--pale)">standards de l'organisation</strong>,
-            dans le but d'assurer la conformité du parc et la cohérence de l'infrastructure.
-          </p>
+          <p>Recensement et identification des postes informatiques ne respectant pas les <strong style="color:var(--pale)">standards de l'organisation</strong>, dans le but d'assurer la conformité du parc et la cohérence de l'infrastructure.</p>
         </div>
         <div class="situation-body">
           <div class="sit-col">
@@ -368,3 +328,354 @@
               <div class="col-tooltip">Documents permettant de tracer un contexte : tickets, procédures, captures initiales.</div>
             </div>
             <div class="file-list">
+              <a href="assets/situation1/DOCS/ticket30289.png" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">ticket30289</span>
+                <span class="file-ext">PNG</span>
+              </a>
+            </div>
+          </div>
+          <div class="sit-col">
+            <div class="col-title-wrap">
+              <span class="col-title">Productions</span>
+              <span class="col-title-icon">ⓘ</span>
+              <div class="col-tooltip">Actions réalisées dans le contexte présenté : communications, livrables, résultats.</div>
+            </div>
+            <div class="file-list">
+              <a href="assets/situation1/PROD/appel_initial.png" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">Appel initial</span>
+                <span class="file-ext">PNG</span>
+              </a>
+              <a href="assets/situation1/PROD/conversation_tel_et_mail_recensement_or.png" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">Conversation tél. & mail — recensement</span>
+                <span class="file-ext">PNG</span>
+              </a>
+              <a href="assets/situation1/PROD/mail_pb_de_standardisation_du_poste.png" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">Mail — pb de standardisation du poste</span>
+                <span class="file-ext">PNG</span>
+              </a>
+              <a href="assets/situation1/PROD/new_asset.png" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">New asset</span>
+                <span class="file-ext">PNG</span>
+              </a>
+              <a href="assets/situation1/PROD/recensement_pc.png" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">Recensement PC</span>
+                <span class="file-ext">PNG</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SITUATION 2 ── -->
+      <div class="situation-card" style="animation-delay:.08s">
+        <div class="situation-header">
+          <span class="situation-num">Situation 2</span>
+          <h3>Gestion des sauvegardes NAS — HyperBackup</h3>
+          <p>Ticket d'incident demandant la <strong style="color:var(--pale)">restauration d'un fichier</strong> via le système de backup NAS, suivi d'une analyse approfondie de la gestion des sauvegardes HyperBackup en place.</p>
+        </div>
+        <div class="situation-body">
+          <div class="sit-col">
+            <div class="col-title-wrap">
+              <span class="col-title">Documents</span>
+              <span class="col-title-icon">ⓘ</span>
+              <div class="col-tooltip">Documents permettant de tracer un contexte : tickets, procédures, captures initiales.</div>
+            </div>
+            <div class="file-list">
+              <a href="assets/situation2/DOCS/Hyper_Backup.png" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">Hyper Backup</span>
+                <span class="file-ext">PNG</span>
+              </a>
+              <a href="assets/situation2/DOCS/JESTO-PROC-NAS-HyperBackup.docx" target="_blank" class="file-item">
+                <span class="file-icon">📝</span>
+                <span class="file-name">JESTO-PROC-NAS-HyperBackup</span>
+                <span class="file-ext">DOCX</span>
+              </a>
+            </div>
+          </div>
+          <div class="sit-col">
+            <div class="col-title-wrap">
+              <span class="col-title">Productions</span>
+              <span class="col-title-icon">ⓘ</span>
+              <div class="col-tooltip">Actions réalisées dans le contexte présenté : communications, livrables, résultats.</div>
+            </div>
+            <div class="file-list">
+              <a href="assets/situation2/PROD/En-tête_XRP.png" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">En-tête XRP</span>
+                <span class="file-ext">PNG</span>
+              </a>
+              <a href="assets/situation2/PROD/Résol_Ticket.png" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">Résolution ticket</span>
+                <span class="file-ext">PNG</span>
+              </a>
+              <a href="assets/situation2/PROD/Ticket-Initial_mail.pdf" target="_blank" class="file-item">
+                <span class="file-icon">📄</span>
+                <span class="file-name">Ticket initial — mail</span>
+                <span class="file-ext">PDF</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SITUATION 3 ── -->
+      <div class="situation-card" style="animation-delay:.11s">
+        <div class="situation-header">
+          <span class="situation-num">Situation 3</span>
+          <h3>Création de compte hybride — MS365 & Active Directory</h3>
+          <p>Demande client pour la <strong style="color:var(--pale)">création d'un compte hybride</strong> (Microsoft 365 & serveur Active Directory) pour un nouvel utilisateur, en environnement d'annuaire synchronisé.</p>
+        </div>
+        <div class="situation-body">
+          <div class="sit-col">
+            <div class="col-title-wrap">
+              <span class="col-title">Documents</span>
+              <span class="col-title-icon">ⓘ</span>
+              <div class="col-tooltip">Documents permettant de tracer un contexte : tickets, procédures, captures initiales.</div>
+            </div>
+            <div class="file-list">
+              <a href="assets/situation3/DOCS/En-tête_ticket.png" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">En-tête ticket</span>
+                <span class="file-ext">PNG</span>
+              </a>
+              <a href="assets/situation3/DOCS/ONBoarding-Hybride-MS365-AD.pdf" target="_blank" class="file-item">
+                <span class="file-icon">📄</span>
+                <span class="file-name">ONBoarding Hybride MS365-AD</span>
+                <span class="file-ext">PDF</span>
+              </a>
+              <a href="assets/situation3/DOCS/Ticket-Initial_mail.pdf" target="_blank" class="file-item">
+                <span class="file-icon">📄</span>
+                <span class="file-name">Ticket initial — mail</span>
+                <span class="file-ext">PDF</span>
+              </a>
+              <a href="assets/situation3/DOCS/Ticket-Initial_syncro.png" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">Ticket initial — syncro</span>
+                <span class="file-ext">PNG</span>
+              </a>
+            </div>
+          </div>
+          <div class="sit-col">
+            <div class="col-title-wrap">
+              <span class="col-title">Productions</span>
+              <span class="col-title-icon">ⓘ</span>
+              <div class="col-tooltip">Actions réalisées dans le contexte présenté : communications, livrables, résultats.</div>
+            </div>
+            <div class="file-list">
+              <a href="assets/situation3/PROD/cloture_ticket.png" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">Clôture ticket</span>
+                <span class="file-ext">PNG</span>
+              </a>
+              <a href="assets/situation3/PROD/déroulement_creation.png" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">Déroulement création</span>
+                <span class="file-ext">PNG</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SITUATION 4 ── -->
+      <div class="situation-card" style="animation-delay:.14s">
+        <div class="situation-header">
+          <span class="situation-num">Situation 4</span>
+          <h3>Déploiement d'une nouvelle instance VPN — OPNsense</h3>
+          <p>Déploiement et configuration d'une <strong style="color:var(--pale)">nouvelle instance VPN OPNsense</strong> suite à une demande client, incluant la mise en place du fichier de configuration et la validation de la connectivité.</p>
+        </div>
+        <div class="situation-body">
+          <div class="sit-col">
+            <div class="col-title-wrap">
+              <span class="col-title">Documents</span>
+              <span class="col-title-icon">ⓘ</span>
+              <div class="col-tooltip">Documents permettant de tracer un contexte : tickets, procédures, captures initiales.</div>
+            </div>
+            <div class="file-list">
+              <a href="assets/situation4/DOCS/En-tête_Syncro.png" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">En-tête Syncro</span>
+                <span class="file-ext">PNG</span>
+              </a>
+              <a href="assets/situation4/DOCS/Procedure_Fichier_Conf.pdf" target="_blank" class="file-item">
+                <span class="file-icon">📄</span>
+                <span class="file-name">Procédure — Fichier de configuration</span>
+                <span class="file-ext">PDF</span>
+              </a>
+              <a href="assets/situation4/DOCS/Procédure_VPN_OPNsense_Instance.pdf" target="_blank" class="file-item">
+                <span class="file-icon">📄</span>
+                <span class="file-name">Procédure VPN OPNsense Instance</span>
+                <span class="file-ext">PDF</span>
+              </a>
+              <a href="assets/situation4/DOCS/Ticket-Initial_mail.pdf" target="_blank" class="file-item">
+                <span class="file-icon">📄</span>
+                <span class="file-name">Ticket initial — mail</span>
+                <span class="file-ext">PDF</span>
+              </a>
+              <a href="assets/situation4/DOCS/Ticket-Initial_syncro.png" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">Ticket initial — Syncro</span>
+                <span class="file-ext">PNG</span>
+              </a>
+            </div>
+          </div>
+          <div class="sit-col">
+            <div class="col-title-wrap">
+              <span class="col-title">Productions</span>
+              <span class="col-title-icon">ⓘ</span>
+              <div class="col-tooltip">Actions réalisées dans le contexte présenté : communications, livrables, résultats.</div>
+            </div>
+            <div class="file-list">
+              <a href="assets/situation4/PROD/Capture_d'ecran_FW.png" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">Capture d'écran FW</span>
+                <span class="file-ext">PNG</span>
+              </a>
+              <a href="assets/situation4/PROD/mail_explicatif_du_pb_et_proposition_de_solution.png" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">Mail explicatif — pb & proposition de solution</span>
+                <span class="file-ext">PNG</span>
+              </a>
+              <a href="assets/situation4/PROD/reponse_et_resol_ticket.png" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">Réponse & résolution ticket</span>
+                <span class="file-ext">PNG</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SITUATION 5 ── -->
+      <div class="situation-card" style="animation-delay:.17s">
+        <div class="situation-header">
+          <span class="situation-num">Situation 5</span>
+          <h3>Création d'un site internet — Activité Professionnelle AP1</h3>
+          <p>Activité professionnelle dans laquelle il nous a été demandé de <strong style="color:var(--pale)">concevoir et développer un site internet</strong> (PC-Techs), incluant la rédaction d'un cahier des charges, la gestion de projet et la livraison du site complet.</p>
+        </div>
+        <div class="situation-body">
+          <div class="sit-col">
+            <div class="col-title-wrap">
+              <span class="col-title">Documents</span>
+              <span class="col-title-icon">ⓘ</span>
+              <div class="col-tooltip">Documents permettant de tracer un contexte : tickets, procédures, captures initiales.</div>
+            </div>
+            <div class="file-list">
+              <a href="assets/situation5/DOCS/AP1.jpg" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">AP1</span>
+                <span class="file-ext">JPG</span>
+              </a>
+            </div>
+          </div>
+          <div class="sit-col">
+            <div class="col-title-wrap">
+              <span class="col-title">Productions</span>
+              <span class="col-title-icon">ⓘ</span>
+              <div class="col-tooltip">Actions réalisées dans le contexte présenté : communications, livrables, résultats.</div>
+            </div>
+            <div class="file-list">
+              <a href="assets/situation5/PROD/cahier_des_charges.pdf" target="_blank" class="file-item">
+                <span class="file-icon">📄</span>
+                <span class="file-name">Cahier des charges</span>
+                <span class="file-ext">PDF</span>
+              </a>
+              <a href="assets/situation5/PROD/compte_rendu.pdf" target="_blank" class="file-item">
+                <span class="file-icon">📄</span>
+                <span class="file-name">Compte rendu</span>
+                <span class="file-ext">PDF</span>
+              </a>
+              <a href="assets/situation5/PROD/Google Drive.jpg" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">Google Drive</span>
+                <span class="file-ext">JPG</span>
+              </a>
+              <a href="assets/situation5/PROD/Linear.jpg" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">Linear</span>
+                <span class="file-ext">JPG</span>
+              </a>
+              <a href="assets/situation5/PROD/Retranscription_Teams_PC-Tech.docx" target="_blank" class="file-item">
+                <span class="file-icon">📝</span>
+                <span class="file-name">Retranscription Teams PC-Tech</span>
+                <span class="file-ext">DOCX</span>
+              </a>
+              <a href="assets/situation5/PROD/SEO.jpg" target="_blank" class="file-item">
+                <span class="file-icon">🖼️</span>
+                <span class="file-name">SEO</span>
+                <span class="file-ext">JPG</span>
+              </a>
+              <a href="assets/situation5/PROD/PC-Techs/index.html" target="_blank" class="file-item">
+                <span class="file-icon">🌐</span>
+                <span class="file-name">Site PC-Techs — index</span>
+                <span class="file-ext">HTML</span>
+              </a>
+              <a href="assets/situation5/PROD/PC-Techs/contact.html" target="_blank" class="file-item">
+                <span class="file-icon">🌐</span>
+                <span class="file-name">Site PC-Techs — contact</span>
+                <span class="file-ext">HTML</span>
+              </a>
+              <a href="assets/situation5/PROD/PC-Techs/info.html" target="_blank" class="file-item">
+                <span class="file-icon">🌐</span>
+                <span class="file-name">Site PC-Techs — info</span>
+                <span class="file-ext">HTML</span>
+              </a>
+              <a href="assets/situation5/PROD/PC-Techs/service.html" target="_blank" class="file-item">
+                <span class="file-icon">🌐</span>
+                <span class="file-name">Site PC-Techs — service</span>
+                <span class="file-ext">HTML</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider-ornament">— ❧ —</div>
+
+      <!-- ── SITUATION 6 ── -->
+      <div class="situation6-card" style="animation-delay:.2s">
+        <span class="situation-num">Situation 6</span>
+        <h3>Projet Campagne Phishing — GoPhish & SMTP</h3>
+        <p>Mise en place d'une <strong style="color:var(--pale)">campagne de phishing simulée</strong> dans un cadre pédagogique et de sensibilisation, utilisant GoPhish comme plateforme d'envoi et un serveur SMTP dédié. Le projet inclut la conception des scénarios, le déploiement de l'infrastructure et l'analyse des résultats.</p>
+        <div class="card-actions">
+          <a href="assets/situation6/Projet_Campagne_Phishing.docx" target="_blank" class="btn">
+            📝 Compte rendu (DOCX)
+          </a>
+          <a href="assets/situation6/Projet_Campagne_Phishing.pptx" target="_blank" class="btn">
+            📊 Présentation (PPTX)
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-name">Paula Ciacan</p>
+      <p class="footer-role">Étudiante BTS SIO SISR · Technicienne IT</p>
+      <nav class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="apropos.html">À propos</a>
+        <a href="e5.html">E5</a>
+        <a href="e6.html">E6</a>
+        <a href="veille.html">Veille</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="footer-divider"></div>
+      <p class="footer-copy">© 2025 Paula Ciacan · Portfolio BTS SIO SISR · Fait avec <span>♥</span></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
