@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <radialGradient id="planetGrad" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#7eb8f7"/>
+      <stop offset="50%" stop-color="#4a7fd4"/>
+      <stop offset="100%" stop-color="#0d1525"/>
+    </radialGradient>
+    <radialGradient id="ringGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#c9a96e" stop-opacity="0.3"/>
+    </radialGradient>
+    <ellipse id="ringClip" cx="16" cy="16" rx="13" ry="4.5"/>
+  </defs>
+
+  <!-- Anneau derrière -->
+  <ellipse cx="16" cy="16.5" rx="13" ry="4.2" fill="none" stroke="url(#ringGrad)" stroke-width="2" stroke-dasharray="40 41" stroke-dashoffset="0" opacity="0.85"/>
+
+  <!-- Planète -->
+  <circle cx="16" cy="16" r="9" fill="url(#planetGrad)"/>
+
+  <!-- Reflet -->
+  <ellipse cx="13" cy="13" rx="3" ry="2" fill="white" opacity="0.12"/>
+
+  <!-- Anneau devant (moitié basse) -->
+  <path d="M 3 16.5 Q 16 21.5 29 16.5" fill="none" stroke="url(#ringGrad)" stroke-width="2" opacity="0.85"/>
+
+  <!-- Petite étoile -->
+  <circle cx="5" cy="6" r=".8" fill="#d8e8f8" opacity="0.8"/>
+  <circle cx="27" cy="4" r=".5" fill="#d8e8f8" opacity="0.6"/>
+  <circle cx="29" cy="26" r=".6" fill="#c9a96e" opacity="0.7"/>
+</svg>
