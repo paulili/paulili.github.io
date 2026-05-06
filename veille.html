@@ -246,6 +246,16 @@
       <p class="page-subtitle">Surveillance des menaces, vulnérabilités et actualités cyber</p>
       <div class="divider-line"></div>
 
+      <div style="background:rgba(13,21,37,.7); border:1px solid rgba(74,127,212,.18); border-left:3px solid var(--accent); padding:1.6rem 2rem; margin-bottom:2.5rem; font-size:.92rem; color:var(--muted); line-height:1.9; animation:fadeSlideUp .8s .05s ease both;">
+        Ma veille technologique est principalement axée sur l'écosystème
+        <strong style="color:var(--pale)">Microsoft 365</strong> — évolutions des services, nouvelles fonctionnalités,
+        mises à jour de sécurité et vulnérabilités associées. En parallèle, je surveille les alertes
+        <strong style="color:var(--pale)">CERT-FR / ANSSI</strong> pour rester informée des menaces
+        actives, notamment celles susceptibles d'impacter les environnements
+        <strong style="color:var(--pale)">Active Directory</strong>, <strong style="color:var(--pale)">Exchange</strong>
+        et les solutions Microsoft déployées chez nos clients.
+      </div>
+
       <!-- ══ OUTILS DE VEILLE ══ -->
       <h2 class="section-heading">Mes outils de veille</h2>
 
@@ -336,78 +346,126 @@
             <tr>
               <th>Titre & Source</th>
               <th>Date</th>
-              <th>URL</th>
+              <th>URL CERT-FR</th>
               <th>Sévérité / CVE</th>
               <th>Résumé</th>
+              <th>Correctif</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>CVE-2024-21762 — Écriture hors limites dans FortiOS SSL-VPN (CERT FR / Fortinet PSIRT)</td>
-              <td>08/02/2025</td>
-              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2024-AVI-0101" target="_blank">cert.ssi.gouv.fr</a></td>
-              <td><span class="sev sev-critique">Critique CVE 9.6</span></td>
-              <td>Vulnérabilité d'écriture hors limites dans la fonction VPN SSL de FortiOS. Permet à un attaquant distant non authentifié d'exécuter du code arbitraire via des requêtes HTTP spécialement forgées. Activement exploitée selon la CISA.</td>
+              <td colspan="6" style="background:rgba(74,127,212,.06); color:var(--gold); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; text-align:center; padding:.5rem 1rem;">─── Alertes 2025 ───</td>
             </tr>
             <tr>
-              <td>CVE-2024-23113 — Exécution de code arbitraire via daemon FGFM (CERT FR / Fortinet PSIRT)</td>
-              <td>08/02/2025</td>
-              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2024-AVI-0420" target="_blank">cert.ssi.gouv.fr</a></td>
-              <td><span class="sev sev-critique">Critique CVE 9.8</span></td>
-              <td>Vulnérabilité dans le démon fgfm de FortiOS, FortiPAM, FortiProxy. Permet à un attaquant distant non authentifié d'exécuter du code ou des commandes arbitraires via des requêtes forgées. Interaction utilisateur requise.</td>
+              <td>Multiples vulnérabilités dans Microsoft Windows<br><span style="font-size:.75rem;color:var(--muted)">CERTFR-2025-AVI-0405 / Patch Tuesday mai 2025</span></td>
+              <td>14/05/2025</td>
+              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2025-AVI-0405" target="_blank">CERTFR-2025-AVI-0405</a></td>
+              <td><span class="sev sev-critique">Critique</span><br><span style="font-size:.7rem;color:var(--muted)">CVE-2025-30397, CVE-2025-30400, CVE-2025-32701, CVE-2025-32706, CVE-2025-32709<br>exploitation active ×5</span></td>
+              <td>Multiples vulnérabilités permettant RCE, élévation de privilèges et atteinte à la confidentialité. 5 CVE activement exploitées. Touche Windows 10, 11 et toutes versions Windows Server.</td>
+              <td>Patch Tuesday mai 2025</td>
             </tr>
             <tr>
-              <td>CVE-2024-47575 — Zero-day affectant FortiManager (CERT FR / Fortinet PSIRT)</td>
-              <td>23/10/2025</td>
-              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2024-ALS-014" target="_blank">cert.ssi.gouv.fr</a></td>
-              <td><span class="sev sev-critique">Critique CVE 9.8</span></td>
-              <td>Vulnérabilité zero-day dans FortiManager. Permet à un attaquant non authentifié de provoquer une exécution de code arbitraire à distance. Activement exploitée — utilisation d'adresses IP et configurations d'équipements gérés.</td>
+              <td>Multiples vulnérabilités dans Microsoft Windows<br><span style="font-size:.75rem;color:var(--muted)">CERTFR-2025-AVI-0499 / Patch Tuesday juin 2025</span></td>
+              <td>11/06/2025</td>
+              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2025-AVI-0499" target="_blank">CERTFR-2025-AVI-0499</a></td>
+              <td><span class="sev sev-critique">Critique</span><br><span style="font-size:.7rem;color:var(--muted)">CVE-2025-33053 (exploitation active) + multiples CVE</span></td>
+              <td>Multiples vulnérabilités permettant RCE, élévation de privilèges, contournement de politique de sécurité et déni de service. CVE-2025-33053 activement exploitée. Windows 10 à Windows Server 2025.</td>
+              <td>Patch Tuesday juin 2025</td>
             </tr>
             <tr>
-              <td>CVE-2024-55591 — Zero-day affectant FortiManager / FortiOS (CERT FR / Fortinet PSIRT)</td>
-              <td>14/01/2025</td>
-              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2025-ALS-002" target="_blank">cert.ssi.gouv.fr</a></td>
-              <td><span class="sev sev-critique">Critique CVE 9.6</span></td>
-              <td>Concept public disponible depuis novembre 2024. Un attaquant ciblant un FortiGate reconnu Node.js peut s'en prévaloir et obtenir des droits super-administrateur.</td>
+              <td>Multiples vulnérabilités dans Microsoft Windows<br><span style="font-size:.75rem;color:var(--muted)">CERTFR-2025-AVI-0577 / Patch Tuesday juillet 2025</span></td>
+              <td>08/07/2025</td>
+              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2025-AVI-0577" target="_blank">CERTFR-2025-AVI-0577</a></td>
+              <td><span class="sev sev-critique">Critique</span><br><span style="font-size:.7rem;color:var(--muted)">CVE-2025-26636, CVE-2025-33054, CVE-2025-47971, CVE-2025-47972+</span></td>
+              <td>Multiples vulnérabilités permettant RCE, élévation de privilèges et déni de service. Touche Windows 10/11 et toutes versions Windows Server.</td>
+              <td>Patch Tuesday juillet 2025</td>
             </tr>
             <tr>
-              <td>CVE-2024-50001 — Contournement d'authentification critique (CERT FR / Fortinet PSIRT)</td>
-              <td>14/01/2025</td>
-              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2025-ALS-003" target="_blank">cert.ssi.gouv.fr</a></td>
-              <td><span class="sev sev-critique">Critique CVE 9.8</span></td>
-              <td>Contournement d'authentification dans FortiOS et FortiProxy via des requêtes forgées au module websocket Node.js. Permet à un attaquant d'obtenir des privilèges super-administrateur et d'exécuter du code arbitraire.</td>
+              <td>Multiples vulnérabilités dans les produits Microsoft<br><span style="font-size:.75rem;color:var(--muted)">CERTFR-2025-AVI-0579 / Patch Tuesday juillet 2025</span></td>
+              <td>08/07/2025</td>
+              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2025-AVI-0579" target="_blank">CERTFR-2025-AVI-0579</a></td>
+              <td><span class="sev sev-critique">Critique</span><br><span style="font-size:.7rem;color:var(--muted)">CVE-2025-46334, CVE-2025-47178, CVE-2025-48384+<br>SharePoint, SQL Server, Config Manager</span></td>
+              <td>Vulnérabilités dans SharePoint Enterprise Server 2016/2019/SE, SQL Server 2016/2017, Microsoft Configuration Manager et PC Manager. RCE, élévation de privilèges et atteinte à la confidentialité.</td>
+              <td>Patch Tuesday juillet 2025</td>
             </tr>
             <tr>
-              <td>CVE-2024-40591 — Élévation de privilèges dans Security Fabric (Fortinet PSIRT / CERT FR)</td>
-              <td>14/01/2025</td>
-              <td><a href="https://fortiguard.com/psirt/FG-IR-24-234" target="_blank">fortiguard.com</a></td>
-              <td><span class="sev sev-elevee">Élevée CVE 8.8</span></td>
-              <td>Défaut d'attribution de privilèges dans le composant Security Fabric de FortiOS. Un attaquant disposant de permissions Security Fabric peut élever ses privilèges jusqu'aux droits super-administrateur.</td>
+              <td>Multiples vulnérabilités dans Microsoft SharePoint<br><span style="font-size:.75rem;color:var(--muted)">CERTFR-2025-ALE-010 – Alerte active</span></td>
+              <td>21/07/2025</td>
+              <td><a href="https://cert.ssi.gouv.fr/alerte/CERTFR-2025-ALE-010" target="_blank">CERTFR-2025-ALE-010</a></td>
+              <td><span class="sev sev-critique">Critique</span><br><span style="font-size:.7rem;color:var(--muted)">Path traversal — SharePoint 2016 / 2019 / SE<br>Alerte active CERT-FR</span></td>
+              <td>Vulnérabilité path traversal affectant SharePoint Enterprise Server 2016, SharePoint Server 2019 et Subscription Edition. Alerte CERT-FR émise en raison du risque élevé d'exploitation.</td>
+              <td>Correctif disponible (20/07/2025)</td>
             </tr>
             <tr>
-              <td>CVE-2024-46668 — Modification de mots de passe admin sans authentification sur FortiSwitch (Fortinet PSIRT / CERT Santé)</td>
-              <td>09/01/2026</td>
-              <td><a href="https://cyberveille.esante.gouv.fr" target="_blank">cyberveille.esante.gouv.fr</a></td>
-              <td><span class="sev sev-critique">Critique CVE 9.8</span></td>
-              <td>Défaut dans la fonction set_password de l'interface GUI de FortiSwitch. Permet à un attaquant non authentifié de modifier les mots de passe administrateur via des requêtes spécialement forgées.</td>
+              <td>Multiples vulnérabilités dans Microsoft Office<br><span style="font-size:.75rem;color:var(--muted)">CERTFR-2025-AVI-0995 / Patch Tuesday nov. 2025</span></td>
+              <td>11/11/2025</td>
+              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2025-AVI-0995" target="_blank">CERTFR-2025-AVI-0995</a></td>
+              <td><span class="sev sev-elevee">Élevée</span><br><span style="font-size:.7rem;color:var(--muted)">CVE-2025-59240, CVE-2025-60724, CVE-2025-60726 à 60728, CVE-2025-62199+</span></td>
+              <td>Vulnérabilités dans Microsoft 365 Apps, Excel 2016, Office 2016/2019/LTSC 2021. Permettent RCE et atteinte à la confidentialité. Aucune exploitation active signalée.</td>
+              <td>Patch Tuesday nov. 2025</td>
             </tr>
             <tr>
-              <td>Post-exploitation FortiGate via les produits Fortinet — Campagne massive (CERT FR / PSIRT / Blog Fortinet)</td>
-              <td>10/01/2026</td>
-              <td><a href="https://cert.ssi.gouv.fr/alerte/CERTFR-2025-ALS-006" target="_blank">cert.ssi.gouv.fr</a></td>
-              <td><span class="sev sev-multiple">Multiple CVE</span></td>
-              <td>Technique de post-exploitation régissant les vulnérabilités antérieures sur FortiGate. Campagne massive confirmée en France avec des compromissions identifiées dès début 2023.</td>
+              <td colspan="6" style="background:rgba(74,127,212,.06); color:var(--gold); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; text-align:center; padding:.5rem 1rem;">─── Alertes 2026 ───</td>
             </tr>
             <tr>
-              <td>CERTFR-2026-AVI-0149 — Multiples vulnérabilités dans Microsoft Office (CERT-FR)</td>
-              <td>11/02/2026</td>
-              <td><a href="https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0149/" target="_blank">cert.ssi.gouv.fr</a></td>
-              <td><span class="sev sev-elevee">Élevée</span></td>
-              <td>Multiples vulnérabilités dans Microsoft Office référencées par plusieurs bulletins CVE-2026. Correctifs disponibles via Microsoft Update.</td>
+              <td>Multiples vulnérabilités dans Microsoft Windows<br><span style="font-size:.75rem;color:var(--muted)">CERTFR-2026-AVI-0044 / Patch Tuesday janv. 2026</span></td>
+              <td>14/01/2026</td>
+              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0044" target="_blank">CERTFR-2026-AVI-0044</a></td>
+              <td><span class="sev sev-critique">Critique</span><br><span style="font-size:.7rem;color:var(--muted)">CVE-2026-20805 (exploitation active)<br>CVE-2026-20963, CVE-2026-20589, CVE-2026-20605, CVE-2026-20611+</span></td>
+              <td>42 vulnérabilités dont 7 critiques : élévations de privilèges via Win32k, RCE dans Hyper-V, attaques ciblant LSASS, NTFS, SMB et Secure Boot. CVE-2026-20805 activement exploitée. Correctifs hors-bande publiés suite à des régressions sur OneDrive et Outlook/PST.</td>
+              <td>Patch Tuesday janv. 2026 + correctifs hors-bande</td>
+            </tr>
+            <tr>
+              <td>Multiples vulnérabilités dans Microsoft Windows<br><span style="font-size:.75rem;color:var(--muted)">CERTFR-2026-AVI-0150 / Patch Tuesday fév. 2026</span></td>
+              <td>10/02/2026</td>
+              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0150" target="_blank">CERTFR-2026-AVI-0150</a></td>
+              <td><span class="sev sev-critique">Critique</span><br><span style="font-size:.7rem;color:var(--muted)">CVE-2026-21510, CVE-2026-21513, CVE-2026-21519, CVE-2026-21525, CVE-2026-21533<br>exploitation active ×5</span></td>
+              <td>Multiples vulnérabilités permettant RCE, élévation de privilèges, déni de service, contournement de politique de sécurité et atteinte à la confidentialité. 5 CVE activement exploitées. Touche .NET 8/9/10, Windows 10/11, Windows Server toutes versions.</td>
+              <td>Patch Tuesday fév. 2026</td>
+            </tr>
+            <tr>
+              <td>Multiples vulnérabilités dans Microsoft Office & Azure<br><span style="font-size:.75rem;color:var(--muted)">CERTFR-2026-AVI-0149 / CERTFR-2026-AVI-0152 – fév. 2026</span></td>
+              <td>10/02/2026</td>
+              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0149" target="_blank">CERTFR-2026-AVI-0149</a></td>
+              <td><span class="sev sev-elevee">Élevée</span><br><span style="font-size:.7rem;color:var(--muted)">CVE-2026-20841 (injection cmd Markdown – exploitation triviale)<br>Office / Azure</span></td>
+              <td>Vulnérabilités dans Microsoft Office et Azure publiées lors du Patch Tuesday de février 2026. CVE-2026-20841 signalée comme à exploitation triviale par le CERT-FR (injection de commandes via fichier Markdown).</td>
+              <td>Patch Tuesday fév. 2026</td>
+            </tr>
+            <tr>
+              <td>Multiples vulnérabilités dans Microsoft Windows<br><span style="font-size:.75rem;color:var(--muted)">CERTFR-2026-AVI-0185 – fév. 2026 hors-bande</span></td>
+              <td>17/02/2026</td>
+              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0185" target="_blank">CERTFR-2026-AVI-0185</a></td>
+              <td><span class="sev sev-critique">Critique</span><br><span style="font-size:.7rem;color:var(--muted)">CVE-2026-26119 (Windows – hors-bande)</span></td>
+              <td>Vulnérabilité dans Microsoft Windows publiée en dehors du cycle Patch Tuesday de février 2026. Correctif d'urgence publié le 17 février 2026.</td>
+              <td>Correctif hors-bande (17/02/2026)</td>
+            </tr>
+            <tr>
+              <td>Multiples vulnérabilités dans les produits Microsoft<br><span style="font-size:.75rem;color:var(--muted)">CERTFR-2026-AVI-0445 / Patch Tuesday avr. 2026</span></td>
+              <td>15/04/2026</td>
+              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0445" target="_blank">CERTFR-2026-AVI-0445</a></td>
+              <td><span class="sev sev-critique">Critique</span><br><span style="font-size:.7rem;color:var(--muted)">CVE-2026-32201 (exploitation active)<br>CVE-2026-33810, CVE-2026-35611, CVE-2026-34757+<br>Defender, SharePoint, SQL Server, Dynamics 365, HPC Pack</span></td>
+              <td>22 vulnérabilités dans Microsoft Defender, Dynamics 365, HPC Pack, Power Apps, SharePoint Server 2016→2025, SQL Server 2016→2025, Visual Studio. Risques : confidentialité, contournement, RCE, déni de service, élévation de privilèges. CVE-2026-32201 activement exploitée.</td>
+              <td>Patch Tuesday avr. 2026</td>
+            </tr>
+            <tr>
+              <td>Multiples vulnérabilités dans les produits Microsoft<br><span style="font-size:.75rem;color:var(--muted)">CERTFR-2026-AVI-0526 – hors-bande avr. 2026</span></td>
+              <td>04/05/2026</td>
+              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0526" target="_blank">CERTFR-2026-AVI-0526</a></td>
+              <td><span class="sev sev-elevee">Élevée</span><br><span style="font-size:.7rem;color:var(--muted)">CVE-2026-31430, CVE-2026-31431, CVE-2026-31532, CVE-2026-31577+<br>produits Microsoft / Azure Linux</span></td>
+              <td>Vulnérabilités dans les packages Azure Linux (azl3 kernel). Permettent à un attaquant de provoquer des problèmes de sécurité non spécifiés par l'éditeur.</td>
+              <td>Correctifs disponibles (mai 2026)</td>
+            </tr>
+            <tr>
+              <td>Multiples vulnérabilités dans Microsoft Edge<br><span style="font-size:.75rem;color:var(--muted)">CERTFR-2026-AVI-0525 – avr./mai 2026</span></td>
+              <td>04/05/2026</td>
+              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0525" target="_blank">CERTFR-2026-AVI-0525</a></td>
+              <td><span class="sev sev-elevee">Élevée</span><br><span style="font-size:.7rem;color:var(--muted)">Multiples CVE — Microsoft Edge (Chromium-based)</span></td>
+              <td>Multiples vulnérabilités dans Microsoft Edge (basé sur Chromium). Permettent RCE et atteinte à la confidentialité. Publication récurrente à chaque mise à jour du moteur Chromium sous-jacent.</td>
+              <td>Mise à jour Edge (mai 2026)</td>
             </tr>
           </tbody>
         </table>
-        <p class="table-footer">Tableau de veille technologique — Sources : CERT-FR / Fortinet PSIRT / Fortiguard Labs · Mis à jour : Mai 2026</p>
+        <p class="table-footer">Tableau de veille technologique — Sources : CERT-FR / Microsoft MSRC · Depuis mai 2025 · Mis à jour : Mai 2026</p>
       </div>
 
     </div>
