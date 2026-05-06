@@ -8,73 +8,31 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     /* ── Spécifique veille.html ── */
-    .article-card {
-      background: rgba(13,21,37,.7);
-      border: 1px solid rgba(74,127,212,.18);
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-      transition: border-color .35s, transform .35s;
-      animation: fadeSlideUp .8s ease both;
-      margin-bottom: 1.5rem;
-    }
-    .article-card:hover {
-      border-color: rgba(74,127,212,.5);
-      transform: translateY(-3px);
-    }
-    .article-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px; height: 0;
-      background: linear-gradient(to bottom, var(--accent), transparent);
-      transition: height .4s ease;
-    }
-    .article-card:hover::before { height: 100%; }
 
-    .article-date {
-      font-size: .72rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: .8rem;
-      display: block;
-    }
-
-    .article-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: var(--accent2);
-      margin-bottom: .8rem;
-      letter-spacing: .04em;
-    }
-
-    .article-card p {
-      font-size: .9rem;
-      color: var(--muted);
-      line-height: 1.8;
-      margin-bottom: 1rem;
-    }
-
-    .article-tags { margin-bottom: 1.2rem; }
-
-    .source-link {
-      display: inline-flex;
+    .topnav-brand-group {
+      display: flex;
       align-items: center;
-      gap: .5rem;
-      font-size: .75rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--accent2);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(74,127,212,.3);
-      padding-bottom: 2px;
-      transition: color .3s, border-color .3s;
+      gap: .55rem;
+      margin-right: auto;
     }
-    .source-link:hover {
+    .linkedin-icon {
+      display: flex;
+      align-items: center;
+      color: var(--muted);
+      transition: color .3s;
+      margin-top: 1px;
+    }
+    .linkedin-icon:hover { color: #4a9eff; }
+
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
       color: var(--pale);
-      border-color: var(--accent2);
+      letter-spacing: .06em;
+      margin: 3rem 0 1.5rem;
+      padding-bottom: .6rem;
+      border-bottom: 1px solid rgba(74,127,212,.15);
     }
 
     /* Outil de veille */
@@ -90,13 +48,7 @@
       animation: fadeSlideUp .8s ease both;
     }
     .outil-card:hover { border-color: rgba(74,127,212,.4); }
-
-    .outil-icon {
-      font-size: 2rem;
-      min-width: 2.5rem;
-      text-align: center;
-    }
-
+    .outil-icon { font-size: 2rem; min-width: 2.5rem; text-align: center; }
     .outil-info h4 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.1rem;
@@ -110,47 +62,152 @@
       line-height: 1.7;
     }
 
-    /* Image certfr */
-    .certfr-img {
+    /* Image avec légende */
+    .img-block {
+      margin: 1.2rem 0;
+      border: 1px solid rgba(74,127,212,.2);
+      overflow: hidden;
+      animation: fadeSlideUp .8s ease both;
+    }
+    .img-block img {
       width: 100%;
       height: auto;
-      border: 1px solid rgba(74,127,212,.25);
-      border-radius: 3px;
-      box-shadow: 0 0 20px rgba(74,127,212,.1);
-      margin-bottom: .8rem;
       display: block;
     }
-
-    .img-caption {
-      font-size: .78rem;
+    .img-block figcaption {
+      font-size: .75rem;
       color: var(--muted);
       text-align: center;
+      padding: .55rem;
+      background: rgba(13,21,37,.6);
       letter-spacing: .06em;
       font-style: italic;
+      border-top: 1px solid rgba(74,127,212,.1);
     }
 
-    /* WIP badge */
-    .wip-badge {
+    /* Exemple CERT-FR */
+    .certfr-example {
+      background: rgba(13,21,37,.7);
+      border: 1px solid rgba(74,127,212,.18);
+      border-left: 3px solid var(--gold);
+      padding: 1.6rem 2rem;
+      margin: 1.5rem 0;
+      animation: fadeSlideUp .8s ease both;
+    }
+    .certfr-example .example-label {
+      font-size: .65rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .6rem;
+      display: block;
+    }
+    .certfr-example h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--accent2);
+      margin-bottom: .8rem;
+    }
+    .certfr-example p {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: .8rem;
+    }
+    .certfr-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-bottom: 1rem;
+    }
+    .source-link {
       display: inline-flex;
       align-items: center;
       gap: .4rem;
-      font-size: .68rem;
-      letter-spacing: .18em;
+      font-size: .75rem;
+      letter-spacing: .12em;
       text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid rgba(201,169,110,.3);
-      padding: .25rem .7rem;
-      margin-bottom: 1rem;
+      color: var(--accent2);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(74,127,212,.3);
+      padding-bottom: 2px;
+      transition: color .3s, border-color .3s;
     }
-    .wip-dot {
-      width: 6px; height: 6px;
-      background: var(--gold);
-      border-radius: 50%;
-      animation: pulse 1.5s ease-in-out infinite;
+    .source-link:hover { color: var(--pale); border-color: var(--accent2); }
+
+    /* Tableau de veille */
+    .veille-table-wrapper {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid rgba(74,127,212,.18);
+      animation: fadeSlideUp .8s ease both;
     }
-    @keyframes pulse {
-      0%,100% { opacity: 1; transform: scale(1); }
-      50% { opacity: .4; transform: scale(.8); }
+    .veille-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .8rem;
+    }
+    .veille-table thead tr {
+      background: rgba(74,127,212,.12);
+    }
+    .veille-table th {
+      padding: .75rem 1rem;
+      text-align: left;
+      font-family: 'Jost', sans-serif;
+      font-size: .65rem;
+      font-weight: 400;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      border-bottom: 1px solid rgba(74,127,212,.2);
+      white-space: nowrap;
+    }
+    .veille-table td {
+      padding: .7rem 1rem;
+      color: var(--muted);
+      border-bottom: 1px solid rgba(74,127,212,.07);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    .veille-table tbody tr:hover td {
+      background: rgba(74,127,212,.04);
+    }
+    .veille-table td a {
+      color: var(--accent2);
+      text-decoration: none;
+      font-size: .72rem;
+      letter-spacing: .06em;
+      border-bottom: 1px solid rgba(74,127,212,.25);
+      transition: color .2s;
+    }
+    .veille-table td a:hover { color: var(--pale); }
+    .veille-table td:first-child { color: var(--pale); font-size: .82rem; }
+    .veille-table td:nth-child(2) { white-space: nowrap; font-size: .75rem; color: var(--gold); }
+
+    /* Badge sévérité */
+    .sev {
+      display: inline-block;
+      font-size: .62rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .15rem .5rem;
+      border-radius: 1px;
+      font-weight: 500;
+    }
+    .sev-critique { background: rgba(220,50,50,.15); color: #f87171; border: 1px solid rgba(220,50,50,.3); }
+    .sev-elevee   { background: rgba(220,130,50,.15); color: #fb923c; border: 1px solid rgba(220,130,50,.3); }
+    .sev-multiple { background: rgba(74,127,212,.15); color: var(--accent2); border: 1px solid rgba(74,127,212,.3); }
+
+    .table-footer {
+      font-size: .72rem;
+      color: var(--muted);
+      text-align: center;
+      padding: .6rem;
+      background: rgba(13,21,37,.4);
+      border-top: 1px solid rgba(74,127,212,.1);
+      letter-spacing: .06em;
+      font-style: italic;
     }
   </style>
 </head>
@@ -159,7 +216,14 @@
 
   <!-- ── NAVBAR ── -->
   <nav class="topnav">
-    <a href="index.html" class="topnav-brand">Paula <span>Ciacan</span></a>
+    <div class="topnav-brand-group">
+      <a class="topnav-brand" href="index.html">Paula <span>Ciacan</span></a>
+      <a href="https://www.linkedin.com/in/p-c-19p9c23e6n23/" target="_blank" rel="noopener noreferrer" class="linkedin-icon" title="Mon LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+      </a>
+    </div>
     <ul class="topnav-links">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="apropos.html">À propos</a></li>
@@ -177,74 +241,177 @@
   <div class="page-wrapper">
     <div class="container">
 
-      <!-- En-tête de page -->
       <p class="page-label">Portfolio · Paula Ciacan</p>
       <h1 class="page-title">Veille Technologique</h1>
       <p class="page-subtitle">Surveillance des menaces, vulnérabilités et actualités cyber</p>
       <div class="divider-line"></div>
 
-      <!-- Section : Outils de veille -->
-      <section style="margin: 3rem 0 2.5rem;">
-        <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; color:var(--pale); letter-spacing:.06em; margin-bottom:1.5rem;">
-          Mes Outils de Veille
-        </h2>
+      <!-- ══ OUTILS DE VEILLE ══ -->
+      <h2 class="section-heading">Mes outils de veille</h2>
 
-        <div class="outil-card">
-          <div class="outil-icon">📡</div>
-          <div class="outil-info">
-            <h4>CERT-FR &amp; ANSSI — Newsletters quotidiennes</h4>
-            <p>Les alertes et avis de sécurité du CERT-FR sont reçus quotidiennement via le groupe Teams de l'entreprise, permettant de centraliser les informations critiques en temps réel.</p>
-          </div>
+      <!-- CERT-FR / ANSSI -->
+      <div class="outil-card" style="animation-delay:.05s">
+        <div class="outil-icon">📡</div>
+        <div class="outil-info">
+          <h4>CERT-FR & ANSSI — Alertes & avis de sécurité</h4>
+          <p>
+            Les alertes et avis de sécurité du CERT-FR sont reçus quotidiennement via le groupe Teams de l'entreprise,
+            permettant de centraliser les informations critiques en temps réel. Je suis également le compte
+            <strong style="color:var(--pale)">@CERT_FR</strong> sur X (Twitter) pour recevoir les alertes instantanément.
+          </p>
         </div>
+      </div>
 
-        <!-- Image certfr -->
-        <div class="card" style="margin-top:1rem;">
-          <img src="assets/images/certfr.png"
-               alt="Groupe Teams recevant les newsletters CERT-FR / ANSSI"
-               class="certfr-img">
-          <p class="img-caption">Groupe Teams de l'entreprise recevant les newsletters quotidiennes ANSSI / CERT-FR</p>
+      <!-- Image Twitter CERT-FR -->
+      <figure class="img-block">
+        <img src="assets/images/CerFR_Twitter.png" alt="Compte X (Twitter) du CERT-FR suivi pour la veille">
+        <figcaption>Compte X (@CERT_FR) — suivi pour les alertes de sécurité en temps réel</figcaption>
+      </figure>
+
+      <!-- Feedly -->
+      <div class="outil-card" style="animation-delay:.1s">
+        <div class="outil-icon">📰</div>
+        <div class="outil-info">
+          <h4>Feedly — Agrégateur de flux RSS</h4>
+          <p>
+            Feedly centralise plusieurs sources dans un seul fil : <strong style="color:var(--pale)">CERT-FR</strong>,
+            <strong style="color:var(--pale)">Microsoft 365 Blog</strong>,
+            <strong style="color:var(--pale)">Microsoft 365 Roadmap</strong>,
+            <strong style="color:var(--pale)">Microsoft Dynamics 365 Blog</strong> et
+            <strong style="color:var(--pale)">Microsoft 365 Security</strong>.
+            Cela permet de suivre à la fois les vulnérabilités et les nouveautés produits Microsoft.
+          </p>
         </div>
-      </section>
+      </div>
+
+      <!-- Image Feedly -->
+      <figure class="img-block">
+        <img src="assets/images/Feedly_365.jpg" alt="Agrégateur Feedly avec flux CERT-FR et Microsoft 365">
+        <figcaption>Feedly — flux RSS regroupant CERT-FR et les blogs Microsoft 365</figcaption>
+      </figure>
 
       <div class="divider-ornament">— ❧ —</div>
 
-      <!-- Section : Articles -->
-      <section style="margin: 2.5rem 0;">
-        <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; color:var(--pale); letter-spacing:.06em; margin-bottom:1.5rem;">
-          Articles &amp; Analyses
-        </h2>
+      <!-- ══ EXEMPLE D'ALERTE CERT-FR ══ -->
+      <h2 class="section-heading">Exemple d'alerte CERT-FR</h2>
 
-        <!-- Article 1 -->
-        <article class="article-card">
-          <span class="article-date">15 décembre 2025</span>
-          <h3>Vulnérabilités dans les produits Apple</h3>
-          <div class="article-tags">
-            <span class="tag">CVE-2025-14174</span>
-            <span class="tag">CVE-2025-43529</span>
-            <span class="tag tag-gold">Exploitation active</span>
-          </div>
-          <p>
-            De multiples vulnérabilités ont été découvertes dans les produits Apple. Certaines permettent à un attaquant de provoquer une exécution de code arbitraire à distance, une élévation de privilèges et un déni de service. Apple indique que les CVE-2025-14174 et CVE-2025-43529 sont activement exploitées.
-          </p>
-          <a href="https://www.cert.ssi.gouv.fr/avis/CERTFR-2025-AVI-1110/"
-             target="_blank"
-             class="source-link">
-            ↗ Lire l'avis CERT-FR
-          </a>
-        </article>
+      <div class="certfr-example">
+        <span class="example-label">Avis CERT-FR · Exemple d'utilité en entreprise</span>
+        <h4>CERTFR-2026-AVI-0149 — Multiples vulnérabilités dans Microsoft Office</h4>
+        <div class="certfr-meta">
+          <span class="tag">CVE-2026-21258</span>
+          <span class="tag">CVE-2026-21259</span>
+          <span class="tag">CVE-2026-21260</span>
+          <span class="tag">CVE-2026-21261</span>
+          <span class="tag">CVE-2026-21511</span>
+          <span class="tag">CVE-2026-21514</span>
+          <span class="tag tag-gold">11 février 2026</span>
+        </div>
+        <p>
+          Cet avis signale de multiples vulnérabilités découvertes dans <strong style="color:var(--pale)">Microsoft Office</strong>.
+          Les bulletins de sécurité Microsoft référencent plusieurs CVE publiés le 10 février 2026.
+          Dans le cadre de mon alternance chez Jesto Informatique, ce type d'alerte est directement
+          actionnable : vérification des versions installées sur le parc client, application des
+          correctifs via Microsoft Update ou déploiement GPO, et communication aux utilisateurs concernés.
+        </p>
+        <a href="https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0149/" target="_blank" class="source-link">
+          ↗ Lire l'avis CERT-FR complet
+        </a>
+      </div>
 
-        <!-- Article 2 — WIP -->
-        <article class="article-card">
-          <div class="wip-badge"><span class="wip-dot"></span> En cours de rédaction</div>
-          <h3>Article 2 — À venir</h3>
-          <p style="color:var(--muted); font-style:italic;">
-            Le contenu détaillé et les sources seront ajoutés prochainement.
-          </p>
-        </article>
-      </section>
+      <!-- Image exemple CERT-FR -->
+      <figure class="img-block">
+        <img src="assets/images/Exemple_CertFR.png" alt="Avis CERT-FR CERTFR-2026-AVI-0149 — Multiples vulnérabilités Microsoft Office">
+        <figcaption>Capture de l'avis CERTFR-2026-AVI-0149 — Multiples vulnérabilités dans Microsoft Office</figcaption>
+      </figure>
 
-    </div><!-- /container -->
-  </div><!-- /page-wrapper -->
+      <div class="divider-ornament">— ❧ —</div>
+
+      <!-- ══ TABLEAU DE SUIVI ══ -->
+      <h2 class="section-heading">Tableau de suivi de veille</h2>
+
+      <div class="veille-table-wrapper">
+        <table class="veille-table">
+          <thead>
+            <tr>
+              <th>Titre & Source</th>
+              <th>Date</th>
+              <th>URL</th>
+              <th>Sévérité / CVE</th>
+              <th>Résumé</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CVE-2024-21762 — Écriture hors limites dans FortiOS SSL-VPN (CERT FR / Fortinet PSIRT)</td>
+              <td>08/02/2025</td>
+              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2024-AVI-0101" target="_blank">cert.ssi.gouv.fr</a></td>
+              <td><span class="sev sev-critique">Critique CVE 9.6</span></td>
+              <td>Vulnérabilité d'écriture hors limites dans la fonction VPN SSL de FortiOS. Permet à un attaquant distant non authentifié d'exécuter du code arbitraire via des requêtes HTTP spécialement forgées. Activement exploitée selon la CISA.</td>
+            </tr>
+            <tr>
+              <td>CVE-2024-23113 — Exécution de code arbitraire via daemon FGFM (CERT FR / Fortinet PSIRT)</td>
+              <td>08/02/2025</td>
+              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2024-AVI-0420" target="_blank">cert.ssi.gouv.fr</a></td>
+              <td><span class="sev sev-critique">Critique CVE 9.8</span></td>
+              <td>Vulnérabilité dans le démon fgfm de FortiOS, FortiPAM, FortiProxy. Permet à un attaquant distant non authentifié d'exécuter du code ou des commandes arbitraires via des requêtes forgées. Interaction utilisateur requise.</td>
+            </tr>
+            <tr>
+              <td>CVE-2024-47575 — Zero-day affectant FortiManager (CERT FR / Fortinet PSIRT)</td>
+              <td>23/10/2025</td>
+              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2024-ALS-014" target="_blank">cert.ssi.gouv.fr</a></td>
+              <td><span class="sev sev-critique">Critique CVE 9.8</span></td>
+              <td>Vulnérabilité zero-day dans FortiManager. Permet à un attaquant non authentifié de provoquer une exécution de code arbitraire à distance. Activement exploitée — utilisation d'adresses IP et configurations d'équipements gérés.</td>
+            </tr>
+            <tr>
+              <td>CVE-2024-55591 — Zero-day affectant FortiManager / FortiOS (CERT FR / Fortinet PSIRT)</td>
+              <td>14/01/2025</td>
+              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2025-ALS-002" target="_blank">cert.ssi.gouv.fr</a></td>
+              <td><span class="sev sev-critique">Critique CVE 9.6</span></td>
+              <td>Concept public disponible depuis novembre 2024. Un attaquant ciblant un FortiGate reconnu Node.js peut s'en prévaloir et obtenir des droits super-administrateur.</td>
+            </tr>
+            <tr>
+              <td>CVE-2024-50001 — Contournement d'authentification critique (CERT FR / Fortinet PSIRT)</td>
+              <td>14/01/2025</td>
+              <td><a href="https://cert.ssi.gouv.fr/avis/CERTFR-2025-ALS-003" target="_blank">cert.ssi.gouv.fr</a></td>
+              <td><span class="sev sev-critique">Critique CVE 9.8</span></td>
+              <td>Contournement d'authentification dans FortiOS et FortiProxy via des requêtes forgées au module websocket Node.js. Permet à un attaquant d'obtenir des privilèges super-administrateur et d'exécuter du code arbitraire.</td>
+            </tr>
+            <tr>
+              <td>CVE-2024-40591 — Élévation de privilèges dans Security Fabric (Fortinet PSIRT / CERT FR)</td>
+              <td>14/01/2025</td>
+              <td><a href="https://fortiguard.com/psirt/FG-IR-24-234" target="_blank">fortiguard.com</a></td>
+              <td><span class="sev sev-elevee">Élevée CVE 8.8</span></td>
+              <td>Défaut d'attribution de privilèges dans le composant Security Fabric de FortiOS. Un attaquant disposant de permissions Security Fabric peut élever ses privilèges jusqu'aux droits super-administrateur.</td>
+            </tr>
+            <tr>
+              <td>CVE-2024-46668 — Modification de mots de passe admin sans authentification sur FortiSwitch (Fortinet PSIRT / CERT Santé)</td>
+              <td>09/01/2026</td>
+              <td><a href="https://cyberveille.esante.gouv.fr" target="_blank">cyberveille.esante.gouv.fr</a></td>
+              <td><span class="sev sev-critique">Critique CVE 9.8</span></td>
+              <td>Défaut dans la fonction set_password de l'interface GUI de FortiSwitch. Permet à un attaquant non authentifié de modifier les mots de passe administrateur via des requêtes spécialement forgées.</td>
+            </tr>
+            <tr>
+              <td>Post-exploitation FortiGate via les produits Fortinet — Campagne massive (CERT FR / PSIRT / Blog Fortinet)</td>
+              <td>10/01/2026</td>
+              <td><a href="https://cert.ssi.gouv.fr/alerte/CERTFR-2025-ALS-006" target="_blank">cert.ssi.gouv.fr</a></td>
+              <td><span class="sev sev-multiple">Multiple CVE</span></td>
+              <td>Technique de post-exploitation régissant les vulnérabilités antérieures sur FortiGate. Campagne massive confirmée en France avec des compromissions identifiées dès début 2023.</td>
+            </tr>
+            <tr>
+              <td>CERTFR-2026-AVI-0149 — Multiples vulnérabilités dans Microsoft Office (CERT-FR)</td>
+              <td>11/02/2026</td>
+              <td><a href="https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0149/" target="_blank">cert.ssi.gouv.fr</a></td>
+              <td><span class="sev sev-elevee">Élevée</span></td>
+              <td>Multiples vulnérabilités dans Microsoft Office référencées par plusieurs bulletins CVE-2026. Correctifs disponibles via Microsoft Update.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="table-footer">Tableau de veille technologique — Sources : CERT-FR / Fortinet PSIRT / Fortiguard Labs · Mis à jour : Mai 2026</p>
+      </div>
+
+    </div>
+  </div>
 
   <!-- ── FOOTER ── -->
   <footer>
@@ -261,7 +428,7 @@
         <a href="btssio.html">BTS SIO</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <p class="footer-copy">© 2025 <span>Paula Ciacan</span> — Portfolio BTS SIO</p>
+      <p class="footer-copy">© 2026 <span>Paula Ciacan</span> — Portfolio BTS SIO</p>
     </div>
   </footer>
 
