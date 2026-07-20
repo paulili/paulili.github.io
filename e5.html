@@ -248,6 +248,49 @@
     }
     .linkedin-icon:hover { color: #4a9eff; }
 
+    .note-finale {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      background: rgba(13,21,37,.7);
+      border: 1px solid rgba(74,127,212,.18);
+      border-left: 3px solid var(--gold);
+      padding: 1.4rem 2rem;
+      margin-top: 2.5rem;
+      animation: fadeSlideUp .8s .25s ease both;
+      flex-wrap: wrap;
+    }
+    .note-finale-label {
+      font-size: .68rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: .3rem;
+    }
+    .note-finale-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--pale);
+      letter-spacing: .04em;
+    }
+    .note-badge {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--gold);
+      letter-spacing: .04em;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .note-badge span {
+      font-size: 1rem;
+      color: var(--muted);
+      font-family: 'Segoe UI', sans-serif;
+      font-weight: 400;
+    }
+
     @media (max-width: 700px) {
       .situation-body { grid-template-columns: 1fr; }
       .sit-col:first-child { border-right: none; border-bottom: 1px solid rgba(74,127,212,.1); }
@@ -653,6 +696,15 @@
             📊 Présentation (PPTX)
           </a>
         </div>
+      </div>
+
+      <!-- ── NOTE FINALE ── -->
+      <div class="note-finale">
+        <div>
+          <p class="note-finale-label">Résultat obtenu</p>
+          <p class="note-finale-title">Note finale — Épreuve E5</p>
+        </div>
+        <div class="note-badge">12 <span>/ 20</span></div>
       </div>
 
     </div>
