@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Site not found &middot; paulili.github.io</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Façade : palette GitHub, à ne pas retoucher sinon l'illusion tombe */
+    --gh-paper: #ffffff;
+    --gh-ink:   #24292f;
+    --gh-mute:  #57606a;
+    --gh-link:  #0969da;
+    --gh-glyph: #d0d7de;
+
+    /* Coulisses */
+    --ink:      #0f1419;
+    --pale:     #dce3e8;
+    --dim:      #6b7a87;
+    --phosphor: #e3b778;
+    --rule:     rgba(220, 227, 232, 0.14);
+
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --sys:  -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--pale);
+    font-family: var(--sys);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .skip {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 10;
+  }
+  .skip:focus {
+    left: 12px;
+    top: 12px;
+    padding: 10px 16px;
+    background: var(--ink);
+    color: var(--phosphor);
+    font-family: var(--mono);
+    font-size: 13px;
+    text-decoration: none;
+    outline: 2px solid var(--phosphor);
+  }
+
+  /* ---------- La façade ---------- */
+
+  .facade {
+    min-height: 100vh;
+    min-height: 100svh;
+    background: var(--gh-paper);
+    color: var(--gh-ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px 96px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .facade__inner {
+    max-width: 600px;
+    text-align: center;
+    will-change: transform;
+  }
+
+  .facade__code {
+    font-size: clamp(72px, 16vw, 112px);
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin: 0 0 32px;
+    color: var(--gh-ink);
+  }
+
+  .facade__head {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 24px;
+  }
+
+  .facade p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--gh-mute);
+    margin: 0 0 16px;
+  }
+
+  .facade code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: #f6f8fa;
+    padding: 2px 5px;
+    border-radius: 4px;
+  }
+
+  .facade a { color: var(--gh-link); }
+
+  .facade__foot {
+    margin-top: 40px;
+    font-size: 13px;
+    color: var(--gh-mute);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .facade__glyph {
+    width: 34px;
+    height: 34px;
+    margin: 28px auto 0;
+    border-radius: 50%;
+    background: var(--gh-glyph);
+    color: var(--gh-paper);
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* L'indice : discret, mais il bat */
+  .cue {
+    position: absolute;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #8c959f;
+    text-decoration: none;
+    padding: 8px 14px;
+  }
+  .cue:hover { color: var(--gh-ink); }
+  .cue:focus-visible { outline: 2px solid var(--gh-link); outline-offset: 2px; }
+
+  .cue__caret {
+    font-size: 15px;
+    animation: blink 1.2s steps(1) infinite;
+  }
+  @keyframes blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0.15; } }
+
+  /* ---------- Les coulisses ---------- */
+
+  .index {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 88px 24px;
+    font-family: var(--mono);
+  }
+
+  .index__inner {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .index__eyebrow {
+    font-size: 13px;
+    color: var(--phosphor);
+    letter-spacing: 0.02em;
+    margin: 0 0 6px;
+  }
+
+  .index__note {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--dim);
+    margin: 0 0 40px;
+    max-width: 46ch;
+  }
+
+  .index__labels {
+    display: grid;
+    grid-template-columns: 1fr 130px 44px;
+    gap: 16px;
+    padding: 0 4px 10px;
+    border-bottom: 1px solid var(--rule);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 130px 44px;
+    gap: 16px;
+    align-items: baseline;
+    padding: 26px 4px;
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.18s ease, padding-left 0.18s ease;
+  }
+  .row:hover,
+  .row:focus-visible {
+    background: rgba(227, 183, 120, 0.05);
+    padding-left: 14px;
+    outline: none;
+  }
+  .row:focus-visible { box-shadow: inset 2px 0 0 var(--phosphor); }
+
+  .row__name {
+    font-size: clamp(24px, 5vw, 34px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--pale);
+    transition: color 0.18s ease;
+  }
+  .row:hover .row__name,
+  .row:focus-visible .row__name { color: var(--phosphor); }
+
+  .row__desc {
+    display: block;
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--dim);
+  }
+
+  .row__meta { font-size: 12px; color: var(--dim); }
+
+  .row__go {
+    font-size: 18px;
+    color: var(--dim);
+    text-align: right;
+    transition: transform 0.18s ease, color 0.18s ease;
+  }
+  .row:hover .row__go,
+  .row:focus-visible .row__go { color: var(--phosphor); transform: translateX(4px); }
+
+  .row--parent {
+    padding: 14px 4px;
+    color: var(--dim);
+    font-size: 13px;
+    cursor: default;
+  }
+  .row--parent:hover { background: none; padding-left: 4px; }
+
+  .index__foot {
+    margin-top: 36px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    align-items: center;
+    font-size: 12px;
+    color: var(--dim);
+  }
+  .index__foot a { color: var(--dim); }
+  .index__foot a:hover { color: var(--phosphor); }
+
+  @media (max-width: 560px) {
+    .index__labels,
+    .row { grid-template-columns: 1fr 34px; }
+    .index__labels span:nth-child(2),
+    .row__meta { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#index">Aller à la navigation</a>
+
+<!-- ============ Façade : reproduit la 404 de GitHub Pages ============ -->
+<header class="facade">
+  <div class="facade__inner" id="facade-inner">
+    <p class="facade__code">404</p>
+    <p class="facade__head">File not found</p>
+    <p>The site configured at this address does not contain the requested file.</p>
+    <p>If this is your site, make sure that the filename case matches the URL as well as any file permissions.<br>
+       For root URLs (like <code>http://example.com/</code>) you must provide an <code>index.html</code> file.</p>
+    <p><a href="https://docs.github.com/pages">Read the full documentation</a> for more information about using <strong>GitHub Pages</strong>.</p>
+    <div class="facade__foot">
+      <span>GitHub Status</span>
+      <span>&mdash;</span>
+      <span>@githubstatus</span>
+    </div>
+    <div class="facade__glyph" aria-hidden="true">PL</div>
+  </div>
+
+  <a class="cue" href="#index">
+    <span>ce n'est pas une erreur</span>
+    <span class="cue__caret" aria-hidden="true">&#9662;</span>
+  </a>
+</header>
+
+<!-- ============ Coulisses : le vrai index ============ -->
+<main class="index" id="index">
+  <div class="index__inner">
+    <p class="index__eyebrow">Index of /</p>
+    <p class="index__note">
+      Rien ne casse ici. La racine est vide, tout vit dans les sous-dossiers.
+      Deux entrées, servies par GitHub Pages.
+    </p>
+
+    <div class="index__labels" aria-hidden="true">
+      <span>Nom</span>
+      <span>Modifié</span>
+      <span></span>
+    </div>
+
+    <div class="row row--parent" aria-hidden="true">
+      <span>../ &nbsp; répertoire parent</span>
+      <span></span>
+    </div>
+
+    <a class="row" href="/portfolio/">
+      <span class="row__name">portfolio/
+        <span class="row__desc">Projets, BTS SIO SISR, veille technique</span>
+      </span>
+      <span class="row__meta">2026-08-13</span>
+      <span class="row__go" aria-hidden="true">&rarr;</span>
+    </a>
+
+    <a class="row" href="/secretpage/">
+      <span class="row__name">secretpage/
+        <span class="row__desc">Bac à sable &mdash; travaux en cours</span>
+      </span>
+      <span class="row__meta">2026-08-13</span>
+      <span class="row__go" aria-hidden="true">&rarr;</span>
+    </a>
+
+    <div class="index__foot">
+      <span>paulili.github.io</span>
+      <a href="https://github.com/paulili">github.com/paulili</a>
+      <a href="#top">&uarr; retour à la 404</a>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Léger décalage de la façade au scroll : elle se soulève comme un décor.
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduce.matches) return;
+
+    var inner = document.getElementById('facade-inner');
+    var ticking = false;
+
+    function update() {
+      var y = window.scrollY;
+      if (y < window.innerHeight) {
+        inner.style.transform = 'translateY(' + (y * -0.18) + 'px)';
+        inner.style.opacity = String(Math.max(0, 1 - y / (window.innerHeight * 0.75)));
+      }
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(update);
+      }
+    }, { passive: true });
+  })();
+</script>
+
+</body>
+</html>
