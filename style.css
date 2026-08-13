@@ -1,0 +1,689 @@
+/* ==================================================================
+   style.css — Archives célestes
+   Mobile first. Les media queries élargissent, jamais l'inverse.
+   ================================================================== */
+
+:root {
+  /* Nuit */
+  --void:      #04060e;
+  --deep:      #0a1020;
+  --panel:     rgba(18, 26, 48, 0.5);
+  --panel-up:  rgba(26, 36, 64, 0.62);
+
+  /* Lumière */
+  --star:      #eef1fa;
+  --dust:      #8e98b9;
+  --dust-low:  #5d6684;
+  --gold:      #f0d19a;
+  --gold-soft: rgba(240, 209, 154, 0.16);
+  --cool:      #8fa4e6;
+
+  /* Traits */
+  --rule:      rgba(180, 196, 240, 0.12);
+  --rule-lit:  rgba(240, 209, 154, 0.34);
+
+  /* Fontes */
+  --display: "Marcellus", "Times New Roman", serif;
+  --body:    "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono:    "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Rythme */
+  --gut: 20px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--void);
+  color: var(--star);
+  font-family: var(--body);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+img, video { max-width: 100%; height: auto; display: block; }
+
+button { font: inherit; color: inherit; }
+
+::selection { background: var(--gold-soft); color: var(--star); }
+
+
+/* ---------------- Le ciel ---------------- */
+
+#sky {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: block;
+}
+
+.haze {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(58% 40% at 78% 8%,  rgba(96, 116, 200, 0.20), transparent 70%),
+    radial-gradient(70% 46% at 12% 82%, rgba(126, 86, 168, 0.16), transparent 72%),
+    radial-gradient(90% 60% at 50% 50%, rgba(10, 16, 32, 0.0), rgba(4, 6, 14, 0.72));
+}
+
+.moon {
+  position: fixed;
+  top: -40px;
+  right: -34px;
+  width: 148px;
+  height: 148px;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 38% 34%,
+      rgba(255, 252, 244, 0.60),
+      rgba(240, 230, 208, 0.26) 38%,
+      rgba(186, 190, 210, 0.05) 60%,
+      transparent 70%);
+  box-shadow: 0 0 130px 46px rgba(178, 196, 255, 0.05);
+  filter: blur(1.2px);
+  opacity: 0.62;
+  animation: moon-breathe 16s ease-in-out infinite;
+}
+
+@keyframes moon-breathe {
+  0%, 100% { opacity: 0.54; }
+  50%      { opacity: 0.7; }
+}
+
+
+/* ---------------- Cadre général ---------------- */
+
+.app {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 26px var(--gut) 56px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ---------------- Chemin (fil d'Ariane) ---------------- */
+
+.path { margin-bottom: 34px; }
+
+.path__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: var(--dust-low);
+}
+
+.path__list li { display: flex; align-items: center; gap: 6px; }
+.path__list li::after { content: "/"; opacity: 0.4; }
+.path__list li:last-child::after { content: ""; }
+
+.path__link {
+  background: none;
+  border: 0;
+  padding: 4px 0;
+  cursor: pointer;
+  color: var(--dust);
+  transition: color 0.2s var(--ease);
+}
+.path__link:hover, .path__link:focus-visible { color: var(--gold); outline: none; }
+
+.path__here { color: var(--gold); }
+
+
+/* ---------------- Écrans ---------------- */
+
+.view { flex: 1; }
+
+.screen { animation: screen-in 0.62s var(--ease) both; }
+
+@keyframes screen-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.screen__eyebrow {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 14px;
+}
+
+.screen__title {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 31px;
+  line-height: 1.18;
+  letter-spacing: 0.005em;
+  margin: 0 0 16px;
+}
+
+.screen__lede {
+  color: var(--dust);
+  margin: 0 0 32px;
+  max-width: 46ch;
+}
+
+.screen__sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dust-low);
+  margin: -8px 0 30px;
+}
+
+
+/* ---------------- Blocs de contenu ---------------- */
+
+.blocks > * + * { margin-top: 22px; }
+
+.b-text { margin: 0; color: rgba(238, 241, 250, 0.9); }
+
+.b-quote {
+  margin: 0;
+  padding: 22px 24px;
+  background: var(--panel);
+  border-left: 1px solid var(--rule-lit);
+  font-family: var(--display);
+  font-size: 21px;
+  line-height: 1.5;
+  color: var(--star);
+}
+
+.b-letter {
+  margin: 0;
+  padding: 26px 24px;
+  background: linear-gradient(160deg, rgba(28, 24, 44, 0.6), rgba(14, 18, 34, 0.5));
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  font-family: var(--display);
+  font-size: 17px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  color: rgba(244, 240, 230, 0.94);
+}
+
+.b-code {
+  margin: 0;
+  padding: 20px 16px;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 19px;
+  letter-spacing: 0.32em;
+  color: var(--gold);
+  background: var(--gold-soft);
+  border-radius: 2px;
+  word-break: break-word;
+}
+
+.b-figure { margin: 0; }
+
+.b-figure img,
+.b-figure video {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid var(--rule);
+  background: var(--deep);
+}
+
+.b-caption {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: var(--dust-low);
+  text-align: center;
+}
+
+.b-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.b-gallery img { border-radius: 3px; border: 1px solid var(--rule); }
+
+.b-audio {
+  padding: 18px 20px;
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+}
+.b-audio__label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.b-audio audio { width: 100%; }
+
+.b-divider {
+  height: 1px;
+  border: 0;
+  margin: 30px 0;
+  background: linear-gradient(90deg, transparent, var(--rule-lit), transparent);
+}
+
+.b-signature {
+  font-family: var(--display);
+  font-size: 20px;
+  color: var(--gold);
+  text-align: right;
+  margin: 0;
+}
+
+
+/* ---------------- Liste des archives ---------------- */
+
+.archives { list-style: none; margin: 0; padding: 0; }
+
+.archives li { position: relative; padding-left: 34px; }
+
+/* Le rail : trait de constellation qui relie les nuits */
+.archives li::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--rule);
+}
+.archives li:first-child::before { top: 26px; }
+.archives li:last-child::before  { bottom: auto; height: 26px; }
+.archives li.is-done::before     { background: var(--rule-lit); }
+
+/* Le nœud : une étoile sur le rail */
+.archives li::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 22px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--void);
+  border: 1px solid var(--rule);
+  transition: all 0.3s var(--ease);
+}
+.archives li.is-open::after {
+  border-color: var(--cool);
+}
+.archives li.is-done::after {
+  background: var(--gold);
+  border-color: var(--gold);
+  box-shadow: 0 0 10px 1px rgba(240, 209, 154, 0.5);
+}
+
+.entry {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 2px 20px;
+  cursor: pointer;
+  transition: transform 0.26s var(--ease), opacity 0.26s var(--ease);
+}
+.entry:hover, .entry:focus-visible { outline: none; transform: translateX(3px); }
+.entry:hover .entry__name, .entry:focus-visible .entry__name { color: var(--gold); }
+
+.entry__top {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 3px;
+}
+
+.entry__glyph { flex: none; width: 17px; height: 17px; color: var(--dust-low); }
+.entry.is-unlocked .entry__glyph { color: var(--gold); }
+
+.entry__name {
+  font-family: var(--display);
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  color: var(--star);
+  transition: color 0.22s var(--ease);
+}
+
+.entry__date {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dust-low);
+  margin-left: 26px;
+  display: block;
+}
+
+.entry__note {
+  display: block;
+  margin-left: 26px;
+  margin-top: 5px;
+  font-size: 13.5px;
+  color: var(--dust);
+}
+
+.entry[disabled] { cursor: default; opacity: 0.5; }
+.entry[disabled]:hover { transform: none; }
+.entry[disabled]:hover .entry__name { color: var(--star); }
+
+.entry--finale { border-bottom: 0; }
+.entry--finale .entry__name { color: var(--gold); }
+
+
+/* ---------------- Verrou ---------------- */
+
+.lock { text-align: center; padding: 18px 0 8px; }
+
+.lock__glyph {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 26px;
+  color: var(--gold);
+  opacity: 0.85;
+}
+
+.lock__title {
+  font-family: var(--display);
+  font-size: 26px;
+  font-weight: 400;
+  margin: 0 0 10px;
+}
+
+.lock__hint { color: var(--dust); margin: 0 0 30px; font-size: 14.5px; }
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  max-width: 340px;
+  margin: 0 auto;
+  padding-bottom: 11px;
+  border-bottom: 1px solid var(--rule);
+  transition: border-color 0.24s var(--ease);
+}
+.field:focus-within { border-color: var(--gold); }
+
+.field__caret {
+  color: var(--gold);
+  font-family: var(--mono);
+  font-size: 14px;
+  animation: caret 1.3s steps(1) infinite;
+}
+@keyframes caret { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0.2; } }
+
+.field__input {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: 0;
+  outline: none;
+  color: var(--star);
+  font-family: var(--mono);
+  font-size: 16px;
+  letter-spacing: 0.12em;
+  text-align: center;
+  padding: 0;
+}
+.field__input::placeholder { color: rgba(142, 152, 185, 0.4); letter-spacing: 0.06em; }
+
+.lock__error {
+  min-height: 20px;
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: #e0a08c;
+  opacity: 0;
+  transition: opacity 0.2s var(--ease);
+}
+.lock__error.is-on { opacity: 1; }
+
+.lock--wrong { animation: shake 0.36s var(--ease); }
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  22%      { transform: translateX(-7px); }
+  66%      { transform: translateX(7px); }
+}
+
+
+/* ---------------- Boutons ---------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 13px 30px;
+  background: none;
+  border: 1px solid var(--rule-lit);
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  transition: background-color 0.24s var(--ease), border-color 0.24s var(--ease);
+}
+.btn:hover, .btn:focus-visible {
+  background: var(--gold-soft);
+  border-color: var(--gold);
+  outline: none;
+}
+
+.btn--block { display: flex; width: 100%; margin-top: 30px; }
+
+.btn--quiet {
+  border-color: var(--rule);
+  color: var(--dust);
+  min-height: 42px;
+  padding: 10px 20px;
+  font-size: 10.5px;
+}
+.btn--quiet:hover, .btn--quiet:focus-visible { color: var(--star); background: none; }
+
+
+/* ---------------- Indices ---------------- */
+
+.hints { margin-top: 32px; }
+
+.hints__list { list-style: none; margin: 0 0 14px; padding: 0; }
+
+.hints__item {
+  padding: 15px 18px;
+  margin-bottom: 9px;
+  background: var(--panel);
+  border-left: 1px solid var(--rule-lit);
+  font-size: 14.5px;
+  color: var(--dust);
+  animation: screen-in 0.5s var(--ease) both;
+}
+
+.hints__item strong {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+
+/* ---------------- Fragment révélé ---------------- */
+
+.fragment { text-align: center; }
+
+.fragment__seal {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 16px;
+  animation: glow-in 1.1s var(--ease) both;
+}
+
+@keyframes glow-in {
+  from { opacity: 0; letter-spacing: 0.5em; }
+  to   { opacity: 1; letter-spacing: 0.28em; }
+}
+
+.fragment__title {
+  font-family: var(--display);
+  font-size: 33px;
+  font-weight: 400;
+  margin: 0 0 34px;
+  animation: screen-in 0.7s 0.15s var(--ease) both;
+}
+
+.fragment__body {
+  text-align: left;
+  animation: screen-in 0.7s 0.3s var(--ease) both;
+}
+
+.fragment__next {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+  animation: screen-in 0.7s 0.45s var(--ease) both;
+}
+
+.fragment__next-label {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dust-low);
+  margin: 0 0 18px;
+}
+
+/* La clé du jour suivant : floutée jusqu'au toucher */
+.key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  min-width: 200px;
+  padding: 14px 28px;
+  background: var(--gold-soft);
+  border: 1px solid var(--rule-lit);
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 19px;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+  filter: blur(7px);
+  transition: filter 0.7s var(--ease);
+}
+.key.is-shown { filter: none; cursor: default; }
+.key:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.key__aside {
+  margin: 14px 0 0;
+  font-size: 12.5px;
+  color: var(--dust-low);
+}
+
+
+/* ---------------- Pied ---------------- */
+
+.foot {
+  margin-top: 46px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+
+.foot__progress {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dust-low);
+}
+
+
+/* ---------------- Voile de transition ---------------- */
+
+.veil {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  background: var(--void);
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+}
+.veil.is-on { opacity: 1; }
+
+/* Éclat de déverrouillage */
+.burst {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 46%, rgba(240, 209, 154, 0.5), transparent 46%);
+  opacity: 0;
+  animation: burst 1s var(--ease) both;
+}
+@keyframes burst {
+  0%   { opacity: 0; transform: scale(0.5); }
+  35%  { opacity: 1; }
+  100% { opacity: 0; transform: scale(1.5); }
+}
+
+
+/* ---------------- Écrans plus larges ---------------- */
+
+@media (min-width: 620px) {
+  :root { --gut: 32px; }
+  .app { padding-top: 42px; }
+  .screen__title { font-size: 38px; }
+  .fragment__title { font-size: 42px; }
+  .entry__name { font-size: 25px; }
+  .moon { width: 208px; height: 208px; top: -54px; right: -44px; }
+  .b-gallery { grid-template-columns: repeat(3, 1fr); }
+}
+
+
+/* ---------------- Mouvement réduit ---------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .key { filter: none; }
+}
