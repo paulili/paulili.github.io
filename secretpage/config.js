@@ -191,7 +191,7 @@ const GAME = {
       date: "22 août",
       folderName: "2208",
       subtitle: "⚠️ [THÈME DU JOUR 3]",
-      entryPassword: "constellation", // ⚠️ révélé à la fin du FRAGMENT2
+      entryPassword: "⚠️mot-de-passe-jour3",  // ⚠️ révélé à la fin du FRAGMENT2
 
       puzzle: {
         title: "Une énigme t'attend",
@@ -206,9 +206,345 @@ const GAME = {
       fragment: {
         name: "FRAGMENT3",
         label: "Fragment 03",
-        password: "orion",          // ⚠️ à remplacer
+        password: "⚠️reponse-jour3",         // ⚠️ à remplacer
         blocks: [
           { type: "text", value: "⚠️ [FRAGMENT 3 — CONTENU À AJOUTER]" }
+        ]
+      }
+    },
+
+    /* ============================ JOUR 4 ============================ */
+    {
+      id: 4,
+      date: "23 août",
+      folderName: "2308",
+      subtitle: "⚠️ [THÈME DU JOUR 4]",
+      entryPassword: "⚠️mot-de-passe-jour4",  // ⚠️ révélé à la fin du FRAGMENT3
+
+      puzzle: {
+        title: "Une énigme t'attend",
+        intro: "",
+        blocks: [
+          { type: "text", value: "⚠️ [ÉNIGME DU 23 AOÛT — CONTENU À AJOUTER]" }
+        ],
+        hints: [],
+        promptLabel: "La réponse ouvre le fragment"
+      },
+
+      fragment: {
+        name: "FRAGMENT4",
+        label: "Fragment 04",
+        password: "⚠️reponse-jour4",         // ⚠️ à remplacer
+        blocks: [
+          { type: "text", value: "⚠️ [FRAGMENT 4 — CONTENU À AJOUTER]" }
+        ]
+      }
+    },
+
+    /* ============================ JOUR 5 ============================ */
+    {
+      id: 5,
+      date: "24 août",
+      folderName: "2408",
+      subtitle: "⚠️ [THÈME DU JOUR 5]",
+      entryPassword: "⚠️mot-de-passe-jour5",  // ⚠️ révélé à la fin du FRAGMENT4
+
+      puzzle: {
+        title: "Une énigme t'attend",
+        intro: "",
+        blocks: [
+          { type: "text", value: "⚠️ [ÉNIGME DU 24 AOÛT — CONTENU À AJOUTER]" }
+        ],
+        hints: [],
+        promptLabel: "La réponse ouvre le fragment"
+      },
+
+      fragment: {
+        name: "FRAGMENT5",
+        label: "Fragment 05",
+        password: "⚠️reponse-jour5",         // ⚠️ à remplacer
+        blocks: [
+          { type: "text", value: "⚠️ [FRAGMENT 5 — CONTENU À AJOUTER]" }
+        ]
+      }
+    },
+
+    /* ============================ JOUR 6 ============================ */
+    {
+      id: 6,
+      date: "25 août",
+      folderName: "2508",
+      subtitle: "⚠️ [THÈME DU JOUR 6]",
+      entryPassword: "⚠️mot-de-passe-jour6",  // ⚠️ révélé à la fin du FRAGMENT5
+
+      puzzle: {
+        title: "Une énigme t'attend",
+        intro: "",
+        blocks: [
+          { type: "text", value: "⚠️ [ÉNIGME DU 25 AOÛT — CONTENU À AJOUTER]" }
+        ],
+        hints: [],
+        promptLabel: "La réponse ouvre le fragment"
+      },
+
+      fragment: {
+        name: "FRAGMENT6",
+        label: "Fragment 06",
+        password: "⚠️reponse-jour6",         // ⚠️ à remplacer
+        blocks: [
+          { type: "text", value: "⚠️ [FRAGMENT 6 — CONTENU À AJOUTER]" }
+        ]
+      }
+    },
+
+    /* ============================ JOUR 7 ============================ */
+    {
+      id: 7,
+      date: "26 août",
+      folderName: "2608",
+      subtitle: "⚠️ [THÈME DU JOUR 7]",
+      entryPassword: "⚠️mot-de-passe-jour7",  // ⚠️ révélé à la fin du FRAGMENT6
+
+      puzzle: {
+        title: "Une énigme t'attend",
+        intro: "",
+        blocks: [
+          { type: "text", value: "⚠️ [ÉNIGME DU 26 AOÛT — CONTENU À AJOUTER]" }
+        ],
+        hints: [],
+        promptLabel: "La réponse ouvre le fragment"
+      },
+
+      fragment: {
+        name: "FRAGMENT7",
+        label: "Fragment 07",
+        password: "⚠️reponse-jour7",         // ⚠️ à remplacer
+        blocks: [
+          { type: "text", value: "⚠️ [FRAGMENT 7 — CONTENU À AJOUTER]" }
+        ]
+      }
+    },
+
+    /* ============================ JOUR 8 ============================ */
+    {
+      id: 8,
+      date: "27 août",
+      folderName: "2708",
+      subtitle: "⚠️ [THÈME DU JOUR 8]",
+      entryPassword: "⚠️mot-de-passe-jour8",  // ⚠️ révélé à la fin du FRAGMENT7
+
+      puzzle: {
+        title: "Une énigme t'attend",
+        intro: "",
+        blocks: [
+          { type: "text", value: "⚠️ [ÉNIGME DU 27 AOÛT — CONTENU À AJOUTER]" }
+        ],
+        hints: [],
+        promptLabel: "La réponse ouvre le fragment"
+      },
+
+      fragment: {
+        name: "FRAGMENT8",
+        label: "Fragment 08",
+        password: "⚠️reponse-jour8",         // ⚠️ à remplacer
+        blocks: [
+          { type: "text", value: "⚠️ [FRAGMENT 8 — CONTENU À AJOUTER]" }
+        ]
+      }
+    },
+
+    /* ============================ JOUR 9 ============================ */
+    {
+      id: 9,
+      date: "28 août",
+      folderName: "2808",
+      subtitle: "⚠️ [THÈME DU JOUR 9]",
+      entryPassword: "⚠️mot-de-passe-jour9",  // ⚠️ révélé à la fin du FRAGMENT8
+
+      puzzle: {
+        title: "Une énigme t'attend",
+        intro: "",
+        blocks: [
+          { type: "text", value: "⚠️ [ÉNIGME DU 28 AOÛT — CONTENU À AJOUTER]" }
+        ],
+        hints: [],
+        promptLabel: "La réponse ouvre le fragment"
+      },
+
+      fragment: {
+        name: "FRAGMENT9",
+        label: "Fragment 09",
+        password: "⚠️reponse-jour9",         // ⚠️ à remplacer
+        blocks: [
+          { type: "text", value: "⚠️ [FRAGMENT 9 — CONTENU À AJOUTER]" }
+        ]
+      }
+    },
+
+    /* ============================ JOUR 10 ============================ */
+    {
+      id: 10,
+      date: "29 août",
+      folderName: "2908",
+      subtitle: "⚠️ [THÈME DU JOUR 10]",
+      entryPassword: "⚠️mot-de-passe-jour10",  // ⚠️ révélé à la fin du FRAGMENT9
+
+      puzzle: {
+        title: "Une énigme t'attend",
+        intro: "",
+        blocks: [
+          { type: "text", value: "⚠️ [ÉNIGME DU 29 AOÛT — CONTENU À AJOUTER]" }
+        ],
+        hints: [],
+        promptLabel: "La réponse ouvre le fragment"
+      },
+
+      fragment: {
+        name: "FRAGMENT10",
+        label: "Fragment 10",
+        password: "⚠️reponse-jour10",         // ⚠️ à remplacer
+        blocks: [
+          { type: "text", value: "⚠️ [FRAGMENT 10 — CONTENU À AJOUTER]" }
+        ]
+      }
+    },
+
+    /* ============================ JOUR 11 ============================ */
+    {
+      id: 11,
+      date: "30 août",
+      folderName: "3008",
+      subtitle: "⚠️ [THÈME DU JOUR 11]",
+      entryPassword: "⚠️mot-de-passe-jour11",  // ⚠️ révélé à la fin du FRAGMENT10
+
+      puzzle: {
+        title: "Une énigme t'attend",
+        intro: "",
+        blocks: [
+          { type: "text", value: "⚠️ [ÉNIGME DU 30 AOÛT — CONTENU À AJOUTER]" }
+        ],
+        hints: [],
+        promptLabel: "La réponse ouvre le fragment"
+      },
+
+      fragment: {
+        name: "FRAGMENT11",
+        label: "Fragment 11",
+        password: "⚠️reponse-jour11",         // ⚠️ à remplacer
+        blocks: [
+          { type: "text", value: "⚠️ [FRAGMENT 11 — CONTENU À AJOUTER]" }
+        ]
+      }
+    },
+
+    /* ============================ JOUR 12 ============================ */
+    {
+      id: 12,
+      date: "31 août",
+      folderName: "3108",
+      subtitle: "⚠️ [THÈME DU JOUR 12]",
+      entryPassword: "⚠️mot-de-passe-jour12",  // ⚠️ révélé à la fin du FRAGMENT11
+
+      puzzle: {
+        title: "Une énigme t'attend",
+        intro: "",
+        blocks: [
+          { type: "text", value: "⚠️ [ÉNIGME DU 31 AOÛT — CONTENU À AJOUTER]" }
+        ],
+        hints: [],
+        promptLabel: "La réponse ouvre le fragment"
+      },
+
+      fragment: {
+        name: "FRAGMENT12",
+        label: "Fragment 12",
+        password: "⚠️reponse-jour12",         // ⚠️ à remplacer
+        blocks: [
+          { type: "text", value: "⚠️ [FRAGMENT 12 — CONTENU À AJOUTER]" }
+        ]
+      }
+    },
+
+    /* ============================ JOUR 13 ============================ */
+    {
+      id: 13,
+      date: "1er septembre",
+      folderName: "0109",
+      subtitle: "⚠️ [THÈME DU JOUR 13]",
+      entryPassword: "⚠️mot-de-passe-jour13",  // ⚠️ révélé à la fin du FRAGMENT12
+
+      puzzle: {
+        title: "Une énigme t'attend",
+        intro: "",
+        blocks: [
+          { type: "text", value: "⚠️ [ÉNIGME DU 1ER SEPTEMBRE — CONTENU À AJOUTER]" }
+        ],
+        hints: [],
+        promptLabel: "La réponse ouvre le fragment"
+      },
+
+      fragment: {
+        name: "FRAGMENT13",
+        label: "Fragment 13",
+        password: "⚠️reponse-jour13",         // ⚠️ à remplacer
+        blocks: [
+          { type: "text", value: "⚠️ [FRAGMENT 13 — CONTENU À AJOUTER]" }
+        ]
+      }
+    },
+
+    /* ============================ JOUR 14 ============================ */
+    {
+      id: 14,
+      date: "2 septembre",
+      folderName: "0209",
+      subtitle: "⚠️ [THÈME DU JOUR 14]",
+      entryPassword: "⚠️mot-de-passe-jour14",  // ⚠️ révélé à la fin du FRAGMENT13
+
+      puzzle: {
+        title: "Une énigme t'attend",
+        intro: "",
+        blocks: [
+          { type: "text", value: "⚠️ [ÉNIGME DU 2 SEPTEMBRE — CONTENU À AJOUTER]" }
+        ],
+        hints: [],
+        promptLabel: "La réponse ouvre le fragment"
+      },
+
+      fragment: {
+        name: "FRAGMENT14",
+        label: "Fragment 14",
+        password: "⚠️reponse-jour14",         // ⚠️ à remplacer
+        blocks: [
+          { type: "text", value: "⚠️ [FRAGMENT 14 — CONTENU À AJOUTER]" }
+        ]
+      }
+    },
+
+    /* ============================ JOUR 15 ============================ */
+    {
+      id: 15,
+      date: "3 septembre",
+      folderName: "0309",
+      subtitle: "⚠️ [THÈME DU JOUR 15]",
+      entryPassword: "⚠️mot-de-passe-jour15",  // ⚠️ révélé à la fin du FRAGMENT14
+
+      puzzle: {
+        title: "Une énigme t'attend",
+        intro: "",
+        blocks: [
+          { type: "text", value: "⚠️ [ÉNIGME DU 3 SEPTEMBRE — CONTENU À AJOUTER]" }
+        ],
+        hints: [],
+        promptLabel: "La réponse ouvre le fragment"
+      },
+
+      fragment: {
+        name: "FRAGMENT15",
+        label: "Fragment 15",
+        password: "⚠️reponse-jour15",         // ⚠️ à remplacer
+        blocks: [
+          { type: "text", value: "⚠️ [FRAGMENT 15 — CONTENU À AJOUTER]" }
         ]
       }
     }
