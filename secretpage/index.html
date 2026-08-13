@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#05070f">
+<meta name="robots" content="noindex, nofollow">
+<title>Archives célestes</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Ciel : étoiles animées + brumes + lune -->
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="haze" aria-hidden="true"></div>
+<div class="moon" aria-hidden="true"></div>
+
+<div class="app">
+
+  <!-- Chemin de navigation, à la manière d'un explorateur -->
+  <nav class="path" aria-label="Chemin">
+    <ol class="path__list" id="path"></ol>
+  </nav>
+
+  <!-- Zone de contenu : le moteur y injecte les écrans -->
+  <main id="view" class="view" aria-live="polite"></main>
+
+  <footer class="foot">
+    <span id="progress" class="foot__progress"></span>
+  </footer>
+
+</div>
+
+<!-- Voile de transition entre les écrans -->
+<div class="veil" id="veil" aria-hidden="true"></div>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
