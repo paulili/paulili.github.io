@@ -131,8 +131,7 @@ const GAME = {
       id: 2,
       date: "21 août",
       folderName: "2108",
-      subtitle: "⚠️ [THÈME DU JOUR 2]",
-      entryPassword: "⚠️cle-2108",   // révélé à la fin du FRAGMENT1
+      entryPassword: null,          // dossiers non verrouillés
 
       puzzle: {
         type: "hangman",
@@ -159,8 +158,7 @@ const GAME = {
       id: 3,
       date: "22 août",
       folderName: "2208",
-      subtitle: "⚠️ [THÈME DU JOUR 3]",
-      entryPassword: "⚠️cle-2208",
+      entryPassword: null,          // dossiers non verrouillés
 
       puzzle: {
         title: "Une énigme t'attend",
@@ -187,8 +185,7 @@ const GAME = {
       id: 4,
       date: "23 août",
       folderName: "2308",
-      subtitle: "⚠️ [THÈME DU JOUR 4]",
-      entryPassword: "⚠️cle-2308",
+      entryPassword: null,          // dossiers non verrouillés
 
       puzzle: {
         title: "Une énigme t'attend",
@@ -216,8 +213,7 @@ const GAME = {
       id: 5,
       date: "24 août",
       folderName: "2408",
-      subtitle: "⚠️ [THÈME DU JOUR 5]",
-      entryPassword: "⚠️cle-2408",
+      entryPassword: null,          // dossiers non verrouillés
 
       puzzle: {
         title: "Une journée à quatre souvenirs",
@@ -243,7 +239,7 @@ const GAME = {
           {
             prompt: "Qu'avais-tu apporté ?",
             password: "un cadeau adopt",
-            attempts: { max: 7, hintAt: 3, hintText: "⚠️ [INDICE — À AJOUTER]" }
+            attempts: { max: 7, hintAt: 3, hintText: "une boîte rose lol" }
           }
         ]
       },
@@ -263,8 +259,7 @@ const GAME = {
       id: 6,
       date: "25 août",
       folderName: "2508",
-      subtitle: "⚠️ [THÈME DU JOUR 6]",
-      entryPassword: "⚠️cle-2508",
+      entryPassword: null,          // dossiers non verrouillés
 
       puzzle: {
         title: "Quel est ce lac ?",
@@ -291,8 +286,7 @@ const GAME = {
       id: 7,
       date: "26 août",
       folderName: "2608",
-      subtitle: "⚠️ [THÈME DU JOUR 7]",
-      entryPassword: "⚠️cle-2608",
+      entryPassword: null,          // dossiers non verrouillés
 
       puzzle: {
         title: "Trois indices, un lien",
@@ -333,8 +327,7 @@ const GAME = {
       id: 8,
       date: "27 août",
       folderName: "2708",
-      subtitle: "⚠️ [THÈME DU JOUR 8]",
-      entryPassword: "⚠️cle-2708",
+      entryPassword: null,          // dossiers non verrouillés
 
       puzzle: {
         title: "Reconnais l'endroit",
@@ -362,8 +355,7 @@ const GAME = {
       id: 9,
       date: "28 août",
       folderName: "2808",
-      subtitle: "⚠️ [THÈME DU JOUR 9]",
-      entryPassword: "⚠️cle-2808",
+      entryPassword: null,          // dossiers non verrouillés
 
       puzzle: {
         title: "Une énigme t'attend",
@@ -391,8 +383,7 @@ const GAME = {
       id: 10,
       date: "29 août",
       folderName: "2908",
-      subtitle: "⚠️ [THÈME DU JOUR 10]",
-      entryPassword: "⚠️cle-2908",
+      entryPassword: null,          // dossiers non verrouillés
 
       puzzle: {
         title: "Une énigme t'attend",
@@ -420,7 +411,7 @@ const GAME = {
       date: "29 août",
       folderName: "2908B",
       subtitle: "Suite du 29 août",
-      entryPassword: "⚠️cle-2908B",
+      entryPassword: null,          // dossiers non verrouillés
 
       puzzle: {
         title: "Une énigme t'attend",
@@ -450,8 +441,7 @@ const GAME = {
       id: 12,
       date: "30 août",
       folderName: "3008",
-      subtitle: "⚠️ [THÈME DU JOUR 12]",
-      entryPassword: "⚠️cle-3008",
+      entryPassword: null,          // dossiers non verrouillés
 
       puzzle: {
         title: "Que représentent ces éléments ?",
@@ -479,8 +469,7 @@ const GAME = {
       id: 13,
       date: "31 août",
       folderName: "3108",
-      subtitle: "⚠️ [THÈME DU JOUR 13]",
-      entryPassword: "⚠️cle-3108",
+      entryPassword: null,          // dossiers non verrouillés
 
       puzzle: {
         title: "Une énigme t'attend",
@@ -507,8 +496,7 @@ const GAME = {
       id: 14,
       date: "1er septembre",
       folderName: "0109",
-      subtitle: "⚠️ [THÈME DU JOUR 14]",
-      entryPassword: "⚠️cle-0109",
+      entryPassword: null,          // dossiers non verrouillés
 
       puzzle: {
         title: "Devine le lieu",
@@ -536,7 +524,7 @@ const GAME = {
       date: "1er septembre",
       folderName: "0109B",
       subtitle: "Suite du 1er septembre",
-      entryPassword: "⚠️cle-0109B",
+      entryPassword: null,          // dossiers non verrouillés
 
       puzzle: {
         title: "Une énigme t'attend",
@@ -563,8 +551,7 @@ const GAME = {
       id: 16,
       date: "2 septembre",
       folderName: "0209",
-      subtitle: "⚠️ [THÈME DU JOUR 16]",
-      entryPassword: "⚠️cle-0209",
+      entryPassword: null,          // dossiers non verrouillés
 
       puzzle: {
         title: "Une énigme t'attend",
@@ -594,8 +581,7 @@ const GAME = {
       id: 17,
       date: "3 septembre",
       folderName: "0309",
-      subtitle: "⚠️ [THÈME DU JOUR 17]",
-      entryPassword: "⚠️cle-0309",
+      entryPassword: null,          // dossiers non verrouillés
 
       puzzle: {
         title: "La dernière énigme",
@@ -626,14 +612,9 @@ const GAME = {
     folderName: "TOUJOURS",
     label: "Le message",
     teaser: "Les fragments sont réunis.",
-    title: "⚠️ [TITRE DU MESSAGE FINAL]",
+    title: "On se dit la suite en vrai",
     blocks: [
-      { type: "text", value: "⚠️ [MESSAGE FINAL — CONTENU À AJOUTER]" },
-
-      /* Exemples :
-      { type: "video", source: "assets/videos/final.mp4", poster: "assets/images/final.jpg" },
-      { type: "letter", value: "Mon amour,\n\n…" },
-      */
+      { type: "text", value: "On en parle en face to face haha (surtout parce que j'ai eu un peu la flemme de finir, sorry)" },
 
       { type: "signature", value: "Paula" }
     ]
