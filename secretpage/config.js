@@ -110,7 +110,7 @@ const GAME = {
         intro: "",
         blocks: [
           { type: "embed", source: "https://drive.google.com/file/d/1eVD5Z9fFdnPndlShFp5MMtBNBmvJn2aE/preview", link: "https://drive.google.com/file/d/1eVD5Z9fFdnPndlShFp5MMtBNBmvJn2aE/view?usp=sharing" },
-          { type: "image", source: "assets/images/vol2008.png", caption: "Regarde bien cette image." }
+          { type: "image", source: "assets/vol2008.png", caption: "Regarde bien cette image." }
         ],
         hints: [],
         promptLabel: "Quel est le numéro de mon vol ?"
@@ -121,7 +121,7 @@ const GAME = {
         label: "Fragment 01",
         password: "BF720",
         blocks: [
-          { type: "image", source: "assets/images/2008.jpeg" }
+          { type: "image", source: "assets/2008.jpeg" }
         ]
       }
     },
@@ -148,7 +148,7 @@ const GAME = {
         label: "Fragment 02",
         password: "rromani",
         blocks: [
-          { type: "image", source: "assets/images/2108.jpeg" }
+          { type: "image", source: "assets/2108.jpeg" }
         ]
       }
     },
@@ -175,7 +175,7 @@ const GAME = {
         label: "Fragment 03",
         password: "Barto",
         blocks: [
-          { type: "image", source: "assets/images/2208.jpeg" }
+          { type: "image", source: "assets/2208.jpeg" }
         ]
       }
     },
@@ -203,7 +203,7 @@ const GAME = {
         password: "13",
         blocks: [
           { type: "text", value: "Une image juste comme ça pour te faire rire haha" },
-          { type: "image", source: "assets/images/2308.jpeg" }
+          { type: "image", source: "assets/2308.jpeg" }
         ]
       }
     },
@@ -249,7 +249,7 @@ const GAME = {
         label: "Fragment 05",
         password: null,   // non utilisé : le fragment s'ouvre après les 4 questions
         blocks: [
-          { type: "gallery", sources: ["assets/images/2408-1.jpeg", "assets/images/2408-2.jpeg"] }
+          { type: "gallery", sources: ["assets/2408-1.jpeg", "assets/2408-2.jpeg"] }
         ]
       }
     },
@@ -276,7 +276,7 @@ const GAME = {
         label: "Fragment 06",
         password: "Lac de Créteil",
         blocks: [
-          { type: "image", source: "assets/images/2508.jpeg" }
+          { type: "image", source: "assets/2508.jpeg" }
         ]
       }
     },
@@ -316,8 +316,8 @@ const GAME = {
         label: "Fragment 07",
         password: null,
         blocks: [
-          { type: "gallery", sources: ["assets/images/2608-1.jpeg", "assets/images/2608-2.jpeg", "assets/images/2608-3.jpeg", "assets/images/2608-4.jpeg"] },
-          { type: "video", source: "assets/videos/2608-5.mp4" }
+          { type: "gallery", sources: ["assets/2608-1.jpeg", "assets/2608-2.jpeg", "assets/2608-3.jpeg", "assets/2608-4.jpeg"] },
+          { type: "video", source: "assets/2608-5.mp4" }
         ]
       }
     },
@@ -333,7 +333,7 @@ const GAME = {
         title: "Reconnais l'endroit",
         intro: "",
         blocks: [
-          { type: "image", source: "assets/images/capturedecranparc.png", caption: "De quel endroit s'agit-il ?" }
+          { type: "image", source: "assets/capturedecranparc.png", caption: "De quel endroit s'agit-il ?" }
         ],
         hints: [],
         promptLabel: "La réponse ouvre le fragment"
@@ -344,8 +344,8 @@ const GAME = {
         label: "Fragment 08",
         password: "Lac Daumesnil",
         blocks: [
-          { type: "gallery", sources: ["assets/images/2708-1.jpeg", "assets/images/2708-2.jpeg", "assets/images/2708-3.jpeg", "assets/images/2708-4.jpeg", "assets/images/2708-5.jpeg"] },
-          { type: "video", source: "assets/videos/2708-6.mp4" }
+          { type: "gallery", sources: ["assets/2708-1.jpeg", "assets/2708-2.jpeg", "assets/2708-3.jpeg", "assets/2708-4.jpeg", "assets/2708-5.jpeg"] },
+          { type: "video", source: "assets/2708-6.mp4" }
         ]
       }
     },
@@ -372,8 +372,8 @@ const GAME = {
         label: "Fragment 09",
         password: "la campagne de rromani",
         blocks: [
-          { type: "gallery", sources: ["assets/images/2808-1.jpeg", "assets/images/2808-2.jpeg", "assets/images/2808-3.jpeg"] },
-          { type: "video", source: "assets/videos/2808-4.mp4" }
+          { type: "gallery", sources: ["assets/2808-1.jpeg", "assets/2808-2.jpeg", "assets/2808-3.jpeg"] },
+          { type: "video", source: "assets/2808-4.mp4" }
         ]
       }
     },
@@ -400,7 +400,7 @@ const GAME = {
         label: "Fragment 10",
         password: "les pivoines",
         blocks: [
-          { type: "image", source: "assets/images/2908.jpeg" }
+          { type: "image", source: "assets/2908.jpeg" }
         ]
       }
     },
@@ -429,9 +429,9 @@ const GAME = {
         label: "Fragment 11",
         password: "The Neighbourhood",
         blocks: [
-          { type: "gallery", sources: ["assets/images/2908b-1.jpeg", "assets/images/2908b-2.jpeg"] },
-          { type: "video", source: "assets/videos/2908b-3.mp4" },
-          { type: "video", source: "assets/videos/2908b-4.mp4" }
+          { type: "gallery", sources: ["assets/2908b-1.jpeg", "assets/2908b-2.jpeg"] },
+          { type: "video", source: "assets/2908b-3.mp4" },
+          { type: "video", source: "assets/2908b-4.mp4" }
         ]
       }
     },
@@ -447,7 +447,7 @@ const GAME = {
         title: "Que représentent ces éléments ?",
         intro: "(la réponse tient en 3 lettres)",
         blocks: [
-          { type: "image", source: "assets/images/bulletinPC.png" }
+          { type: "image", source: "assets/bulletinPC.png" }
         ],
         hints: [],
         promptLabel: "La réponse ouvre le fragment"
@@ -458,8 +458,8 @@ const GAME = {
         label: "Fragment 12",
         password: "BTS",
         blocks: [
-          { type: "gallery", sources: ["assets/images/3008-1.jpeg", "assets/images/3008-2.jpeg", "assets/images/3008-3.jpeg"] },
-          { type: "video", source: "assets/videos/3008-4.mp4" }
+          { type: "gallery", sources: ["assets/3008-1.jpeg", "assets/3008-2.jpeg", "assets/3008-3.jpeg"] },
+          { type: "video", source: "assets/3008-4.mp4" }
         ]
       }
     },
@@ -486,7 +486,7 @@ const GAME = {
         label: "Fragment 13",
         password: "peaux d'animaux",
         blocks: [
-          { type: "video", source: "assets/videos/txtjour3108.mp4" }
+          { type: "video", source: "assets/txtjour3108.mp4" }
         ]
       }
     },
@@ -513,7 +513,7 @@ const GAME = {
         label: "Fragment 14",
         password: "Musée du Louvre",
         blocks: [
-          { type: "gallery", sources: ["assets/images/0109-1.jpeg", "assets/images/0109-2.jpeg", "assets/images/0109-3.jpeg", "assets/images/0109-4.jpeg", "assets/images/0109-5.jpeg", "assets/images/0109-6.jpeg", "assets/images/0109-7.jpeg", "assets/images/0109-8.jpeg", "assets/images/0109-9.jpeg", "assets/images/0109-10.jpeg"] }
+          { type: "gallery", sources: ["assets/0109-1.jpeg", "assets/0109-2.jpeg", "assets/0109-3.jpeg", "assets/0109-4.jpeg", "assets/0109-5.jpeg", "assets/0109-6.jpeg", "assets/0109-7.jpeg", "assets/0109-8.jpeg", "assets/0109-9.jpeg", "assets/0109-10.jpeg"] }
         ]
       }
     },
@@ -541,7 +541,7 @@ const GAME = {
         label: "Fragment 15",
         password: "Assemblée Internationale à Bucarest",
         blocks: [
-          { type: "gallery", sources: ["assets/images/0109b-1.jpeg", "assets/images/0109b-2.jpeg", "assets/images/0109b-3.jpeg", "assets/images/0109b-4.jpeg", "assets/images/0109b-5.jpeg", "assets/images/0109b-6.jpeg", "assets/images/0109b-7.jpeg", "assets/images/0109b-8.jpeg", "assets/images/0109b-9.jpeg", "assets/images/0109b-10.jpeg"] }
+          { type: "gallery", sources: ["assets/0109b-1.jpeg", "assets/0109b-2.jpeg", "assets/0109b-3.jpeg", "assets/0109b-4.jpeg", "assets/0109b-5.jpeg", "assets/0109b-6.jpeg", "assets/0109b-7.jpeg", "assets/0109b-8.jpeg", "assets/0109b-9.jpeg", "assets/0109b-10.jpeg"] }
         ]
       }
     },
@@ -568,10 +568,10 @@ const GAME = {
         label: "Fragment 16",
         password: "Europa-Park",
         blocks: [
-          { type: "gallery", sources: ["assets/images/0209-1.jpeg", "assets/images/0209-2.jpeg", "assets/images/0209-3.jpeg"] },
-          { type: "video", source: "assets/videos/0209-4.mp4" },
-          { type: "video", source: "assets/videos/0209-5.mp4" },
-          { type: "video", source: "assets/videos/0209-6.mp4" }
+          { type: "gallery", sources: ["assets/0209-1.jpeg", "assets/0209-2.jpeg", "assets/0209-3.jpeg"] },
+          { type: "video", source: "assets/0209-4.mp4" },
+          { type: "video", source: "assets/0209-5.mp4" },
+          { type: "video", source: "assets/0209-6.mp4" }
         ]
       }
     },
@@ -598,7 +598,7 @@ const GAME = {
         label: "Fragment 17",
         password: "la visite du Béthel",
         blocks: [
-          { type: "gallery", sources: ["assets/images/0309-1.jpeg", "assets/images/0309-2.jpeg", "assets/images/0309-3.jpeg", "assets/images/0309-4.jpeg", "assets/images/0309-5.jpeg"] }
+          { type: "gallery", sources: ["assets/0309-1.jpeg", "assets/0309-2.jpeg", "assets/0309-3.jpeg", "assets/0309-4.jpeg", "assets/0309-5.jpeg"] }
         ]
       }
     }
