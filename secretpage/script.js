@@ -982,39 +982,21 @@
     body.appendChild(renderBlocks(f.blocks));
     s.appendChild(body);
 
-    /* Clé du jour suivant, ou renvoi vers la page finale */
-    var key = nextKeyFor(day);
+    /* Renvoi vers la page finale une fois tous les fragments réunis
+       (les dossiers ne sont plus verrouillés : pas de « clé » à révéler). */
     var next = el('div', 'fragment__next');
+    var showNext = false;
 
-    if (key) {
-      next.appendChild(el('p', 'fragment__next-label', 'Clé de la nuit suivante'));
-
-      var chip = el('button', 'key', key);
-      chip.type = 'button';
-      chip.setAttribute('aria-label', 'Révéler la clé de la nuit suivante');
-      var aside = el('p', 'key__aside', 'Touche pour révéler.');
-
-      chip.addEventListener('click', function () {
-        chip.classList.add('is-shown');
-        chip.setAttribute('aria-label', 'Clé : ' + key);
-        aside.textContent = 'Note-la bien : elle ouvre l\'archive de demain.';
-      });
-
-      next.appendChild(chip);
-      next.appendChild(aside);
-
-    } else if (allFragmentsOpen() && GAME.finale) {
+    if (allFragmentsOpen() && GAME.finale) {
+      showNext = true;
       next.appendChild(el('p', 'fragment__next-label', 'C\'était le dernier'));
       var fin = el('button', 'btn btn--block', GAME.finale.teaser || 'Lire le message');
       fin.type = 'button';
       fin.addEventListener('click', function () { go('#/final'); });
       next.appendChild(fin);
-
-    } else {
-      next.appendChild(el('p', 'fragment__next-label', 'La suite viendra'));
     }
 
-    s.appendChild(next);
+    if (showNext) s.appendChild(next);
 
     var back = el('button', 'btn btn--quiet', '← Toutes les archives');
     back.type = 'button';
