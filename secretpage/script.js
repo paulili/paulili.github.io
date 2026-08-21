@@ -174,6 +174,11 @@
         img.src = block.source;
         img.alt = block.alt || '';
         img.loading = 'lazy';
+        img.addEventListener('error', function () {
+          fig.classList.add('is-missing');
+          img.remove();
+          fig.insertBefore(el('p', 'b-missing', '⚠ Image introuvable : ' + block.source), fig.firstChild);
+        });
         fig.appendChild(img);
         if (block.caption) fig.appendChild(el('figcaption', 'b-caption', block.caption));
         return fig;
