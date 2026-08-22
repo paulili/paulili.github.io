@@ -224,7 +224,7 @@ const GAME = {
 
         steps: [
           {
-            prompt: "Quel est le premier repas qu'on a mangé ensemble ?",
+            prompt: "Qu'avions nous mangé la première fois que l'on s'est revus ?",
             password: "sushi"
           },
           {
