@@ -427,7 +427,7 @@ const GAME = {
       fragment: {
         name: "FRAGMENT11",
         label: "Fragment 11",
-        password: "The Neighbourhood",
+        password: ["The Neighbourhood", "The NBHD"]
         blocks: [
           { type: "gallery", sources: ["assets/2908b-1.jpeg", "assets/2908b-2.jpeg"] },
           { type: "video", source: "assets/2908b-3.mp4" },
