@@ -25,6 +25,90 @@
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 
+  /* ============================ Visionneuse plein écran ============================
+     Un seul lightbox partagé par toute la page : clic sur une photo (seule ou en
+     galerie) l'ouvre en grand, avec navigation flèches / swipe / clavier.        */
+
+  var lb = null;
+  var lbList = [];
+  var lbIndex = 0;
+
+  function ensureLightbox() {
+    if (lb) return lb;
+
+    var box = el('div', 'lightbox');
+    var img = el('img', 'lightbox__img');
+    var caption = el('p', 'lightbox__caption');
+    var close = el('button', 'lightbox__close', '✕');
+    close.type = 'button';
+    close.setAttribute('aria-label', 'Fermer');
+    var prev = el('button', 'lightbox__nav lightbox__prev', '‹');
+    prev.type = 'button';
+    prev.setAttribute('aria-label', 'Précédente');
+    var next = el('button', 'lightbox__nav lightbox__next', '›');
+    next.type = 'button';
+    next.setAttribute('aria-label', 'Suivante');
+    var count = el('p', 'lightbox__count');
+
+    box.appendChild(img);
+    box.appendChild(caption);
+    box.appendChild(close);
+    box.appendChild(prev);
+    box.appendChild(next);
+    box.appendChild(count);
+    document.body.appendChild(box);
+
+    function closeLb() {
+      box.classList.remove('is-on');
+      document.body.style.overflow = '';
+    }
+    function show(i) {
+      lbIndex = (i + lbList.length) % lbList.length;
+      var item = lbList[lbIndex];
+      img.src = item.src;
+      caption.textContent = item.caption || '';
+      caption.style.display = item.caption ? '' : 'none';
+      count.textContent = lbList.length > 1 ? (lbIndex + 1) + ' / ' + lbList.length : '';
+      var multi = lbList.length > 1;
+      prev.style.display = multi ? '' : 'none';
+      next.style.display = multi ? '' : 'none';
+    }
+
+    close.addEventListener('click', closeLb);
+    box.addEventListener('click', function (e) { if (e.target === box) closeLb(); });
+    prev.addEventListener('click', function () { show(lbIndex - 1); });
+    next.addEventListener('click', function () { show(lbIndex + 1); });
+
+    document.addEventListener('keydown', function (e) {
+      if (!box.classList.contains('is-on')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') show(lbIndex - 1);
+      if (e.key === 'ArrowRight') show(lbIndex + 1);
+    });
+
+    var touchX = null;
+    box.addEventListener('touchstart', function (e) { touchX = e.touches[0].clientX; }, { passive: true });
+    box.addEventListener('touchend', function (e) {
+      if (touchX == null) return;
+      var dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 40) show(lbIndex + (dx < 0 ? 1 : -1));
+      touchX = null;
+    }, { passive: true });
+
+    lb = { open: function (list, i) {
+      lbList = list;
+      show(i);
+      box.classList.add('is-on');
+      document.body.style.overflow = 'hidden';
+    } };
+    return lb;
+  }
+
+  function openLightbox(list, i) {
+    ensureLightbox().open(list, i);
+  }
+
+
   /* ====================== Comparaison des saisies ======================
      Applique les tolérances définies dans GAME.matching.            */
 
@@ -50,7 +134,17 @@
 
   function matches(input, expected) {
     if (expected == null) return true;
+    if (Array.isArray(expected)) {
+      var norm = normalize(input);
+      return expected.some(function (e) { return norm === normalize(e); });
+    }
     return normalize(input) === normalize(expected);
+  }
+
+  /* Pour l'affichage (révélation après trop d'essais) : si plusieurs
+     réponses sont acceptées, on n'en montre qu'une seule. */
+  function formatAnswer(expected) {
+    return Array.isArray(expected) ? expected[0] : expected;
   }
 
   /* Pour les questions à réponse "date" (sélecteur de calendrier).
@@ -179,19 +273,31 @@
           img.remove();
           fig.insertBefore(el('p', 'b-missing', '⚠ Image introuvable : ' + block.source), fig.firstChild);
         });
+        img.addEventListener('click', function () { openLightbox([{ src: block.source, caption: block.caption }], 0); });
         fig.appendChild(img);
         if (block.caption) fig.appendChild(el('figcaption', 'b-caption', block.caption));
         return fig;
       }
 
       case 'gallery': {
+        var raw = block.sources || [];
+        var items = raw.map(function (s) {
+          return typeof s === 'string' ? { source: s, caption: null } : { source: s.source, caption: s.caption || null };
+        });
+        var lbItems = items.map(function (it) { return { src: it.source, caption: it.caption }; });
+
         var wrap = el('div', 'b-gallery');
-        (block.sources || []).forEach(function (src) {
+        items.forEach(function (it, i) {
+          var cell = el('figure', 'b-gallery__item');
           var g = el('img');
-          g.src = src;
+          g.src = it.source;
           g.alt = '';
           g.loading = 'lazy';
-          wrap.appendChild(g);
+          g.addEventListener('error', function () { g.classList.add('is-missing'); });
+          g.addEventListener('click', function () { openLightbox(lbItems, i); });
+          cell.appendChild(g);
+          if (it.caption) cell.appendChild(el('figcaption', 'b-gallery__caption', it.caption));
+          wrap.appendChild(cell);
         });
         return wrap;
       }
@@ -562,7 +668,7 @@
 
       if (attempts.max && fails >= attempts.max) {
         revealed = true;
-        reveal.textContent = 'La réponse était : ' + opts.password;
+        reveal.textContent = 'La réponse était : ' + formatAnswer(opts.password);
         reveal.style.display = '';
         error.classList.remove('is-on');
         btn.textContent = 'Continuer';
@@ -669,7 +775,7 @@
     }
 
     function displayAnswer() {
-      return step.type === 'date' ? step.answer : step.password;
+      return step.type === 'date' ? step.answer : formatAnswer(step.password);
     }
 
     function onSuccess() {
