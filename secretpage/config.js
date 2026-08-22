@@ -302,7 +302,7 @@ const GAME = {
           },
           {
             prompt: "Quel est le nom de la berline routière diesel produite entre 2004 et 2010, qui existe en deux versions principales de moteurs six cylindres (2,5 litres, 177ch en phase 1), reconnue pour son confort et sa performance routière ?",
-            password: "BMW 525d E60"
+            password: ["BMW 525d E60", "BMW 525d", "525d E60", "E60"]
           },
           {
             prompt: "Quel est le lien de ces deux éléments avec le numéro 6 ?",
