@@ -30,7 +30,7 @@ const GAME = {
     ignoreCase: true,
     ignoreSpaces: true,
     ignoreAccents: true,
-    ignorePunctuation: false
+    ignorePunctuation: true
   },
 
 
@@ -121,7 +121,7 @@ const GAME = {
         label: "Fragment 01",
         password: "BF720",
         blocks: [
-          { type: "image", source: "assets/2008.jpeg" }
+          { type: "image", source: "assets/2008.jpeg", caption: "⚠️ [PETIT MOT — À AJOUTER]" }
         ]
       }
     },
@@ -148,7 +148,7 @@ const GAME = {
         label: "Fragment 02",
         password: "rromani",
         blocks: [
-          { type: "image", source: "assets/2108.jpeg" }
+          { type: "image", source: "assets/2108.jpeg", caption: "⚠️ [PETIT MOT — À AJOUTER]" }
         ]
       }
     },
@@ -173,9 +173,9 @@ const GAME = {
       fragment: {
         name: "FRAGMENT3",
         label: "Fragment 03",
-        password: "Barto",
+        password: ["Barto", "chez Barto", "restaurant Barto", "le Barto"],
         blocks: [
-          { type: "image", source: "assets/2208.jpeg" }
+          { type: "image", source: "assets/2208.jpeg", caption: "⚠️ [PETIT MOT — À AJOUTER]" }
         ]
       }
     },
@@ -200,7 +200,7 @@ const GAME = {
       fragment: {
         name: "FRAGMENT4",
         label: "Fragment 04",
-        password: "13",
+        password: ["13", "treize"],
         blocks: [
           { type: "text", value: "Une image juste comme ça pour te faire rire haha" },
           { type: "image", source: "assets/2308.jpeg" }
@@ -224,12 +224,12 @@ const GAME = {
 
         steps: [
           {
-            prompt: "Qu'avions nous mangé la première fois que l'on s'est revus ?",
-            password: "sushi"
+            prompt: "Quel est le premier repas qu'on a mangé ensemble ?",
+            password: ["sushi", "sushis"]
           },
           {
             prompt: "Où étions-nous ?",
-            password: "Au Monoprix de Chatelet"
+            password: ["Au Monoprix de Chatelet", "Monoprix Chatelet", "Monoprix de Chatelet", "le Monoprix de Chatelet"]
           },
           {
             prompt: "Quel jour était-ce ?",
@@ -238,7 +238,7 @@ const GAME = {
           },
           {
             prompt: "Qu'avais-tu apporté ?",
-            password: "un cadeau adopt",
+            password: ["un cadeau adopt", "un cadeau adopté", "cadeau adopt", "cadeau adopté"],
             attempts: { max: 7, hintAt: 3, hintText: "une boîte rose lol" }
           }
         ]
@@ -249,7 +249,7 @@ const GAME = {
         label: "Fragment 05",
         password: null,   // non utilisé : le fragment s'ouvre après les 4 questions
         blocks: [
-          { type: "gallery", sources: ["assets/2408-1.jpeg", "assets/2408-2.jpeg"] }
+          { type: "gallery", sources: ["assets/2408-1.jpeg", "assets/2408-2.jpeg"], caption: "⚠️ [PETIT MOT — À AJOUTER]" }
         ]
       }
     },
@@ -274,9 +274,9 @@ const GAME = {
       fragment: {
         name: "FRAGMENT6",
         label: "Fragment 06",
-        password: "Lac de Créteil",
+        password: ["Lac de Créteil", "lac Créteil", "Créteil"],
         blocks: [
-          { type: "image", source: "assets/2508.jpeg" }
+          { type: "image", source: "assets/2508.jpeg", caption: "⚠️ [PETIT MOT — À AJOUTER]" }
         ]
       }
     },
@@ -298,15 +298,15 @@ const GAME = {
         steps: [
           {
             prompt: "Quel député français est né le 19 décembre 1871 et est mort le 1er avril 1935 ?",
-            password: "Pierre Renaudel"
+            password: ["Pierre Renaudel", "Renaudel"]
           },
           {
             prompt: "Quel est le nom de la berline routière diesel produite entre 2004 et 2010, qui existe en deux versions principales de moteurs six cylindres (2,5 litres, 177ch en phase 1), reconnue pour son confort et sa performance routière ?",
-            password: ["BMW 525d E60", "BMW 525d", "525d E60", "E60"]
+            password: ["BMW 525d E60", "BMW 525d", "525d E60", "E60", "BMW E60"]
           },
           {
             prompt: "Quel est le lien de ces deux éléments avec le numéro 6 ?",
-            password: "notre premier bisou"
+            password: ["notre premier bisou", "premier bisou", "notre 1er bisou", "1er bisou"]
           }
         ]
       },
@@ -316,7 +316,7 @@ const GAME = {
         label: "Fragment 07",
         password: null,
         blocks: [
-          { type: "gallery", sources: ["assets/2608-1.jpeg", "assets/2608-2.jpeg", "assets/2608-3.jpeg", "assets/2608-4.jpeg"] },
+          { type: "gallery", sources: ["assets/2608-1.jpeg", "assets/2608-2.jpeg", "assets/2608-3.jpeg", "assets/2608-4.jpeg"], caption: "⚠️ [PETIT MOT — À AJOUTER]" },
           { type: "video", source: "assets/2608-5.mp4" }
         ]
       }
@@ -342,9 +342,9 @@ const GAME = {
       fragment: {
         name: "FRAGMENT8",
         label: "Fragment 08",
-        password: "Lac Daumesnil",
+        password: ["Lac Daumesnil", "Daumesnil"],
         blocks: [
-          { type: "gallery", sources: ["assets/2708-1.jpeg", "assets/2708-2.jpeg", "assets/2708-3.jpeg", "assets/2708-4.jpeg", "assets/2708-5.jpeg"] },
+          { type: "gallery", sources: ["assets/2708-1.jpeg", "assets/2708-2.jpeg", "assets/2708-3.jpeg", "assets/2708-4.jpeg", "assets/2708-5.jpeg"], caption: "⚠️ [PETIT MOT — À AJOUTER]" },
           { type: "video", source: "assets/2708-6.mp4" }
         ]
       }
@@ -370,9 +370,9 @@ const GAME = {
       fragment: {
         name: "FRAGMENT9",
         label: "Fragment 09",
-        password: "la campagne de rromani",
+        password: ["la campagne de rromani", "campagne de rromani", "campagne rromani"],
         blocks: [
-          { type: "gallery", sources: ["assets/2808-1.jpeg", "assets/2808-2.jpeg", "assets/2808-3.jpeg"] },
+          { type: "gallery", sources: ["assets/2808-1.jpeg", "assets/2808-2.jpeg", "assets/2808-3.jpeg"], caption: "⚠️ [PETIT MOT — À AJOUTER]" },
           { type: "video", source: "assets/2808-4.mp4" }
         ]
       }
@@ -398,9 +398,9 @@ const GAME = {
       fragment: {
         name: "FRAGMENT10",
         label: "Fragment 10",
-        password: "les pivoines",
+        password: ["les pivoines", "pivoines"],
         blocks: [
-          { type: "image", source: "assets/2908.jpeg" }
+          { type: "image", source: "assets/2908.jpeg", caption: "⚠️ [PETIT MOT — À AJOUTER]" }
         ]
       }
     },
@@ -427,9 +427,9 @@ const GAME = {
       fragment: {
         name: "FRAGMENT11",
         label: "Fragment 11",
-        password: ["The Neighbourhood", "The NBHD"]
+        password: "The Neighbourhood",
         blocks: [
-          { type: "gallery", sources: ["assets/2908b-1.jpeg", "assets/2908b-2.jpeg"] },
+          { type: "gallery", sources: ["assets/2908b-1.jpeg", "assets/2908b-2.jpeg"], caption: "⚠️ [PETIT MOT — À AJOUTER]" },
           { type: "video", source: "assets/2908b-3.mp4" },
           { type: "video", source: "assets/2908b-4.mp4" }
         ]
@@ -458,7 +458,7 @@ const GAME = {
         label: "Fragment 12",
         password: "BTS",
         blocks: [
-          { type: "gallery", sources: ["assets/3008-1.jpeg", "assets/3008-2.jpeg", "assets/3008-3.jpeg"] },
+          { type: "gallery", sources: ["assets/3008-1.jpeg", "assets/3008-2.jpeg", "assets/3008-3.jpeg"], caption: "⚠️ [PETIT MOT — À AJOUTER]" },
           { type: "video", source: "assets/3008-4.mp4" }
         ]
       }
@@ -484,9 +484,9 @@ const GAME = {
       fragment: {
         name: "FRAGMENT13",
         label: "Fragment 13",
-        password: "peaux d'animaux",
+        password: ["peaux d'animaux", "peau d'animal"],
         blocks: [
-          { type: "video", source: "assets/txtjour3108.mp4" }
+          { type: "video", source: "assets/txtjour3108.mp4", caption: "⚠️ [PETIT MOT — À AJOUTER]" }
         ]
       }
     },
@@ -511,9 +511,9 @@ const GAME = {
       fragment: {
         name: "FRAGMENT14",
         label: "Fragment 14",
-        password: "Musée du Louvre",
+        password: ["Musée du Louvre", "le Louvre", "Louvre"],
         blocks: [
-          { type: "gallery", sources: ["assets/0109-1.jpeg", "assets/0109-2.jpeg", "assets/0109-3.jpeg", "assets/0109-4.jpeg", "assets/0109-5.jpeg", "assets/0109-6.jpeg", "assets/0109-7.jpeg", "assets/0109-8.jpeg", "assets/0109-9.jpeg", "assets/0109-10.jpeg"] }
+          { type: "gallery", sources: ["assets/0109-1.jpeg", "assets/0109-2.jpeg", "assets/0109-3.jpeg", "assets/0109-4.jpeg", "assets/0109-5.jpeg", "assets/0109-6.jpeg", "assets/0109-7.jpeg", "assets/0109-8.jpeg", "assets/0109-9.jpeg", "assets/0109-10.jpeg"], caption: "⚠️ [PETIT MOT — À AJOUTER]" }
         ]
       }
     },
@@ -539,9 +539,9 @@ const GAME = {
       fragment: {
         name: "FRAGMENT15",
         label: "Fragment 15",
-        password: "Assemblée Internationale à Bucarest",
+        password: ["Assemblée Internationale à Bucarest", "Assemblée Internationale de Bucarest", "Bucarest"],
         blocks: [
-          { type: "gallery", sources: ["assets/0109b-1.jpeg", "assets/0109b-2.jpeg", "assets/0109b-3.jpeg", "assets/0109b-4.jpeg", "assets/0109b-5.jpeg", "assets/0109b-6.jpeg", "assets/0109b-7.jpeg", "assets/0109b-8.jpeg", "assets/0109b-9.jpeg", "assets/0109b-10.jpeg"] }
+          { type: "gallery", sources: ["assets/0109b-1.jpeg", "assets/0109b-2.jpeg", "assets/0109b-3.jpeg", "assets/0109b-4.jpeg", "assets/0109b-5.jpeg", "assets/0109b-6.jpeg", "assets/0109b-7.jpeg", "assets/0109b-8.jpeg", "assets/0109b-9.jpeg", "assets/0109b-10.jpeg"], caption: "⚠️ [PETIT MOT — À AJOUTER]" }
         ]
       }
     },
@@ -566,9 +566,9 @@ const GAME = {
       fragment: {
         name: "FRAGMENT16",
         label: "Fragment 16",
-        password: "Europa-Park",
+        password: ["Europa-Park", "Europa Park", "EuropaPark"],
         blocks: [
-          { type: "gallery", sources: ["assets/0209-1.jpeg", "assets/0209-2.jpeg", "assets/0209-3.jpeg"] },
+          { type: "gallery", sources: ["assets/0209-1.jpeg", "assets/0209-2.jpeg", "assets/0209-3.jpeg"], caption: "⚠️ [PETIT MOT — À AJOUTER]" },
           { type: "video", source: "assets/0209-4.mp4" },
           { type: "video", source: "assets/0209-5.mp4" },
           { type: "video", source: "assets/0209-6.mp4" }
@@ -596,9 +596,9 @@ const GAME = {
       fragment: {
         name: "FRAGMENT17",
         label: "Fragment 17",
-        password: "la visite du Béthel",
+        password: ["la visite du Béthel", "visite du Béthel", "la visite au Béthel", "visite au Béthel"],
         blocks: [
-          { type: "gallery", sources: ["assets/0309-1.jpeg", "assets/0309-2.jpeg", "assets/0309-3.jpeg", "assets/0309-4.jpeg", "assets/0309-5.jpeg"] }
+          { type: "gallery", sources: ["assets/0309-1.jpeg", "assets/0309-2.jpeg", "assets/0309-3.jpeg", "assets/0309-4.jpeg", "assets/0309-5.jpeg"], caption: "⚠️ [PETIT MOT — À AJOUTER]" }
         ]
       }
     }
